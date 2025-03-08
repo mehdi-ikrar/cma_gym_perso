@@ -7,31 +7,25 @@ equipe{
     description                    -- chaine de caractere 
 }
 activités{
-    titre                            -- identifiant entier généré automatiquement
-    description                   -- chaine de caractère 
+    id
+    categorie
+    info                           
     public_cible                        -- chaine de caractère
     horraire                        -- chaine de caractère 
 }
-main{
+actualité{
     id                            -- identifiant entier généré automatiquement
-    description                   -- chaine de caractère 
-    price                         -- chaine de caractère 
+    titre                   -- chaine de caractère 
+    image                        -- chaine de caractère 
 }
-dessert{
+document{
     id                            -- identifiant entier généré automatiquement
-    description                   -- chaine de caractère 
-    price                         -- chaine de caractère 
+    titre                   -- chaine de caractère 
+    url                         -- chaine de caractère 
 }
-client{
+administrateur{
     id                            -- identifiant entier généré automatiquement 
-    name                          -- chaine de caractère 
+    admin                         -- chaine de caractère 
     email                         -- chaine de caractère 
     password                      -- chaine de caractère 
-}
-
-profil{
-    id                            -- identifiant entier généré automatiquement
-    order                         -- Chaîne de 10 caractères fixes
-    like
-    dislike
 }
