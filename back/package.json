@@ -7,9 +7,9 @@
     "dev": "nodemon index.js",
     "start": "node index.js",
     "scss": "sass --watch src/scss:public/css",
-    "db:sync": "node data/create_tables.js",
-    "db:seed": "node data/seeding_tables.js",
-    "db:reset": "npm run db:sync && npm run db:seed"
+    "db:sync": "node migrations/createTables.js",
+    "db:seed": "node migrations/seedTables.js",
+    "db:reset": "pnpm run db:sync && pnpm run db:seed"
   },
   "dependencies": {
     "cors": "^2.8.5",

@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { sequelize } from "../models/db.client.js";
-import {Game, Gamer, Difficulty, Category, RunHasVote, ChallengeHasVote, Challenge, Run} from "../models/associations.js";
+import { Activity, Actuality, Documents, Employee, User } from "../models/associations.js";
 
 await sequelize.drop();
 
