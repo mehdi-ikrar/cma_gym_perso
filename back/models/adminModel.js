@@ -2,9 +2,9 @@
 import { Model, DataTypes } from 'sequelize';
 import { sequelize } from './db.client.js';
 
-export class User extends Model {}
+export class Admin extends Model {}
 
-User.init({
+Admin.init({
     name: {
         type: DataTypes.STRING(50),
         allowNull: false,
@@ -20,6 +20,6 @@ User.init({
     },
 }, {
     sequelize,
-    tableName: 'user',
+    tableName: 'admin',
 
 });

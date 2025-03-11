@@ -1,6 +1,6 @@
 CREATE TABLE administrateur (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    admin VARCHAR(50) NOT NULL,
+    name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     password VARCHAR(255) NOT NULL
 );
@@ -13,7 +13,7 @@ CREATE TABLE equipe (
     photo VARCHAR(255),
     description TEXT,
     administrateur_id INT NOT NULL,
-    FOREIGN KEY (administrateur_id) REFERENCES administrateur(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE activites (
@@ -23,15 +23,16 @@ CREATE TABLE activites (
     public_cible VARCHAR(50) NOT NULL,
     horaire VARCHAR(50) NOT NULL,
     administrateur_id INT NOT NULL,
-    FOREIGN KEY (administrateur_id) REFERENCES administrateur(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE actualite (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(100) NOT NULL,
     image VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
     administrateur_id INT NOT NULL,
-    FOREIGN KEY (administrateur_id) REFERENCES administrateur(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE document (
@@ -39,5 +40,5 @@ CREATE TABLE document (
     titre VARCHAR(100) NOT NULL,
     url VARCHAR(255) NOT NULL,
     administrateur_id INT NOT NULL,
-    FOREIGN KEY (administrateur_id) REFERENCES administrateur(id) ON DELETE CASCADE
+
 );

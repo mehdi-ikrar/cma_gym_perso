@@ -1,24 +1,24 @@
 import "dotenv/config";
 import { sequelize } from "../models/db.client.js";
-import { Activity, Actuality, Documents, Employee, User } from "../models/associations.js";
+import { Activity, Actuality, Documents, Employee, Admin } from "../models/associations.js";
 import { employee } from "../data/employee.js";
 import { document } from "../data/document.js";
 import { activity } from "../data/activity.js";
 import { actuality } from "../data/acutality.js";
-import { user } from "../data/user.js";
+import { admin } from "../data/admin.js";
 
 
 // Seed Employee table
 for(const emp of employee){
-    // Seed User table with plain passwords
-    for(const u of user){
-        await User.create({
-            id: u.id,
-            name: u.name,
-            email: u.email,
-            password: u.password // No hashing
-        });
-    }
+    await Employee.create({
+        id: emp.id,
+        firstname: emp.firstname,
+        name: emp.name,
+        function: emp.function,
+        image: emp.image,
+        description: emp.description,
+        
+    });
 }
 console.log('Employees seeded');
 
@@ -56,47 +56,16 @@ for(const doc of document){
 console.log('Documents seeded');
 
 // Seed User table with hashed passwords
-for(const u of user){
-    await User.create({
+for(const u of admin){
+    await Admin.create({
         id: u.id,
         name: u.name,
         email: u.email,
-        password: await argon2.hash(u.password)
+        password: employee.password // No hashing
     });
 }
-console.log('Users seeded');
+console.log('Admin seeded');
 
 // Create relationships between Employee and Activity (sample)
-// You'll need to define which employee is associated with which activity
-const employeeActivities = [
-    { employee_id: 1, activity_id: 1 },
-    { employee_id: 2, activity_id: 2 },
-    { employee_id: 3, activity_id: 3 },
-    { employee_id: 4, activity_id: 4 }
-];
 
-for(const relation of employeeActivities){
-    const emp = await Employee.findByPk(relation.employee_id);
-    const act = await Activity.findByPk(relation.activity_id);
-    await emp.addActivity(act);
-}
-console.log('Employee-Activity relationships seeded');
-
-// Create relationships between Activity and Actuality (sample)
-const activityActualities = [
-    { activity_id: 1, actuality_id: 1 },
-    { activity_id: 2, actuality_id: 2 },
-    { activity_id: 3, actuality_id: 3 },
-    { activity_id: 4, actuality_id: 4 },
-    { activity_id: 5, actuality_id: 5 }
-];
-
-for(const relation of activityActualities){
-    const act = await Activity.findByPk(relation.activity_id);
-    const actual = await Actuality.findByPk(relation.actuality_id);
-    await act.addActuality(actual);
-}
-console.log('Activity-Actuality relationships seeded');
-
-console.log('All seeding completed');
 await sequelize.close();

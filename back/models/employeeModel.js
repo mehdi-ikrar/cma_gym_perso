@@ -5,17 +5,25 @@ export class Employee extends Model {}
 
 Employee.init(
   {
-    title: {
+    name: {
+      type: DataTypes.STRING(50), // Type de la colonne preuve
+      allowNull: false,           // Cette colonne ne peut pas être nulle
+    },
+    firstname: {
       type: DataTypes.STRING(50), // Type de la colonne preuve
       allowNull: false,           // Cette colonne ne peut pas être nulle
     },
     image: {
         type: DataTypes.STRING,      // Type de la colonne duration
-        allowNull: false,           // Cette colonne ne peut pas être nulle
+        allowNull: true,           // Cette colonne ne peut pas être nulle
     },
-    year: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+    description: {
+      type: DataTypes.STRING(250), // Type de la colonne preuve
+      allowNull: true,           // Cette colonne ne peut pas être nulle
+    },
+    function: {
+      type: DataTypes.STRING(50), // Type de la colonne preuve
+      allowNull: true,           // Cette colonne ne peut pas être nulle
     }
   },
   {

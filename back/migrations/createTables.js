@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { sequelize } from "../models/db.client.js";
-import { Activity, Actuality, Documents, Employee, User } from "../models/associations.js";
+import { Activity, Actuality, Documents, Employee, Admin } from "../models/associations.js";
 
 await sequelize.drop();
 

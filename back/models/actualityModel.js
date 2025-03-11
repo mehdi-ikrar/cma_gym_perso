@@ -14,7 +14,7 @@ Actuality.init(
         allowNull: false,           // Cette colonne ne peut pas être nulle
     },
     description: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     }
   },

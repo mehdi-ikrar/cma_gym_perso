@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('../partials/head') %>
+    <body>
+        <div class="loader">
+            <div class="loader__itemContainer">
+                <div class="loader__item loader__item--1">O</div>
+                <div class="loader__item loader__item--2">H</div>
+                <div class="loader__item loader__item--3">M</div>
+                <div class="loader__item loader__item--4">Y</div>
+                <div class="loader__item loader__item--5">F</div>
+                <div class="loader__item loader__item--6">O</div>
+                <div class="loader__item loader__item--7">O</div>
+                <div class="loader__item loader__item--7">D</div>
+            </div>
+        </div>
+        <%- include('../partials/header') %>
+
+        <section>
+            <h1>Ajouter un nouveau restaurant</h1>
+
+            <form action="/addRestaurants" method="POST">
+                <!-- Informations du restaurant -->
+                <fieldset>
+                    <legend>Restaurant</legend>
+                    <label for="name">Nom du restaurant :</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="image">Image du restaurant (URL) :</label>
+                    <input type="text" id="image" name="image" required>
+                </fieldset>
+
+                <!-- Menu -->
+                <fieldset>
+                    <legend>Menu</legend>
+                    <label for="menu">Nom du menu :</label>
+                    <input type="text" id="menu" name="menu" required>
+                </fieldset>
+
+                <!-- Entrée -->
+                <fieldset>
+                    <legend>Entrée</legend>
+                    <label for="entree_name">Nom de l'entrée :</label>
+                    <input type="text" id="entree_name" name="entree_name" required>
+                    <label for="entree_desc">Description de l'entrée :</label>
+                    <textarea id="entree_desc" name="entree_desc" required></textarea>
+                    <label for="entree_price">Prix de l'entrée :</label>
+                    <input type="number" id="entree_price" name="entree_price" step="0.01" required>
+                </fieldset>
+
+                <!-- Plat -->
+                <fieldset>
+                    <legend>Plat</legend>
+                    <label for="plat_name">Nom du plat :</label>
+                    <input type="text" id="plat_name" name="plat_name" required>
+                    <label for="plat_desc">Description du plat :</label>
+                    <textarea id="plat_desc" name="plat_desc" required></textarea>
+                    <label for="plat_price">Prix du plat :</label>
+                    <input type="number" id="plat_price" name="plat_price" step="0.01" required>
+                </fieldset>
+
+                <!-- Dessert -->
+                <fieldset>
+                    <legend>Dessert</legend>
+                    <label for="dessert_name">Nom du dessert :</label>
+                    <input type="text" id="dessert_name" name="dessert_name" required>
+                    <label for="dessert_desc">Description du dessert :</label>
+                    <textarea id="dessert_desc" name="dessert_desc" required></textarea>
+                    <label for="dessert_price">Prix du dessert :</label>
+                    <input type="number" id="dessert_price" name="dessert_price" step="0.01" required>
+                </fieldset>
+
+                <button type="submit">Ajouter le restaurant</button>
+            </form>
+        </section>
+
+        <%- include('../partials/footer') %>
+    </body>
+</html>

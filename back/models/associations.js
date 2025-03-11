@@ -2,7 +2,7 @@ import { Activity } from './activityModel.js';
 import { Actuality } from './actualityModel.js';
 import { Documents } from './documentModel.js';
 import { Employee } from './employeeModel.js';
-import { User } from './userModel.js';
+import { Admin  } from './adminModel.js';
 
 // Relation entre Employee et Activity (n:n)
 Employee.belongsToMany(Activity, { 
@@ -34,4 +34,4 @@ Actuality.belongsToMany(Activity, {
 
 
 
-export { Activity, Actuality, Documents, Employee, User };
+export { Activity, Actuality, Documents, Employee, Admin };

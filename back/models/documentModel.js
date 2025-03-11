@@ -14,5 +14,5 @@ Documents.init({
   },
 }, {
   sequelize,
-  tableName: 'documents',
+  tableName: 'document',
 });

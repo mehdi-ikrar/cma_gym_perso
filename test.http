@@ -1,0 +1,20 @@
+### Récupérer tous les Gamers
+GET http://localhost:3000/activity
+
+### Récupérer un Gamer par ID
+GET http://localhost:3000/activity/2
+
+
+### Récupérer tous les Gamers
+GET http://localhost:3000/actuality
+
+### Récupérer un Gamer par ID
+GET http://localhost:3000/actuality/2
+
+
+
+### Récupérer tous les Gamers
+GET http://localhost:3000/employee
+
+### Récupérer un Gamer par ID
+GET http://localhost:3000/employee/2

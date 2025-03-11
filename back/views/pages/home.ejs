@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('../partials/head') %>
+    <body>
+        <div class="loader">
+            <div class="loader__itemContainer">
+              <div class="loader__item loader__item--1">O</div>
+              <div class="loader__item loader__item--2">H</div>
+              <div class="loader__item loader__item--3">M</div>
+              <div class="loader__item loader__item--4">Y</div>
+              <div class="loader__item loader__item--5">F</div>
+              <div class="loader__item loader__item--6">O</div>
+              <div class="loader__item loader__item--7">O</div>
+              <div class="loader__item loader__item--7">D</div>
+            </div>
+          </div>
+          <%- include('../partials/header') %>
+        <aside>
+            <div class="aside__discovery">
+                <h2>Réservez le menu qui vous covient</h2>
+                <h3>Découvrez des restaurants d'exception, bséléctionnés par nos soins.</h3>
+                <a href="addRestaurants">
+                    <div class="restaurant__aside__button">
+                        <p> Ajoutez votre restaurant</p>
+                    </div>
+                </a>
+            </div>
+ 
+            <nav class="navigation">
+                <h2>Fonctionnement</h2>
+                <ol class="navigation__content">
+                    <li class="navigation__liste" >
+                        <p class="number">1</p>
+                        <i class="fas fa-mobile-alt"></i>
+                        <p class="navigation__list_txt"> Choisissez un restaurants </p>
+                    </li>
+                    <li class="navigation__liste">
+                        <p class="number">2</p>
+                        <i class="fas fa-bars"></i>
+                        <p class="navigation__list_txt">Composez votre menu</p>
+                    </li>
+                    <li class="navigation__liste">
+                        <p class="number">3</p>
+                        <i class="fas fa-store"></i>
+                        <p class="navigation__list_txt">Degustez au restaurants</p>
+                    </li>
+                </ol>
+            </nav>
+        </aside>
+
+        <section class="section__restaurant">
+            <h2>Restaurants</h2>
+            <% restaurants.forEach(restaurant => { %>
+            <div class="restaurant__card">
+                <!-- Créer un lien dynamique qui inclut le slug du restaurant -->
+                <a href="/front/restaurant.html?id=<%= restaurant.id %>">
+                    <img src="<%= restaurant.image %>" alt="">          
+                    <div class="bloctxt">
+                        <div class="restaurant__card__txt"> 
+                            <h3><%= restaurant.name %></h3>
+                            <p>Cité rouge</p>
+                        </div>
+                        <div class="restaurant__card__heart">
+                            <p class="menu__card__news">Nouveau</p>
+                            <i class="far fa-heart"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <% }) %>
+        </section>
+
+
+        <%- include('../partials/footer') %>
+    </body>
+</html>

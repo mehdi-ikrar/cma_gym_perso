@@ -14,11 +14,11 @@ Activity.init(
         allowNull: false,           // Cette colonne ne peut pas être nulle
     },
     hour: {
-        type: DataTypes.INTEGER,
-        allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false
     },
     public: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false
   },
   },
