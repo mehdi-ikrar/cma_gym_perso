@@ -1,0 +1,449 @@
+// Système de couleurs sophistiqué
+$primary-color: #1781a5; // Bleu-vert professionnel
+$primary-light: #3a8b9e;
+$primary-dark: #0ca0d1;
+
+$secondary-color: #ff7e5f; // Corail énergique
+$secondary-light: #ffa58f;
+$secondary-dark: #e05642;
+
+$accent-color: #ffb400; // Jaune doré pour accents
+$background-color: #f8f9fa;
+$card-bg: #ffffff;
+$text-primary: #2d3436;
+$text-secondary: #636e72;
+$text-light: #b2bec3;
+
+// Variables d'espacement et d'effet
+$spacing-xs: 0.5rem;
+$spacing-sm: 0.75rem;
+$spacing-md: 1.25rem;
+$spacing-lg: 2rem;
+$spacing-xl: 3rem;
+$border-radius: 10px;
+$box-shadow-sm: 0 5px 15px rgba(0, 0, 0, 0.05);
+$box-shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
+$transition: all 0.3s ease;
+
+// Réinitialisation et styles de base
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: $background-color;
+    color: $text-primary;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 $spacing-md;    
+}
+
+// Typographie
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+// En-tête élégant
+header {
+    background: linear-gradient(120deg, $primary-dark, $primary-color);
+    color: white;
+    padding: $spacing-lg 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    display: flex;
+    img{
+        width:10%
+    };
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, $secondary-color, $secondary-light);
+    }
+    
+    h1 {
+        font-size: 2.7rem;
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: $spacing-xs;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+        position: relative;
+        display: inline-block;
+
+        
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40%;
+            height: 4px;
+            background-color: $accent-color;
+            border-radius: 2px;
+        }
+    }
+}
+
+// Liste des actualités moderne
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: $spacing-lg;
+    margin: $spacing-xl 0;
+}
+
+// Carte d'actualité premium
+.news-item {
+    background-color: $card-bg;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: $box-shadow-sm;
+    transition: $transition;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transform: translateY(0);
+    
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: $box-shadow-lg;
+        
+        .news-image {
+            transform: scale(1.03);
+        }
+    }
+}
+
+.news-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: $transition;
+    position: relative;
+    transform-origin: center;
+}
+
+.news-content {
+    padding: $spacing-md $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: $spacing-lg;
+        right: $spacing-lg;
+        height: 2px;
+        background: linear-gradient(90deg, $primary-light, transparent);
+    }
+}
+
+.news-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: $primary-dark;
+    margin-bottom: $spacing-sm;
+    line-height: 1.3;
+    position: relative;
+    padding-top: $spacing-xs;
+}
+
+.news-description {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin-bottom: $spacing-md;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.news-date {
+    font-size: 0.85rem;
+    color: $text-light;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    
+    &::before {
+        content: '📅';
+        margin-right: $spacing-xs;
+        opacity: 0.7;
+    }
+}
+
+// Pied de page professionnel
+footer {
+    background-color: $primary-dark;
+    color: rgba(255, 255, 255, 0.85);
+    padding: $spacing-md 0;
+    text-align: center;
+    position: relative;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, $secondary-color, $primary-light);
+    }
+    
+    p {
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+    }
+}
+
+// Animation de chargement élégante
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.news-item {
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-fill-mode: both;
+    opacity: 0;
+}
+
+@for $i from 1 through 12 {
+    .news-item:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+    }
+}
+
+// Structure de la page
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+// Wrapper pour contenu principal et sidebar
+.content-wrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+// Barre latérale élégante
+.sidebar {
+    width: 460px;
+    background: $primary-color;
+
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-sm;
+    flex-shrink: 0;
+    position: sticky;
+    top: 15px;
+    height: calc(100vh - 30px);
+    overflow: hidden;
+    z-index: 10;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 4px;
+        background: linear-gradient(180deg, $secondary-color, $secondary-light);
+        border-radius: 2px;
+    }
+}
+
+.sidebar-content {
+    padding: $spacing-md;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    
+    h3 {
+        color: white;
+        font-size: 1.3rem;
+        position: relative;
+        display: inline-block;
+        padding-bottom: $spacing-xs;
+        
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40%;
+            height: 3px;
+            background-color: $accent-color;
+            border-radius: 2px;
+        }
+    }
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    
+    .sidebar-item {
+        margin-bottom: $spacing-sm;
+        transition: $transition;
+        border-radius: 6px;
+        
+        &:hover, &.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+            padding: $spacing-sm $spacing-md;
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            transition: $transition;
+            
+            &:hover {
+                transform: translateX(3px);
+            }
+            
+            .icon {
+                margin-right: $spacing-sm;
+                font-size: 1.1rem;
+            }
+        }
+        
+        &.active {
+            background-color: rgba(255, 255, 255, 0.15);
+            position: relative;
+            
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+                width: 4px;
+                background-color: $accent-color;
+                border-radius: 0 2px 2px 0;
+            }
+            
+            a {
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+// Contenu principal
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 0 15px;
+}
+
+// Media queries avancées
+@media (max-width: 992px) {
+    .news-list {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: $spacing-md;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: auto;
+
+        position: relative;
+        top: 0;
+        height: auto;
+    }
+    
+    .sidebar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .sidebar-item {
+            margin-right: $spacing-xs;
+            margin-bottom: $spacing-xs;
+            
+            a {
+                padding: $spacing-xs;
+                
+                .icon {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    html { font-size: 15px; }
+    
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .news-list {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .news-content {
+        padding: $spacing-sm $spacing-md;
+    }
+    
+    .news-image {
+        height: 200px;
+    }
+
+    .sidebar-menu {
+        overflow-x: auto;
+        white-space: nowrap;
+        
+        &::-webkit-scrollbar {
+            height: 3px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .container { width: 95%; }
+    
+    .news-list {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+    }
+    
+    header h1 {
+        font-size: 1.8rem;
+    }
+}

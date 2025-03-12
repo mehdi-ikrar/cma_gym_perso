@@ -2,9 +2,21 @@ import 'dotenv/config';
 import express from 'express';
 import { router } from "./route/index_router.js";
 import cors from "cors";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+// Obtenir __dirname en ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express(); 
+
+// Configuration du moteur de template EJS
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Fichiers statiques (CSS, JS, images)
+app.use(express.static(__dirname + '/public'));
 
 app.use(cors({
   origin: ['http://localhost:5173', ],

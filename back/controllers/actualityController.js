@@ -16,6 +16,7 @@ export const actualityController = {
             res.status(500).json({ message: 'Error retrieving the actuality.' });
         }
     },
+    
 
     // Method that retrieves all difficulties
     async getAllActuality(req, res) {
@@ -28,6 +29,23 @@ export const actualityController = {
             res.status(500).json({ message: 'Error retrieving actuality.' });
         }
     },
+    async renderAllActuality(req, res) {
+        try {
+            // Récupérer les actualités
+            const actualities = await Actuality.findAll();
+            
+
+            
+            // Rendre la vue home.ejs (qui se trouve dans le dossier views/pages/)
+            res.status(200).render('pages/home', { 
+                actualities,
+            });
+        } catch (err) {
+            console.error(err);
+            res.status(500).render('error', { message: 'Error retrieving data for homepage.' });
+        }
+    },
+    
 
     // Method that updates a activity by retrieving its ID and the information to modify
     async updateActuality(req, res) {

@@ -16,3 +16,7 @@ router.get('/actuality/:id', actualityController.getOneActuality);
 
 router.get('/employee', employeeController.getAllEmployee);
 router.get('/employee/:id', employeeController.getOneEmployee);
+
+
+// Dans le fichier du routeur
+router.get('/', actualityController.renderAllActuality);
