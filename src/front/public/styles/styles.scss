@@ -65,6 +65,11 @@ header {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     position: relative;
     display: flex;
+    align-items: center; // Ajouter cette ligne pour centrer verticalement
+    z-index: 20; // Valeur supérieure à celle de la sidebar
+    height: 80px; // Définir une hauteur fixe pour le header
+    width: 100%; // S'assurer qu'il prend toute la largeur
+    
     img{
         width:10%
     };
@@ -250,16 +255,15 @@ footer {
 
 // Barre latérale élégante
 .sidebar {
-    width: 460px;
+    width: 350px;
     background: $primary-color;
-
-    border-radius: $border-radius;
     box-shadow: $box-shadow-sm;
     flex-shrink: 0;
-    position: sticky;
-    top: 15px;
-    height: calc(100vh - 30px);
-    overflow: hidden;
+    position: sticky; // Utiliser sticky au lieu de fixed
+    top: 0; // Commencer du haut de la fenêtre
+    left: 0;
+    height: 100vh; // Hauteur pleine de la fenêtre
+    overflow-y: auto;
     z-index: 10;
     
     &::after {
@@ -270,7 +274,7 @@ footer {
         height: 100%;
         width: 4px;
         background: linear-gradient(180deg, $secondary-color, $secondary-light);
-        border-radius: 2px;
+        
     }
 }
 
@@ -360,7 +364,7 @@ footer {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: 15px 15px 0 15px;
+    padding: 15px 15px 0 475px; // 460px (largeur de sidebar) + 15px
 }
 
 // Media queries avancées

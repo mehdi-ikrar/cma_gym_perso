@@ -36,6 +36,10 @@ header {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   position: relative;
   display: flex;
+  align-items: center;
+  z-index: 20;
+  height: 80px;
+  width: 100%;
 }
 header img {
   width: 10%;
@@ -253,15 +257,15 @@ footer p {
 }
 
 .sidebar {
-  width: 460px;
+  width: 350px;
   background: #1781a5;
-  border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   position: sticky;
-  top: 15px;
-  height: calc(100vh - 30px);
-  overflow: hidden;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
   z-index: 10;
 }
 .sidebar::after {
@@ -272,7 +276,6 @@ footer p {
   height: 100%;
   width: 4px;
   background: linear-gradient(180deg, #ff7e5f, #ffa58f);
-  border-radius: 2px;
 }
 
 .sidebar-content {
@@ -350,7 +353,7 @@ footer p {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  padding: 15px 15px 0 15px;
+  padding: 15px 15px 0 475px;
 }
 
 @media (max-width: 992px) {
