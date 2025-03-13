@@ -25,7 +25,8 @@
     "pg-hstore": "^2.3.4",
     "rate": "^0.1.1",
     "sanitize-html": "^2.14.0",
-    "sequelize": "^6.37.5"
+    "sequelize": "^6.37.5",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "sass": "^1.81.0"

@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualités - Centre de Gym</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/styles/styles.css">
-</head>
+    <%- include('../partials/head') %>
 <body>
     <div class="page-container">
-        <header>
-            <img src="/image/logo.png" alt="">
-            <div class="container">
-                
-                <h1>CMA GYM D'AUBERVILLIERS</h1>
-            </div>
-        </header>
+        <%- include('../partials/header') %>
         
         <div class="content-wrapper">
             <!-- Barre de navigation latérale -->
@@ -31,7 +17,7 @@
                         <li class="sidebar-item"><a href="#"><span class="icon">📅</span> Événements</a></li>
                         <li class="sidebar-item"><a href="#"><span class="icon">🏆</span> Compétitions</a></li>
                         <li class="sidebar-item"><a href="#"><span class="icon">👨‍🏫</span> Equipes</a></li>
-                        <li class="sidebar-item"><a href="#"><span class="icon">📞</span> Contact</a></li>
+                        <li class="sidebar-item"><a href="contact.ejs"><span class="icon">📞</span> Contact</a></li>
                     </ul>
                 </div>
             </nav>
@@ -57,11 +43,7 @@
             </div>
         </div>
         
-        <footer>
-            <div class="container">
-                <p>&copy; 2025 Centre de Gym. Tous droits réservés.</p>
-            </div>
-        </footer>
+        <%- include('../partials/footer') %>
     </div>
 </body>
 </html>

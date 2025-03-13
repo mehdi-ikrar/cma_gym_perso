@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express from 'express';
-import { router } from "./route/index_router.js";
+import { router } from "./back/route/index_router.js";
 import cors from "cors";
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Fichiers statiques (CSS, JS, images)
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/front/public'));
 
 app.use(cors({
   origin: ['http://localhost:5173', ],

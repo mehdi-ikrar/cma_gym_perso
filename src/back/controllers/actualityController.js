@@ -37,7 +37,7 @@ export const actualityController = {
 
             
             // Rendre la vue home.ejs (qui se trouve dans le dossier views/pages/)
-            res.status(200).render('pages/home', { 
+            res.status(200).render('../front/views/pages/home', { 
                 actualities,
             });
         } catch (err) {

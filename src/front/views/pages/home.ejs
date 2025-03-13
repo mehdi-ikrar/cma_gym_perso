@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('../partials/head') %>
+<body>
+    <div class="page-container">
+        <%- include('../partials/header') %>
+        
+        <div class="content-wrapper">
+            <!-- Barre de navigation latérale -->
+            <nav class="sidebar">
+                <div class="sidebar-content">
+                    <div class="sidebar-header">
+                        <h3>Navigation</h3>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-item active"><a href="#"><span class="icon">🏠</span> Accueil</a></li>
+                        <li class="sidebar-item"><a href="#"><span class="icon">📅</span> Événements</a></li>
+                        <li class="sidebar-item"><a href="#"><span class="icon">🏆</span> Compétitions</a></li>
+                        <li class="sidebar-item"><a href="#"><span class="icon">👨‍🏫</span> Equipes</a></li>
+                        <li class="sidebar-item"><a href="contact.ejs"><span class="icon">📞</span> Contact</a></li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <!-- Contenu principal à droite -->
+            <div class="main-content">
+                <main>
+                    <div class="container">
+                        <section class="news-list">
+                            <% actualities.forEach(actuality => { %>
+                                <article class="news-item">
+                                    <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="news-image">
+                                    <div class="news-content">
+                                        <h2 class="news-title"><%= actuality.title %></h2>
+                                        <p class="news-description"><%= actuality.description %></p>
+                                        <p class="news-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                                    </div>
+                                </article>
+                            <% }); %>
+                        </section>
+                    </div>
+                </main>
+            </div>
+        </div>
+        
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>
