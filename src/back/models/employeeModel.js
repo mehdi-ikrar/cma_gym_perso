@@ -14,8 +14,8 @@ Employee.init(
       allowNull: false,           // Cette colonne ne peut pas être nulle
     },
     image: {
-        type: DataTypes.STRING,      // Type de la colonne duration
-        allowNull: true,           // Cette colonne ne peut pas être nulle
+      type: DataTypes.BLOB('long'),  // Le type BLOB permet de stocker des données binaires
+      allowNull: true,              // Cette colonne peut être nulle, si l'image n'est pas envoyée
     },
     description: {
       type: DataTypes.STRING(250), // Type de la colonne preuve
