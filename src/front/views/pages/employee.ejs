@@ -13,7 +13,48 @@
             <div class="main-content">
                 <main>
                     <div class="container">
-
+                        <div class="employee-profile">
+                            <div class="employee-header">
+                                <div class="employee-image-container">
+                                    <img src="<%= employee.image %>" alt="<%= employee.title %>" class="employee-image">
+                                </div>
+                                <div class="employee-info">
+                                    <h1 class="employee-name"><%= employee.title %></h1>
+                                    <p class="employee-role"><%= employee.role || 'Coach sportif' %></p>
+                                    <div class="employee-contact">
+                                        <% if (employee.email) { %>
+                                            <p><i class="fas fa-envelope"></i> <%= employee.email %></p>
+                                        <% } %>
+                                        <% if (employee.phone) { %>
+                                            <p><i class="fas fa-phone"></i> <%= employee.phone %></p>
+                                        <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="employee-biography">
+                                <h2>Biographie</h2>
+                                <p><%= employee.description %></p>
+                            </div>
+                            
+                            <div class="employee-specialties">
+                                <h2>Spécialités</h2>
+                                <% if (employee.specialties && employee.specialties.length) { %>
+                                    <ul>
+                                        <% employee.specialties.forEach(specialty => { %>
+                                            <li><%= specialty %></li>
+                                        <% }); %>
+                                    </ul>
+                                <% } else { %>
+                                    <p>Information non disponible</p>
+                                <% } %>
+                            </div>
+                            
+                            <div class="employee-experience">
+                                <h2>Expérience</h2>
+                                <p><%= employee.experience || 'Information non disponible' %></p>
+                            </div>
+                        </div>
                     </div>
                 </main>
             </div>

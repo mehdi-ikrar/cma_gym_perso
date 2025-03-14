@@ -368,6 +368,86 @@ footer p {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+/* CSS pour le profil employé */
+.employee-profile {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.employee-header {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+}
+
+.employee-image-container {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.employee-image {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.employee-info {
+  flex: 1;
+}
+
+.employee-name {
+  font-size: 2.5rem;
+  color: #2d3436;
+  margin-bottom: 0.5rem;
+}
+
+.employee-role {
+  font-size: 1.25rem;
+  color: #1781a5;
+  margin-bottom: 1.25rem;
+  font-weight: 600;
+}
+
+.employee-contact {
+  color: #636e72;
+}
+
+.employee-biography, .employee-specialties, .employee-experience {
+  margin-bottom: 2rem;
+}
+
+.employee-biography h2, .employee-specialties h2, .employee-experience h2 {
+  font-size: 1.5rem;
+  color: #ff7e5f;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3a8b9e;
+}
+
+.employee-specialties ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+.employee-specialties li {
+  background-color: #3a8b9e;
+  color: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 992px) {
   .news-list {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
