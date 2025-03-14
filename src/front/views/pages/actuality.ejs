@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('../partials/head') %>
+<body>
+    <div class="page-container">
+        <%- include('../partials/header') %>
+        
+        <div class="content-wrapper">
+            <!-- Barre de navigation latérale -->
+            <%- include('../partials/sidebar') %>
+            
+            <!-- Contenu principal à droite -->
+            <div class="main-content">
+                <main>
+                    <div class="container">
+                        <div class="actuality-details">
+                            <div class="actuality-header">
+                                <h1 class="actuality-title"><%= actuality.title %></h1>
+                                <p class="actuality-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                            </div>
+                            
+                            <div class="actuality-image-container">
+                                <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
+                            </div>
+                            
+                            <div class="actuality-content">
+                                <p class="actuality-description"><%= actuality.description %></p>
+                            </div>
+                            
+                            <div class="back-button">
+                                <a href="/">Retour aux actualités</a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html> 

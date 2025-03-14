@@ -9,8 +9,13 @@ export const router = new Router();
 
 
 // Dans le fichier du routeur
-router.get('/', actualityController.renderAllActuality);
+router.get('/', actualityController.renderNewActualities);
 
 router.get('/team', employeeController.renderAllEmployee);
 
 router.get('/employees/:id', employeeController.renderOneEmployee);
+
+router.get('/actuality/:id', actualityController.renderOneActuality);
+
+router.get('/actualities', actualityController.renderAllActualities);
+router.get('/activities', activityController.renderAllActivities);
