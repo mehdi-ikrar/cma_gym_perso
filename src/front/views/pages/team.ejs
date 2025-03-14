@@ -14,16 +14,17 @@
                 <main>
                     <div class="container">
                         <section class="news-list">
-                            <% actualities.forEach(actuality => { %>
+                            <% employee.forEach(team => { %>
                                 <article class="news-item">
-                                    <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="news-image">
+                                    <img src="<%= team.image %>" alt="<%= team.title %>" class="news-image">
                                     <div class="news-content">
-                                        <h2 class="news-title"><%= actuality.title %></h2>
-                                        <p class="news-description"><%= actuality.description %></p>
-                                        <p class="news-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                                        <h2 class="news-title"><%= team.title %></h2>
+                                        <p class="news-description"><%= team.description %></p>
+                                        <p class="news-date"><%= new Date(team.createdAt).toLocaleDateString() %></p>
                                     </div>
                                 </article>
                             <% }); %>
+
                         </section>
                     </div>
                 </main>

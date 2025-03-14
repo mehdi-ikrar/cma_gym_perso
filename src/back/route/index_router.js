@@ -6,17 +6,9 @@ import { employeeController } from '../controllers/employeeController.js';
 export const router = new Router();
 
 
-router.get('/activity', activityController.getAllActivities);
-router.get('/activity/:id', activityController.getOneActivity);
-
-
-router.get('/actuality', actualityController.getAllActuality);
-router.get('/actuality/:id', actualityController.getOneActuality);
-
-
-router.get('/employee', employeeController.getAllEmployee);
-router.get('/employee/:id', employeeController.getOneEmployee);
 
 
 // Dans le fichier du routeur
 router.get('/', actualityController.renderAllActuality);
+
+router.get('/team', employeeController.renderAllEmployee);
