@@ -4,7 +4,7 @@ export const employee = [
       name: "Lascow",
       firstname: "Patricia",
       function: "Ces un directeur",
-      image: "employee.png",
+      image: "images/photo1.jpg",
       description: "Ces un coach."
     },
     {
@@ -12,7 +12,7 @@ export const employee = [
       name: "Speedrun",
       firstname: "John",
       function: "Coach",
-      image: "employee.png",
+      image: "images/image2.jpg",
       description: "Ces un coach."
     },
     {
@@ -20,7 +20,7 @@ export const employee = [
       name: "Completion",
       firstname: "Jane",
       function: "Coach",
-      image: "employee.png",
+      image: "images/image3.jpg",
       description: "Ces un coach."
     },
     {
@@ -28,7 +28,7 @@ export const employee = [
       name: "Damage",
       firstname: "Doe",
       function: "Coach",
-      image: "employee.png",
+      image: "images/image4.jpg",
       description: "Ces un coach."
     }
   ];
