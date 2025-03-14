@@ -12,3 +12,5 @@ export const router = new Router();
 router.get('/', actualityController.renderAllActuality);
 
 router.get('/team', employeeController.renderAllEmployee);
+
+router.get('/employees/:id', employeeController.renderOneEmployee);

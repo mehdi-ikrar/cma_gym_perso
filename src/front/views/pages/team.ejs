@@ -14,17 +14,18 @@
                 <main>
                     <div class="container">
                         <section class="news-list">
-                            <% employee.forEach(team => { %>
-                                <article class="news-item">
-                                    <img src="<%= team.image %>" alt="<%= team.title %>" class="news-image">
-                                    <div class="news-content">
-                                        <h2 class="news-title"><%= team.title %></h2>
-                                        <p class="news-description"><%= team.description %></p>
-                                        <p class="news-date"><%= new Date(team.createdAt).toLocaleDateString() %></p>
-                                    </div>
-                                </article>
+                            <% employee.forEach(teamx => { %>
+                                <a href="/employees/<%= teamx.id %>" class="employee-link">
+                                    <article class="news-item">
+                                        <img src="<%= teamx.image %>" alt="<%= teamx.title %>" class="news-image">
+                                        <div class="news-content">
+                                            <h2 class="news-title"><%= teamx.title %></h2>
+                                            <p class="news-description"><%= teamx.description %></p>
+                                            <p class="news-date"><%= new Date(teamx.createdAt).toLocaleDateString() %></p>
+                                        </div>
+                                    </article>
+                                </a>
                             <% }); %>
-
                         </section>
                     </div>
                 </main>
