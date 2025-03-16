@@ -1,16 +1,16 @@
-import { Activity } from "../models/activityModel.js";
+import { Contact } from "../models/contactModel.js";
 
 // Object that groups functions (methods) to manage operations related to difficulties.
-export const activityController = {
+export const contactController = {
     // Method that retrieves a difficulty by its ID
-    async renderAllActivities(req, res) {
+    async renderAllContact(req, res) {
             try {
                 // Récupérer les actualités
-                const activities = await Activity.findAll();
+                const contact = await Contact.findAll();
     
                 // Rendre la vue des actualités
-                res.status(200).render('../front/views/pages/activities', { 
-                    activities,
+                res.status(200).render('../front/views/pages/contact', { 
+                    contact,
                 });
             } catch (err) {
                 console.error(err);

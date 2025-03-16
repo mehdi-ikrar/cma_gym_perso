@@ -1,11 +1,13 @@
 import "dotenv/config";
 import { sequelize } from "../models/db.client.js";
-import { Activity, Actuality, Documents, Employee, Admin } from "../models/associations.js";
+import { Activity, Actuality, Documents, Employee, Admin , Contact } from "../models/associations.js";
 import { employee } from "../data/employee.js";
 import { document } from "../data/document.js";
 import { activity } from "../data/activity.js";
 import { actuality } from "../data/acutality.js";
 import { admin } from "../data/admin.js";
+import { contact } from "../data/contact.js";
+
 
 
 // Seed Employee table
@@ -26,13 +28,27 @@ console.log('Employees seeded');
 for(const act of activity){
     await Activity.create({
         id: act.id,
-        category: act.category,
-        info: act.info,
+        name: act.name,
+        description: act.description,
         hour: act.hour,
         public: act.public
     });
 }
 console.log('Activities seeded');
+
+
+
+for(const cont of contact){
+    await Contact.create({
+        id: cont.id,
+        adresse: cont.adresse,
+        facebook: cont.facebook,
+        telephone: cont.telephone,
+        horraire: cont.horraire,
+    });
+}
+console.log('Activities seeded');
+
 
 // Seed Actuality table
 for(const act of actuality){

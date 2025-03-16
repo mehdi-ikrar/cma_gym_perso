@@ -13,20 +13,82 @@
             <div class="main-content">
                 <main>
                     <div class="container">
-                        <section class="news-list">
-                            <% actualities.forEach(actuality => { %>
-                                <a href="/actuality/<%= actuality.id %>" class="news-link">
-                                    <article class="news-item">
-                                        <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="news-image">
-                                        <div class="news-content">
-                                            <h2 class="news-title"><%= actuality.title %></h2>
-                                            <p class="news-description"><%= actuality.description %></p>
-                                            <p class="news-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                        <h2 class="page-title">Bienvenue à CMA Gym</h2>
+                        
+                        <!-- Layout avec grille pour le carrousel et Facebook -->
+                        <div class="home-layout">
+                            <!-- Colonne de gauche : Carrousel d'actualités -->
+                            <div class="news-column">
+                                <div class="news-carousel-container">
+                                    <h3 class="section-heading">Dernières actualités</h3>
+                                    
+                                    <div class="news-carousel">
+                                        <div class="carousel-track">
+                                            <% actualities.slice(0, 3).forEach((actuality, index) => { %>
+                                                <div class="carousel-slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
+                                                    <div class="carousel-content vertical">
+                                                        <div class="carousel-image">
+                                                            <img src="<%= actuality.image %>" alt="<%= actuality.title %>">
+                                                        </div>
+                                                        <div class="carousel-text">
+                                                            <h3><%= actuality.title %></h3>
+                                                            <p class="carousel-description"><%= actuality.description %></p>
+                                                            <div class="carousel-footer">
+                                                                <p class="carousel-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                                                                <a href="/actuality/<%= actuality.id %>" class="carousel-button">Lire la suite</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <% }); %>
                                         </div>
-                                    </article>
+                                        
+                                        <!-- Navigation du carrousel -->
+                                        <button class="carousel-nav carousel-prev" aria-label="Précédent">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </button>
+                                        <button class="carousel-nav carousel-next" aria-label="Suivant">
+                                            <i class="fas fa-chevron-right"></i>
+                                        </button>
+                                        
+                                        <!-- Indicateurs de pagination -->
+                                        <div class="carousel-indicators">
+                                            <% actualities.slice(0, 3).forEach((actuality, index) => { %>
+                                                <button class="carousel-indicator <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>" aria-label="Slide <%= index + 1 %>"></button>
+                                            <% }); %>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <a href="/actualities" class="view-all-link">
+                                    <span>Voir toutes les actualités</span>
+                                    <i class="fas fa-arrow-right"></i>
                                 </a>
-                            <% }); %>
-                        </section>
+                            </div>
+                            
+                            <!-- Colonne de droite : Widget Facebook -->
+                            <div class="facebook-column">
+                                <h3 class="section-heading">Suivez-nous sur Facebook</h3>
+                                
+                                <div class="facebook-widget">
+                                    <div class="fb-page" 
+                                        data-href="https://www.facebook.com/cmagym93/?locale=fr_FR"
+                                        data-tabs="timeline"
+                                        data-width=""
+                                        data-height="700"
+                                        data-small-header="false"
+                                        data-adapt-container-width="true"
+                                        data-hide-cover="false"
+                                        data-show-facepile="true">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <script async defer crossorigin="anonymous" 
+                                src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0" 
+                                nonce="xyz">
+                        </script>
                     </div>
                 </main>
             </div>

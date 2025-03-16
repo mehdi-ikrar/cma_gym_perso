@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
     <%- include('../partials/head') %>
+
 <body>
     <div class="page-container">
         <%- include('../partials/header') %>
@@ -13,23 +14,45 @@
             <div class="main-content">
                 <main>
                     <div class="container">
-                        <div class="activity-details">
-                            <div class="activity-header">
-                                <h1 class="activity-title"><%= activity.title %></h1>
-                                <p class="activity-date"><%= new Date(activity.createdAt).toLocaleDateString() %></p>
-                            </div>
-                            
-                            <div class="activity-image-container">
-                                <img src="<%= activity.image %>" alt="<%= activity.title %>" class="activity-image">
-                            </div>
-                            
-                            <div class="activity-content">
-                                <p class="activity-description"><%= activity.description %></p>
-                            </div>
-                            
-                            <div class="back-button">
-                                <a href="/">Retour aux actualités</a>
-                            </div>
+                        <h1 class="section-title">Nos activités sportives</h1>
+                        
+                        <div class="filter-container">
+                            <button class="filter-btn active" data-filter="all">Toutes</button>
+                            <button class="filter-btn" data-filter="Enfants">Enfants</button>
+                            <button class="filter-btn" data-filter="Adultes">Adultes</button>
+                            <button class="filter-btn" data-filter="Seniors">Seniors</button>
+                            <button class="filter-btn" data-filter="Tous publics">Tous publics</button>
+                        </div>
+                        
+                        <div class="activities-container">
+                            <% if (activities && activities.length > 0) { %>
+                                <% activities.forEach(activity => { %>
+                                    <div class="activity-card" data-public="<%= activity.public %>">
+                                        <div class="activity-header">
+                                            <h2><%= activity.name %></h2>
+                                        </div>
+                                        <div class="activity-body">
+                                            <div class="activity-description">
+                                                <%= activity.description %>
+                                            </div>
+                                            <div class="activity-info">
+                                                <div class="activity-time">
+                                                    <i class="fas fa-clock"></i>
+                                                    <%= activity.hour %>
+                                                </div>
+                                                <div class="activity-public">
+                                                    <i class="fas fa-users"></i>
+                                                    <%= activity.public %>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <% }); %>
+                            <% } else { %>
+                                <div class="no-activities">
+                                    <p>Aucune activité disponible pour le moment.</p>
+                                </div>
+                            <% } %>
                         </div>
                     </div>
                 </main>
@@ -38,5 +61,7 @@
         
         <%- include('../partials/footer') %>
     </div>
+    
+
 </body>
-</html> 
+</html>
