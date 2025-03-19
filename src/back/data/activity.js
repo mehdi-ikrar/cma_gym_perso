@@ -1,37 +1,47 @@
 export const activity = [
   {
     id: 1,
-    name: "Baby gym",
+    groupe: "Groupes competions",
     description: "Activité d'éveil corporel adaptée aux tout-petits pour développer la motricité",
-    hour: "10h30",
-    public: "Enfants",
+    horraire: "lundi et mercredi 18h00-20h00",
+    public: "Feminins Justaucorps inclus",
+    cotisation: "180€ a 210€",
+    frequence: "2 cours par semaine"
+    
   },
   {
     id: 2,
-    name: "Gymnastique artistique avancée",
+    groupe: "Gymnastique artistique avancée",
     description: "Entraînement intensif aux agrès pour gymnastes confirmés",
-    hour: "14h00",
+    horraire: "14h00",
     public: "Adultes",
+    cotisation: "100€"
   },
   {
     id: 3,
-    name: "Gymnastique artistique intermédiaire",
+    groupe: "Gymnastique artistique intermédiaire",
     description: "Perfectionnement des mouvements et figures sur les différents agrès",
-    hour: "16h00",
+    horraire: "16h00",
     public: "Adolescents et adultes",
+    cotisation: "100€",
+    frequence: "Hebdomadaire"
   },
   {
     id: 4,
-    name: "Gymnastique rythmique",
+    groupe: "Gymnastique rythmique",
     description: "Initiation aux mouvements avec cerceaux, rubans et ballons",
-    hour: "18h00",
+    horraire: "18h00",
     public: "Tous publics",
+    cotisation: "100€",
+    frequence: "Hebdomadaire"
   },
   {
     id: 5,
-    name: "Gym douce",
+    groupe: "Gym douce",
     description: "Séances d'étirements et exercices simples pour améliorer la souplesse",
-    hour: "20h00",
+    horraire: "20h00",
     public: "Enfants et débutants",
+    cotisation: "100€",
+    frequence: "Hebdomadaire"
   }
 ];

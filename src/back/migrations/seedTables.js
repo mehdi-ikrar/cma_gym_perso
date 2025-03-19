@@ -28,10 +28,12 @@ console.log('Employees seeded');
 for(const act of activity){
     await Activity.create({
         id: act.id,
-        name: act.name,
+        groupe: act.groupe,
         description: act.description,
-        hour: act.hour,
-        public: act.public
+        horraire: act.horraire,
+        public: act.public,
+        cotisation: act.cotisation,
+        frequence: act.frequence || null // Utilisation de null si frequence n'est pas définie
     });
 }
 console.log('Activities seeded');

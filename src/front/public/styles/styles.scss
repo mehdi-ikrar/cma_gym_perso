@@ -1224,6 +1224,53 @@ footer {
     }
 }
 
+// Styles pour les détails supplémentaires des activités
+.activity-details {
+    margin-top: $spacing-md;
+    padding-top: $spacing-sm;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-md;
+    align-items: center;
+}
+
+.activity-price, .activity-frequency {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: $text-secondary;
+    background-color: rgba($primary-light, 0.1);
+    padding: $spacing-xs $spacing-sm;
+    border-radius: 2px;
+    
+    i {
+        margin-right: $spacing-xs;
+        color: $secondary-color;
+    }
+    
+    span {
+        font-weight: 1.1rem;
+        margin-right: $spacing-xs;
+    }
+}
+
+.activity-price {
+    color: $primary-dark;
+    font-weight: 1.1rem;
+}
+
+// Animation au survol des cartes d'activité
+.activity-card {
+    &:hover {
+        .activity-details {
+            .activity-price, .activity-frequency {
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
 
 
 

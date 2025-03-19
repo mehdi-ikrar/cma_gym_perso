@@ -1209,4 +1209,41 @@ footer p {
 .contact-form .submit-btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.activity-details {
+  margin-top: 1.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.activity-price, .activity-frequency {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #636e72;
+  background-color: rgba(58, 139, 158, 0.1);
+  padding: 0.5rem 0.75rem;
+  border-radius: 2px;
+}
+.activity-price i, .activity-frequency i {
+  margin-right: 0.5rem;
+  color: #ff7e5f;
+}
+.activity-price span, .activity-frequency span {
+  font-weight: 1.1rem;
+  margin-right: 0.5rem;
+}
+
+.activity-price {
+  color: #0ca0d1;
+  font-weight: 1.1rem;
+}
+
+.activity-card:hover .activity-details .activity-price, .activity-card:hover .activity-details .activity-frequency {
+  transform: translateY(-2px);
 }/*# sourceMappingURL=styles.css.map */

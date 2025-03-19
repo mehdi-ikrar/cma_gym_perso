@@ -148,20 +148,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Calculer la hauteur disponible et l'appliquer à l'iframe Facebook
-function resizeFacebookWidget() {
-    // Attendre que l'iframe soit chargé
-    setTimeout(function() {
-        const mainContent = document.querySelector('.main-content');
-        const facebookHero = document.querySelector('.facebook-hero');
-        const availableHeight = mainContent.offsetHeight - facebookHero.offsetHeight;
-        
-        const fbIframe = document.querySelector('.facebook-fullwidth iframe');
-        if (fbIframe) {
-            fbIframe.style.height = availableHeight + 'px';
-        }
-    }, 2000); // Délai pour s'assurer que le widget est chargé
-}
 
-// Exécuter au chargement et au redimensionnement
-window.addEventListener('load', resizeFacebookWidget);
-window.addEventListener('resize', resizeFacebookWidget);
+
+

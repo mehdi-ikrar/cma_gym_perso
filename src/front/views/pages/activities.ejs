@@ -29,7 +29,7 @@
                                 <% activities.forEach(activity => { %>
                                     <div class="activity-card" data-public="<%= activity.public %>">
                                         <div class="activity-header">
-                                            <h2><%= activity.name %></h2>
+                                            <h2><%= activity.groupe %></h2>
                                         </div>
                                         <div class="activity-body">
                                             <div class="activity-description">
@@ -38,12 +38,25 @@
                                             <div class="activity-info">
                                                 <div class="activity-time">
                                                     <i class="fas fa-clock"></i>
-                                                    <%= activity.hour %>
+                                                    <%= activity.horraire %>
                                                 </div>
                                                 <div class="activity-public">
                                                     <i class="fas fa-users"></i>
                                                     <%= activity.public %>
                                                 </div>
+                                            </div>
+                                            <!-- Ajout des nouvelles données -->
+                                            <div class="activity-details">
+                                                <div class="activity-price">
+                                                    <i class="fas fa-tag"></i>
+                                                    <span>Cotisation:</span> <%= activity.cotisation %>
+                                                </div>
+                                                <% if(activity.frequence) { %>
+                                                <div class="activity-frequency">
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>Fréquence:</span> <%= activity.frequence %>
+                                                </div>
+                                                <% } %>
                                             </div>
                                         </div>
                                     </div>
@@ -61,7 +74,6 @@
         
         <%- include('../partials/footer') %>
     </div>
-    
 
 </body>
 </html>

@@ -5,28 +5,34 @@ export class Activity extends Model {}
 
 Activity.init(
   {
-    name: {
-      type: DataTypes.STRING(50), // Type de la colonne preuve
-      allowNull: false,           // Cette colonne ne peut pas être nulle
+    groupe: {
+      type: DataTypes.STRING(100),
+      allowNull: false,
     },
     description: {
-        type: DataTypes.STRING,      // Type de la colonne duration
-        allowNull: false,           // Cette colonne ne peut pas être nulle
+      type: DataTypes.TEXT,
+      allowNull: false,
     },
-    hour: {
-      type: DataTypes.STRING,
-      allowNull: false
+    horraire: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
     },
     public: {
-      type: DataTypes.STRING,
-      allowNull: false
-  },
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+    cotisation: {
+      type: DataTypes.STRING(20),
+      allowNull: false,
+    },
+    frequence: {
+      type: DataTypes.STRING(30),
+      allowNull: true, // Certaines activités n'ont pas cette propriété
+    }
   },
   {
-    sequelize,  // La connexion Sequelize
-    tableName: "activity",  // Nom exact de la table en BDD
+    sequelize,
+    tableName: "activity",
 
   }
-  
 );
-
