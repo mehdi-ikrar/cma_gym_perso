@@ -13,20 +13,69 @@
             <div class="main-content">
                 <main>
                     <div class="container">
-                        <section class="news-list">
+                        <!-- En-tête de la section actualités -->
+                        <div class="actualities-header">
+                            <h1 class="section-title">Toutes nos actualités</h1>
+                            <p class="section-subtitle">Restez informé des dernières nouvelles et événements du CMA GYM</p>
+                            
+                            <!-- Barre de recherche -->
+                            <div class="search-container">
+                                <form class="search-form">
+                                    <input type="text" placeholder="Rechercher une actualité..." class="search-input">
+                                    <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+                                </form>
+                                
+                                <!-- Filtres (optionnels) -->
+                                <div class="filter-tags">
+                                    <span class="filter-label">Filtrer par :</span>
+                                    <div class="tag-list">
+                                        <button class="tag active">Tous</button>
+                                        <button class="tag">Événements</button>
+                                        <button class="tag">Promotions</button>
+                                        <button class="tag">Compétitions</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Grille des actualités -->
+                        <div class="actualities-grid">
                             <% actualities.forEach(actuality => { %>
-                                <a href="/actuality/<%= actuality.id %>" class="news-link">
-                                    <article class="news-item">
-                                        <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="news-image">
-                                        <div class="news-content">
-                                            <h2 class="news-title"><%= actuality.title %></h2>
-                                            <p class="news-description"><%= actuality.description %></p>
-                                            <p class="news-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                                <div class="actuality-card">
+                                    <a href="/actuality/<%= actuality.id %>" class="actuality-link">
+                                        <div class="actuality-image-wrapper">
+                                            <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
+                                            <div class="actuality-date-badge">
+                                                <span class="day"><%= new Date(actuality.createdAt).getDate() %></span>
+                                                <span class="month"><%= new Date(actuality.createdAt).toLocaleString('fr-FR', {month: 'short'}) %></span>
+                                            </div>
                                         </div>
-                                    </article>
-                                </a>
+                                        <div class="actuality-content">
+                                            <h2 class="actuality-title"><%= actuality.title %></h2>
+                                            <p class="actuality-excerpt"><%= actuality.description.substring(0, 120) %>...</p>
+                                            <div class="actuality-footer">
+                                                <span class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></span>
+                                                <span class="category-tag">Actualité</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             <% }); %>
-                        </section>
+                        </div>
+                        
+                        <!-- Pagination ou bouton "Charger plus" -->
+                        <div class="pagination-container">
+                            <button class="load-more-btn">Charger plus d'actualités</button>
+                            <!-- Pagination alternative
+                            <div class="pagination">
+                                <a href="#" class="page-link active">1</a>
+                                <a href="#" class="page-link">2</a>
+                                <a href="#" class="page-link">3</a>
+                                <span class="page-dots">...</span>
+                                <a href="#" class="page-link">10</a>
+                            </div>
+                            -->
+                        </div>
                     </div>
                 </main>
             </div>
@@ -34,5 +83,32 @@
         
         <%- include('../partials/footer') %>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gestion des filtres (pour la démo)
+            const filterTags = document.querySelectorAll('.tag');
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    // Logique de filtrage ici
+                });
+            });
+            
+            // Bouton "Charger plus" (pour la démo)
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            if (loadMoreBtn) {
+                loadMoreBtn.addEventListener('click', function() {
+                    // Animation pour simuler le chargement
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
+                    setTimeout(() => {
+                        this.innerHTML = 'Charger plus d\'actualités';
+                        // Ici, vous ajouteriez la logique pour charger plus d'articles
+                    }, 1500);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

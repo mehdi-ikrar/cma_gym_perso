@@ -1,47 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <%- include('../partials/head') %>
-<body>
-    <div class="page-container">
-        <%- include('../partials/header') %>
-        
-        <div class="content-wrapper">
-            <!-- Barre de navigation latérale -->
-            <%- include('../partials/sidebar') %>
+    <head>
+        <%- include('../partials/head') %>
+        <!-- Assure-toi que le head contient bien la meta viewport pour un responsive design -->
+    </head>
+    <body>
+        <div class="page-container">
+            <%- include('../partials/header') %>
             
-            <!-- Contenu principal à droite -->
-            <div class="main-content">
-                <main>
-
-                            
-                            <!-- Colonne de droite : Widget Facebook -->
-                            <div class="facebook-column">
-                                
-                                <div class="facebook-widget">
-                                    <div class="fb-page" 
-                                        data-href="https://www.facebook.com/cmagym93/?locale=fr_FR"
-                                        data-tabs="timeline"
-                                        data-width=""
-                                        data-height="700"
-                                        data-small-header="false"
-                                        data-adapt-container-width="true"
-                                        data-hide-cover="false"
-                                        data-show-facepile="true">
-                                    </div>
-                                </div>
+            <div class="content-wrapper">
+                <!-- Barre de navigation latérale -->
+                <%- include('../partials/sidebar') %>
+                
+                <!-- Contenu principal à droite -->
+                <div class="main-content">
+                    <main>
+                        <!-- Colonne de droite : Widget Facebook via le Page Plugin -->
+                        <div class="facebook-column">
+                            <div class="facebook-widget">
+                                <iframe 
+                                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fcmagym93&tabs=timeline&width=500&height=700&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true"
+                                    width="100%" height="100%" 
+                                    style="border:none;overflow:hidden"
+                                    scrolling="no" frameborder="0" 
+                                    allowfullscreen="true"
+                                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+                                </iframe>
                             </div>
                         </div>
-                        
-                        <script async defer crossorigin="anonymous" 
-                                src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0" 
-                                nonce="xyz">
-                        </script>
-                    </div>
-                </main>
+                    </main>
+                </div>
             </div>
+            
+            <%- include('../partials/footer') %>
         </div>
         
-        <%- include('../partials/footer') %>
-    </div>
-</body>
+        <!-- Intégration du SDK Facebook pour activer le Page Plugin -->
+        <div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" 
+            src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0" nonce="xyz">
+        </script>
+    </body>
 </html>

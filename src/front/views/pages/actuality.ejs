@@ -13,22 +13,69 @@
             <div class="main-content">
                 <main>
                     <div class="container">
-                        <div class="actuality-details">
+                        <!-- Fil d'Ariane -->
+                        <div class="breadcrumb">
+                            <a href="/">Accueil</a> / 
+                            <a href="/actualities">Actualités</a> / 
+                            <span><%= actuality.title %></span>
+                        </div>
+                        
+                        <article class="actuality-details">
                             <div class="actuality-header">
+                                <div class="actuality-meta">
+                                    <span class="actuality-category">Actualité</span>
+                                    <span class="actuality-date"><i class="far fa-calendar-alt"></i> <%= new Date(actuality.createdAt).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                                </div>
                                 <h1 class="actuality-title"><%= actuality.title %></h1>
-                                <p class="actuality-date"><%= new Date(actuality.createdAt).toLocaleDateString() %></p>
+                                <div class="actuality-share">
+                                    <span>Partager sur :</span>
+                                    <div class="share-buttons">
+                                        <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                                        <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                                        <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
                             </div>
                             
-                            <div class="actuality-image-container">
-                                <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
+                            <div class="actuality-hero">
+                                <div class="actuality-image-container">
+                                    <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
+                                </div>
+                                <div class="actuality-hero-overlay"></div>
                             </div>
                             
-                            <div class="actuality-content">
-                                <p class="actuality-description"><%= actuality.description %></p>
+                            <div class="actuality-body">
+                                <div class="actuality-content">
+                                    <p class="actuality-description"><%= actuality.description %></p>
+                                </div>
+                                
+                                <div class="actuality-footer">
+                                    <div class="back-button">
+                                        <a href="/actualities"><i class="fas fa-chevron-left"></i> Retour aux actualités</a>
+                                    </div>
+                                    <div class="actuality-tags">
+                                        <span class="tag">CMA GYM</span>
+                                        <span class="tag">Actualité</span>
+                                        <span class="tag">Sport</span>
+                                    </div>
+                                </div>
                             </div>
-                            
-                            <div class="back-button">
-                                <a href="/">Retour aux actualités</a>
+                        </article>
+                        
+                        <!-- Section des actualités connexes -->
+                        <div class="related-news">
+                            <h2 class="section-title">Autres actualités qui pourraient vous intéresser</h2>
+                            <div class="related-news-grid">
+                                <!-- Cette section nécessiterait des données supplémentaires du serveur -->
+                                <!-- Exemple statique -->
+                                <div class="related-news-item">
+                                    <a href="#" class="related-news-link">
+                                        <div class="related-news-image-container">
+                                            <img src="/image/placeholder.jpg" alt="Actualité connexe" class="related-news-image">
+                                        </div>
+                                        <h3 class="related-news-title">Titre d'une actualité connexe</h3>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -39,4 +86,4 @@
         <%- include('../partials/footer') %>
     </div>
 </body>
-</html> 
+</html>
