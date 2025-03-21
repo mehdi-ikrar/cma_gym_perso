@@ -19,38 +19,34 @@
                             <p class="team-subtitle">Découvrez les experts qui vous accompagnent dans votre parcours sportif</p>
                         </div>
                         
-                        <!-- Filtres pour l'équipe (optionnels) -->
-                        <div class="team-filters">
-                            <button class="filter-btn active" data-filter="all">Tous</button>
-                            <button class="filter-btn" data-filter="coach">Coachs</button>
-                            <button class="filter-btn" data-filter="admin">Administration</button>
-                            <button class="filter-btn" data-filter="support">Support</button>
-                        </div>
-                        
                         <!-- Grille des membres de l'équipe -->
                         <div class="team-grid">
-                            <% employee.forEach(teamx => { %>
-                                <div class="team-member" data-category="<%= teamx.role || 'coach' %>">
-                                    <a href="/employees/<%= teamx.id %>" class="team-member-link">
-                                        <div class="member-card">
-                                            <div class="member-image-container">
-                                                <img src="<%= teamx.image %>" alt="<%= teamx.title %>" class="member-image">
-                                                <div class="member-social">
-                                                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                                                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                                                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <% if (typeof employee !== 'undefined' && employee.length > 0) { %>
+                                <% employee.forEach(function(teamx) { %>
+                                    <div class="team-member-container">
+                                        <a href="/employees/<%= teamx.id %>" class="team-member-link">
+                                            <div class="member-card">
+                                                <div class="member-image-container">
+                                                    <img src="<%= teamx.image %>" alt="<%= teamx.title %>" class="member-image">
+                                                </div>
+                                                <div class="member-info">
+                                                    <h2 class="member-name"><%= teamx.title %></h2>
+                                                    <p class="member-role"><%= teamx.role || 'Coach sportif' %></p>
+                                                    <p class="member-description"><%= teamx.description.substring(0, 80) %>...</p>
+                                                    <span class="member-details-btn">Voir le profil</span>
                                                 </div>
                                             </div>
-                                            <div class="member-info">
-                                                <h2 class="member-name"><%= teamx.title %></h2>
-                                                <p class="member-role"><%= teamx.role || 'Coach sportif' %></p>
-                                                <p class="member-description"><%= teamx.description.substring(0, 80) %>...</p>
-                                                <span class="member-details-btn">Voir le profil</span>
-                                            </div>
+                                        </a>
+                                        <div class="member-social">
+                                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                                         </div>
-                                    </a>
-                                </div>
-                            <% }); %>
+                                    </div>
+                                <% }); %>
+                            <% } else { %>
+                                <p>Aucun membre dans l'équipe pour le moment.</p>
+                            <% } %>
                         </div>
                     </div>
                 </main>
@@ -64,7 +60,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Filtrage des membres de l'équipe
             const filterButtons = document.querySelectorAll('.filter-btn');
-            const teamMembers = document.querySelectorAll('.team-member');
+            const teamMembers = document.querySelectorAll('.team-member-container');
             
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
