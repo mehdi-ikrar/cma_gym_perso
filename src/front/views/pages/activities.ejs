@@ -38,18 +38,19 @@
                                                     <%= activity.public %>
                                                 </div>
                                             </div>
+                                            <% if(activity.frequence) { %>
+                                                <div class="activity-frequency">
+                                                    <i class="fas fa-calendar-alt"></i>
+                                                    <span>Fréquence:</span> <%= activity.frequence %>
+                                                </div>
+                                                <% } %>
                                             <!-- Ajout des nouvelles données -->
                                             <div class="activity-details">
                                                 <div class="activity-price">
                                                     <i class="fas fa-tag"></i>
                                                     <span>Cotisation:</span> <%= activity.cotisation %>
                                                 </div>
-                                                <% if(activity.frequence) { %>
-                                                <div class="activity-frequency">
-                                                    <i class="fas fa-calendar-alt"></i>
-                                                    <span>Fréquence:</span> <%= activity.frequence %>
-                                                </div>
-                                                <% } %>
+
                                             </div>
                                         </div>
                                     </div>

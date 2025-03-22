@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Calculer la hauteur disponible et l'appliquer à l'iframe Facebook
+
 
 
 

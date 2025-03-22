@@ -1601,14 +1601,7 @@ footer {
             text-decoration: none;
             transition: $transition;
             
-            &.facebook {
-                background-color: #3b5998;
-                color: white;
-                
-                &:hover {
-                    background-color: darken(#3b5998, 10%);
-                }
-            }
+
             
             &.twitter {
                 background-color: #1da1f2;
