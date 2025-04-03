@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-  background: linear-gradient(120deg, #0ca0d1, #1781a5);
+  background: linear-gradient(120deg, #0ca0d1, #0c0faf);
   color: white;
   padding: 1.25rem 2rem;
   display: flex;
@@ -125,7 +125,7 @@ header h1::after {
   left: 2rem;
   right: 2rem;
   height: 2px;
-  background: linear-gradient(90deg, #3a8b9e, transparent);
+  background: linear-gradient(90deg, #1128c0, transparent);
 }
 
 .news-title {
@@ -174,7 +174,7 @@ footer::before {
   left: 0;
   width: 100%;
   height: 4px;
-  background: linear-gradient(90deg, #ff7e5f, #3a8b9e);
+  background: linear-gradient(90deg, #ff7e5f, #1128c0);
 }
 footer p {
   font-weight: 300;
@@ -259,7 +259,7 @@ footer p {
 
 .sidebar {
   width: 350px;
-  background: #1781a5;
+  background: #0c0faf;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
   position: sticky;
@@ -411,7 +411,7 @@ footer p {
 
 .employee-role {
   font-size: 1.25rem;
-  color: #1781a5;
+  color: #0c0faf;
   margin-bottom: 1.25rem;
   font-weight: 600;
 }
@@ -429,7 +429,7 @@ footer p {
   color: #ff7e5f;
   margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
-  border-bottom: 2px solid #3a8b9e;
+  border-bottom: 2px solid #1128c0;
 }
 
 .employee-specialties ul {
@@ -441,7 +441,7 @@ footer p {
 }
 
 .employee-specialties li {
-  background-color: #3a8b9e;
+  background-color: #1128c0;
   color: white;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
@@ -575,7 +575,7 @@ footer p {
 }
 .back-button a {
   display: inline-block;
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
   padding: 0.75rem 1.25rem;
   border-radius: 10px;
@@ -807,7 +807,7 @@ footer p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(135deg, #1781a5 0%, #115e78 100%);
+  background: linear-gradient(135deg, #0c0faf 0%, #090b7f 100%);
   color: white;
 }
 .carousel-text h3 {
@@ -1019,7 +1019,7 @@ footer p {
 }
 
 .contact-header {
-  background: linear-gradient(120deg, #0ca0d1, #1781a5);
+  background: linear-gradient(120deg, #0ca0d1, #0c0faf);
   color: white;
   padding: 1.25rem 2rem;
   display: flex;
@@ -1056,7 +1056,7 @@ footer p {
 .contact-icon {
   width: 50px;
   height: 50px;
-  background-color: rgba(58, 139, 158, 0.1);
+  background-color: rgba(17, 40, 192, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1091,7 +1091,7 @@ footer p {
 }
 
 .schedule-container {
-  background-color: rgba(58, 139, 158, 0.05);
+  background-color: rgba(17, 40, 192, 0.05);
   border-radius: 10px;
   padding: 1.25rem;
   border-left: 4px solid #ffb400;
@@ -1135,7 +1135,7 @@ footer p {
   left: 0;
   width: 100%;
   height: 5px;
-  background: linear-gradient(90deg, #ff7e5f, #1781a5);
+  background: linear-gradient(90deg, #ff7e5f, #0c0faf);
 }
 
 .form-title {
@@ -1187,14 +1187,14 @@ footer p {
 }
 .contact-form input:focus, .contact-form textarea:focus {
   outline: none;
-  border-color: #3a8b9e;
-  box-shadow: 0 0 0 3px rgba(58, 139, 158, 0.2);
+  border-color: #1128c0;
+  box-shadow: 0 0 0 3px rgba(17, 40, 192, 0.2);
 }
 .contact-form textarea {
   resize: vertical;
 }
 .contact-form .submit-btn {
-  background: linear-gradient(120deg, #1781a5, #0ca0d1);
+  background: linear-gradient(120deg, #0c0faf, #0ca0d1);
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -1226,7 +1226,7 @@ footer p {
   align-items: center;
   font-size: 0.9rem;
   color: #636e72;
-  background-color: rgba(58, 139, 158, 0.1);
+  background-color: rgba(17, 40, 192, 0.1);
   padding: 0.5rem 0.75rem;
   border-radius: 2px;
 }
@@ -1266,7 +1266,7 @@ footer p {
   bottom: -10px;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #1781a5, #ff7e5f);
+  background: linear-gradient(90deg, #0c0faf, #ff7e5f);
   border-radius: 2px;
   transform: translateX(-50%);
 }
@@ -1287,18 +1287,18 @@ footer p {
 .team-filters .filter-btn {
   padding: 0.5rem 1.25rem;
   border-radius: 30px;
-  border: 2px solid #1781a5;
+  border: 2px solid #0c0faf;
   background-color: transparent;
-  color: #1781a5;
+  color: #0c0faf;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .team-filters .filter-btn:hover {
-  background-color: rgba(23, 129, 165, 0.1);
+  background-color: rgba(12, 15, 175, 0.1);
 }
 .team-filters .filter-btn.active {
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
 }
 
@@ -1499,7 +1499,7 @@ footer p {
   color: #636e72;
 }
 .breadcrumb a {
-  color: #1781a5;
+  color: #0c0faf;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -1532,7 +1532,7 @@ footer p {
   gap: 0.75rem;
 }
 .actuality-header .actuality-category {
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
@@ -1579,13 +1579,6 @@ footer p {
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
-}
-.actuality-header .actuality-share .share-btn.facebook {
-  background-color: #3b5998;
-  color: white;
-}
-.actuality-header .actuality-share .share-btn.facebook:hover {
-  background-color: #2d4373;
 }
 .actuality-header .actuality-share .share-btn.twitter {
   background-color: #1da1f2;
@@ -1661,7 +1654,7 @@ footer p {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
   padding: 0.75rem 1.25rem;
   border-radius: 10px;
@@ -1680,15 +1673,15 @@ footer p {
   flex-wrap: wrap;
 }
 .actuality-footer .actuality-tags .tag {
-  background-color: rgba(23, 129, 165, 0.1);
-  color: #1781a5;
+  background-color: rgba(12, 15, 175, 0.1);
+  color: #0c0faf;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
   font-size: 0.8rem;
   transition: all 0.3s ease;
 }
 .actuality-footer .actuality-tags .tag:hover {
-  background-color: rgba(23, 129, 165, 0.2);
+  background-color: rgba(12, 15, 175, 0.2);
 }
 
 .related-news {
@@ -1805,7 +1798,7 @@ footer p {
   bottom: -10px;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #1781a5, #ff7e5f);
+  background: linear-gradient(90deg, #0c0faf, #ff7e5f);
   border-radius: 2px;
 }
 .actualities-header .section-subtitle {
@@ -1817,7 +1810,7 @@ footer p {
 
 .search-container {
   margin: 2rem 0;
-  background-color: rgba(23, 129, 165, 0.05);
+  background-color: rgba(12, 15, 175, 0.05);
   padding: 1.25rem;
   border-radius: 10px;
 }
@@ -1829,7 +1822,7 @@ footer p {
 .search-form .search-input {
   flex: 1;
   padding: 0.75rem 1.25rem;
-  border: 2px solid rgba(23, 129, 165, 0.2);
+  border: 2px solid rgba(12, 15, 175, 0.2);
   border-right: none;
   border-radius: 10px 0 0 10px;
   font-size: 1rem;
@@ -1837,10 +1830,10 @@ footer p {
 }
 .search-form .search-input:focus {
   outline: none;
-  border-color: #1781a5;
+  border-color: #0c0faf;
 }
 .search-form .search-button {
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
   border: none;
   padding: 0 1.25rem;
@@ -1871,7 +1864,7 @@ footer p {
 }
 .filter-tags .tag {
   background: none;
-  border: 1px solid #3a8b9e;
+  border: 1px solid #1128c0;
   color: #0ca0d1;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
@@ -1880,12 +1873,12 @@ footer p {
   font-size: 0.9rem;
 }
 .filter-tags .tag:hover {
-  background-color: rgba(23, 129, 165, 0.1);
+  background-color: rgba(12, 15, 175, 0.1);
 }
 .filter-tags .tag.active {
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
-  border-color: #1781a5;
+  border-color: #0c0faf;
 }
 
 .actualities-grid {
@@ -2000,8 +1993,8 @@ footer p {
 
 .category-tag {
   font-size: 0.8rem;
-  background-color: rgba(23, 129, 165, 0.1);
-  color: #1781a5;
+  background-color: rgba(12, 15, 175, 0.1);
+  color: #0c0faf;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
 }
@@ -2013,7 +2006,7 @@ footer p {
 }
 
 .load-more-btn {
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -2050,11 +2043,11 @@ footer p {
   font-weight: 500;
 }
 .page-link.active, .page-dots.active {
-  background-color: #1781a5;
+  background-color: #0c0faf;
   color: white;
 }
 .page-link:hover:not(.active, .page-dots), .page-dots:hover:not(.active, .page-dots) {
-  background-color: rgba(23, 129, 165, 0.1);
+  background-color: rgba(12, 15, 175, 0.1);
 }
 
 @media (max-width: 992px) {
