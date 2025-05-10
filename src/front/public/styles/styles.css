@@ -29,8 +29,27 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
 }
 
+h2 {
+  font-size: 2.5rem;
+  color: #127494;
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block;
+}
+h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #0c0faf, #ff7e5f);
+  border-radius: 2px;
+  transform: translateX(-50%);
+}
+
 header {
-  background: linear-gradient(120deg, #0ca0d1, #0c0faf);
+  background: linear-gradient(120deg, #127494, #0c0faf);
   color: white;
   padding: 1.25rem 2rem;
   display: flex;
@@ -131,7 +150,7 @@ header h1::after {
 .news-title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #0ca0d1;
+  color: #127494;
   margin-bottom: 0.75rem;
   line-height: 1.3;
   position: relative;
@@ -161,7 +180,7 @@ header h1::after {
 }
 
 footer {
-  background-color: #0ca0d1;
+  background-color: #127494;
   color: rgba(255, 255, 255, 0.85);
   padding: 1.25rem 0;
   text-align: center;
@@ -531,7 +550,7 @@ footer p {
 
 .actuality-title {
   font-size: 2.5rem;
-  color: #0ca0d1;
+  color: #127494;
   margin-bottom: 0.5rem;
 }
 
@@ -584,7 +603,7 @@ footer p {
   transition: all 0.3s ease;
 }
 .back-button a:hover {
-  background-color: #0ca0d1;
+  background-color: #127494;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -728,7 +747,7 @@ footer p {
 .carousel-title {
   font-size: 2.2rem;
   margin-bottom: 1.25rem;
-  color: #0ca0d1;
+  color: #127494;
   position: relative;
   display: inline-block;
 }
@@ -1019,7 +1038,7 @@ footer p {
 }
 
 .contact-header {
-  background: linear-gradient(120deg, #0ca0d1, #0c0faf);
+  background: linear-gradient(120deg, #127494, #0c0faf);
   color: white;
   padding: 1.25rem 2rem;
   display: flex;
@@ -1066,13 +1085,13 @@ footer p {
 }
 .contact-icon i {
   font-size: 1.2rem;
-  color: #0ca0d1;
+  color: #127494;
 }
 
 .contact-text h3 {
   margin: 0 0 0.5rem 0;
   font-size: 1.1rem;
-  color: #0ca0d1;
+  color: #127494;
 }
 .contact-text p {
   margin: 0;
@@ -1141,7 +1160,7 @@ footer p {
 .form-title {
   margin-top: 0;
   margin-bottom: 2rem;
-  color: #0ca0d1;
+  color: #127494;
   font-size: 1.8rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -1194,7 +1213,7 @@ footer p {
   resize: vertical;
 }
 .contact-form .submit-btn {
-  background: linear-gradient(120deg, #0c0faf, #0ca0d1);
+  background: linear-gradient(120deg, #0c0faf, #127494);
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -1240,7 +1259,7 @@ footer p {
 }
 
 .activity-price {
-  color: #0ca0d1;
+  color: #127494;
   font-weight: 1.1rem;
 }
 
@@ -1251,24 +1270,6 @@ footer p {
 .team-intro {
   text-align: center;
   margin-bottom: 3rem;
-}
-.team-intro .team-title {
-  font-size: 2.5rem;
-  color: #0ca0d1;
-  margin-bottom: 0.75rem;
-  position: relative;
-  display: inline-block;
-}
-.team-intro .team-title::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -10px;
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(90deg, #0c0faf, #ff7e5f);
-  border-radius: 2px;
-  transform: translateX(-50%);
 }
 .team-intro .team-subtitle {
   font-size: 1.1rem;
@@ -1419,7 +1420,7 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0ca0d1;
+  color: #127494;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -1439,7 +1440,7 @@ footer p {
 
 .member-name {
   font-size: 1.4rem;
-  color: #0ca0d1;
+  color: #127494;
   margin-bottom: 0.5rem;
 }
 
@@ -1552,7 +1553,7 @@ footer p {
 }
 .actuality-header .actuality-title {
   font-size: 2.5rem;
-  color: #0ca0d1;
+  color: #127494;
   margin: 0.75rem 0 1.25rem;
   line-height: 1.2;
 }
@@ -1663,7 +1664,7 @@ footer p {
   transition: all 0.3s ease;
 }
 .actuality-footer .back-button a:hover {
-  background-color: #0ca0d1;
+  background-color: #127494;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -1689,7 +1690,7 @@ footer p {
 }
 .related-news .section-title {
   font-size: 1.8rem;
-  color: #0ca0d1;
+  color: #127494;
   margin-bottom: 2rem;
   position: relative;
   padding-bottom: 0.5rem;
@@ -1747,7 +1748,7 @@ footer p {
 .related-news-title {
   padding: 1.25rem;
   font-size: 1.1rem;
-  color: #0ca0d1;
+  color: #127494;
   margin: 0;
 }
 
@@ -1786,7 +1787,7 @@ footer p {
 }
 .actualities-header .section-title {
   font-size: 2.5rem;
-  color: #0ca0d1;
+  color: #127494;
   margin-bottom: 0.5rem;
   position: relative;
   display: inline-block;
@@ -1842,7 +1843,7 @@ footer p {
   transition: all 0.3s ease;
 }
 .search-form .search-button:hover {
-  background-color: #0ca0d1;
+  background-color: #127494;
 }
 
 .filter-tags {
@@ -1865,7 +1866,7 @@ footer p {
 .filter-tags .tag {
   background: none;
   border: 1px solid #1128c0;
-  color: #0ca0d1;
+  color: #127494;
   padding: 0.5rem 0.75rem;
   border-radius: 20px;
   cursor: pointer;
@@ -1961,7 +1962,7 @@ footer p {
 
 .actuality-title {
   font-size: 1.3rem;
-  color: #0ca0d1;
+  color: #127494;
   margin-bottom: 0.75rem;
   line-height: 1.3;
 }
@@ -2017,7 +2018,7 @@ footer p {
   transition: all 0.3s ease;
 }
 .load-more-btn:hover {
-  background-color: #0ca0d1;
+  background-color: #127494;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }

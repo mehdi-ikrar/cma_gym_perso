@@ -1,7 +1,7 @@
 // Variables de couleurs
 $primary-color: #0c0faf;
 $primary-light: #1128c0;
-$primary-dark: #0ca0d1;
+$primary-dark: #127494;
 $secondary-color: #ff7e5f;
 $secondary-light: #ffa58f;
 $secondary-dark: #e05642;
@@ -90,7 +90,25 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     line-height: 1.2;
 }
-
+h2 {
+    font-size: 2.5rem;
+    color: $primary-dark;
+    margin-bottom: $spacing-sm;
+    position: relative;
+    display: inline-block;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
+        border-radius: 2px;
+        transform: translateX(-50%);
+    }
+}
 // En-tête élégant
 header {
     @include gradient-header;
@@ -1276,25 +1294,7 @@ footer {
     text-align: center;
     margin-bottom: $spacing-xl;
     
-    .team-title {
-        font-size: 2.5rem;
-        color: $primary-dark;
-        margin-bottom: $spacing-sm;
-        position: relative;
-        display: inline-block;
-        
-        &::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, $primary-color, $secondary-color);
-            border-radius: 2px;
-            transform: translateX(-50%);
-        }
-    }
+
     
     .team-subtitle {
         font-size: 1.1rem;
