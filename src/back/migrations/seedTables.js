@@ -1,14 +1,23 @@
 import "dotenv/config";
 import { sequelize } from "../models/db.client.js";
-import { Activity, Actuality, Documents, Employee, Admin , Contact } from "../models/associations.js";
+import { Activity, Actuality, Documents, Employee, Admin, Contact, Category } from "../models/associations.js";
 import { employee } from "../data/employee.js";
 import { document } from "../data/document.js";
 import { activity } from "../data/activity.js";
 import { actuality } from "../data/acutality.js";
 import { admin } from "../data/admin.js";
 import { contact } from "../data/contact.js";
+import { category } from "../data/category.js";
 
 
+// Seed Categories table
+for(const cat of category){
+    await Category.create({
+        id: cat.id,
+        title: cat.title
+    });
+}
+console.log('Categories seeded');
 
 // Seed Employee table
 for(const emp of employee){
@@ -19,7 +28,7 @@ for(const emp of employee){
         function: emp.function,
         image: emp.image,
         description: emp.description,
-        
+        category_id: emp.categoryId
     });
 }
 console.log('Employees seeded');
@@ -33,7 +42,8 @@ for(const act of activity){
         horraire: act.horraire,
         public: act.public,
         cotisation: act.cotisation,
-        frequence: act.frequence || null // Utilisation de null si frequence n'est pas définie
+        frequence: act.frequence || null,
+        category_id: act.categoryId
     });
 }
 console.log('Activities seeded');
@@ -58,7 +68,8 @@ for(const act of actuality){
         id: act.id,
         title: act.title,
         image: act.image,
-        description: act.description
+        description: act.description,
+        category_id: act.categoryId // Utiliser la catégorie définie dans les données
     });
 }
 console.log('Actualities seeded');

@@ -4,6 +4,7 @@ import { Documents } from './documentModel.js';
 import { Employee } from './employeeModel.js';
 import { Admin  } from './adminModel.js';
 import { Contact } from './contactModel.js';
+import { Category } from './categoryModel.js'; // Import du nouveau modèle Category
 
 // Relation entre Employee et Activity (n:n)
 Employee.belongsToMany(Activity, { 
@@ -33,6 +34,35 @@ Actuality.belongsToMany(Activity, {
     as: 'activities'
 });
 
+// Relations avec les catégories (1:n)
+// Une actualité peut avoir 0 ou 1 catégorie
+Actuality.belongsTo(Category, {
+    foreignKey: 'category_id',
+    as: 'category'
+});
+Category.hasMany(Actuality, {
+    foreignKey: 'category_id',
+    as: 'actualities'
+});
 
+// Un employé peut avoir 0 ou 1 catégorie
+Employee.belongsTo(Category, {
+    foreignKey: 'category_id',
+    as: 'category'
+});
+Category.hasMany(Employee, {
+    foreignKey: 'category_id',
+    as: 'employees'
+});
 
-export { Activity, Actuality, Documents, Employee, Admin, Contact };
+// Une activité peut avoir 0 ou 1 catégorie
+Activity.belongsTo(Category, {
+    foreignKey: 'category_id',
+    as: 'category'
+});
+Category.hasMany(Activity, {
+    foreignKey: 'category_id',
+    as: 'activities'
+});
+
+export { Activity, Actuality, Documents, Employee, Admin, Contact, Category };

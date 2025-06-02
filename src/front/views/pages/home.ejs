@@ -12,11 +12,14 @@
                 <!-- Barre de navigation latérale -->
                 <%- include('../partials/sidebar') %>
                 
-                <!-- Contenu principal à droite -->
+                
                 <div class="main-content">
-                    <main>
+                        <div class="team-intro">
+                            <h2 >Dernieres actualités</h2>
+                            <p class="team-subtitle">Découvrez les experts qui vous accompagnent dans votre parcours sportif</p>
+                        </div>
                         <div class="news-carousel-container">
-                            <h2 class="section-heading">Dernières actualités</h2>
+                            <% actualities.slice(0, 3).forEach(act => { console.log(act.image); }); %>
                             
                             <div class="news-carousel">
                                 <div class="carousel-track">
@@ -24,7 +27,8 @@
                                         <div class="carousel-slide <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>">
                                             <div class="carousel-content vertical">
                                                 <div class="carousel-image">
-                                                    <img src="<%= actuality.image %>" alt="<%= actuality.title %>">
+                                                    <% console.log(`Image ${index}:`, actuality.image); %>
+                                                    <img src="/image/<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
                                                 </div>
                                                 <div class="carousel-text">
                                                     <h3><%= actuality.title %></h3>
@@ -41,10 +45,12 @@
                                 
                                 <!-- Navigation du carrousel -->
                                 <button class="carousel-nav carousel-prev" aria-label="Précédent">
-                                    <i class="fas fa-chevron-left"></i>
+                                    <!-- Remplacer l'icône Font Awesome par une flèche HTML -->
+                                    <span class="nav-arrow">&#10094;</span>
                                 </button>
                                 <button class="carousel-nav carousel-next" aria-label="Suivant">
-                                    <i class="fas fa-chevron-right"></i>
+                                    <!-- Remplacer l'icône Font Awesome par une flèche HTML -->
+                                    <span class="nav-arrow">&#10095;</span>
                                 </button>
                                 
                                 <!-- Indicateurs de pagination -->
@@ -54,10 +60,7 @@
                                     <% }); %>
                                 </div>
                             </div>
-                            </div>
-                        <!-- Colonne de droite : Widget Facebook via le Page Plugin -->
-
-                    </main>
+                         </div>
                 </div>
             </div>
             
@@ -66,8 +69,10 @@
         
         <!-- Intégration du SDK Facebook pour activer le Page Plugin -->
         <div id="fb-root"></div>
+
         <script async defer crossorigin="anonymous" 
             src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v15.0" nonce="xyz">
+            
         </script>
     </body>
 </html>

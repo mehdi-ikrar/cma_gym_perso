@@ -15,7 +15,7 @@ $text-light: #b2bec3;
 // Variables d'espacement et d'effet
 $spacing-xs: 0.5rem;
 $spacing-sm: 0.75rem;
-$spacing-md: 1.25rem;
+$spacing-md: 1rem;
 $spacing-lg: 2rem;
 $spacing-xl: 3rem;
 $border-radius: 10px;
@@ -94,8 +94,10 @@ h2 {
     font-size: 2.5rem;
     color: $primary-dark;
     margin-bottom: $spacing-sm;
+    margin-top: $spacing-sm;
     position: relative;
-    display: inline-block;
+
+    text-align: center;
     
     &::after {
         content: '';
@@ -113,10 +115,7 @@ h2 {
 header {
     @include gradient-header;
     @include box-shadow(0 4px 20px rgba(0, 0, 0, 0.15));
-    position: relative;
-    z-index: 20;
-    height: 80px;
-    width: 100%;
+
     img {
         width: 10%;
         position: absolute;
@@ -128,7 +127,7 @@ header {
         width: 100%;
     }
     h1 {
-        font-size: 2.7rem;
+        font-size: 4rem;
         font-weight: 800;
         letter-spacing: -1px;
         margin: 0 auto;
@@ -313,7 +312,7 @@ footer {
         overflow-y: auto;
         h3 {
             color: white;
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             @include title-underline;
             display: inline-block;
             &::after {
@@ -328,6 +327,7 @@ footer {
             margin-bottom: $spacing-sm;
             @include transition($transition);
             @include border-radius(6px);
+            font-size: 1.3rem;
             &:hover, &.active {
                 background-color: rgba(255, 255, 255, 0.1);
             }
@@ -735,23 +735,9 @@ footer {
     border-color: #3498db;
 }
 
-.section-title {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 30px;
-    position: relative;
-    padding-bottom: 15px;
-}
 
-.section-title:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background-color: #3498db;
-}
+
+s
 
 .no-activities {
     text-align: center;
@@ -786,8 +772,8 @@ footer {
 
 .news-carousel {
     position: relative;
-    height: 600px; // Augmenter la hauteur (était 400px)
-    max-width: 700px; // Limiter la largeur
+    height: 750px; // Augmenter la hauteur (était 400px)
+    width: 70%;
     margin: 0 auto; // Centrer horizontalement
     background: $card-bg;
     border-radius: $border-radius;
@@ -855,10 +841,11 @@ footer {
         font-size: 1.8rem;
         margin-bottom: $spacing-md;
         line-height: 1.3;
+        text-align: center;
     }
     
     .carousel-description {
-        font-size: 1.1rem;
+        font-size: 1.2rem; // Augmentation de la taille de police
         margin-bottom: $spacing-lg;
         opacity: 0.9;
         line-height: 1.6;
@@ -889,10 +876,10 @@ footer {
     }
 }
 
-// Navigation du carrousel
+// Navigation du carrousel - flèches remontées
 .carousel-nav {
     position: absolute;
-    top: 50%;
+    top: 40%; // Remontées de 50% à 40% pour être plus haut
     transform: translateY(-50%);
     width: 50px;
     height: 50px;
@@ -908,9 +895,16 @@ footer {
     transition: all 0.3s ease;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     
-    &:hover {
-        background: rgba(255, 255, 255, 1);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    .nav-arrow {
+        font-size: 24px;
+        font-weight: bold;
+        color: $primary-color;
+        display: block;
+        line-height: 1;
+    }
+    
+    &:hover .nav-arrow {
+        transform: scale(1.2);
     }
     
     &.carousel-prev {
@@ -1001,7 +995,7 @@ footer {
 // Ajustement pour les écrans plus petits
 @media (max-width: 768px) {
     .news-carousel {
-        height: 700px; // Encore plus haut sur mobile (était 500px)
+        height: 900px; // Encore plus haut sur mobile (était 500px)
     }
     
     .carousel-content.vertical .carousel-image {
@@ -1015,9 +1009,17 @@ footer {
 
 // Ajuster la taille de la description pour qu'elle tienne dans l'espace réduit
 .carousel-content.vertical .carousel-description {
-    max-height: 100px; // Réduire un peu la hauteur (était 120px)
+    max-height: 200px; // Augmentation significative de la hauteur maximale (était 100px)
     overflow-y: auto;
     margin-bottom: $spacing-sm;
+    padding-right: $spacing-sm; // Ajout d'un padding pour améliorer la lisibilité
+    
+    // Ajout des points de suspension pour le texte tronqué
+    display: -webkit-box;
+    -webkit-line-clamp: 6; // Nombre de lignes à afficher avant troncature
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 // Ajuster la taille du titre
@@ -1726,27 +1728,7 @@ footer {
 }
 
 // Section des actualités connexes
-.related-news {
-    margin: $spacing-xl 0;
-    
-    .section-title {
-        font-size: 1.8rem;
-        color: $primary-dark;
-        margin-bottom: $spacing-lg;
-        position: relative;
-        padding-bottom: $spacing-xs;
-        
-        &::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, $secondary-color, $accent-color);
-        }
-    }
-}
+
 
 .related-news-grid {
     display: grid;
@@ -1831,11 +1813,7 @@ footer {
     margin-bottom: $spacing-xl;
     
     .section-title {
-        font-size: 2.5rem;
-        color: $primary-dark;
-        margin-bottom: $spacing-xs;
-        position: relative;
-        display: inline-block;
+
         
         &::after {
             content: '';
@@ -1862,6 +1840,32 @@ footer {
     background-color: rgba($primary-color, 0.05);
     padding: $spacing-md;
     border-radius: $border-radius;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.page-link,
+.page-link.active {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.page-link {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.page-link.active {
+    background-color: #333;
+    color: #fff;
+    pointer-events: none;
 }
 
 .search-form {
@@ -1942,8 +1946,16 @@ footer {
 .actualities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: $spacing-lg;
-    margin: $spacing-xl 0;
+    gap: 4rem;
+    width: 100%; /* Assure que le bloc prend toute la largeur disponible */
+
+    margin-left: auto; /* Centre horizontalement */
+    margin-right: auto; /* Centre horizontalement */
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-xl;
+    position: relative; /* Assure un positionnement correct */
+    left: 0;
+    right: 0;
 }
 
 .actuality-card {
@@ -2151,17 +2163,126 @@ footer {
     }
 }
 
+// Styles pour le filtre par catégories
+.categories-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 2rem 0 2.5rem 0;
+    padding: 0.5rem 0;
 
+    .tag {
+        background: none;
+        border: 2px solid $primary-light;
+        color: $primary-dark;
+        padding: 0.5rem 1.2rem;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.04);
 
+        &:hover {
+            background: $primary-light;
+            color: #fff;
+            border-color: $primary-light;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 16px rgba($primary-color, 0.10);
+        }
 
+        &.active {
+            background: linear-gradient(90deg, $primary-color, $secondary-color);
+            color: #fff;
+            border-color: $primary-color;
+            box-shadow: 0 4px 16px rgba($primary-color, 0.13);
+            transform: scale(1.07);
+        }
+    }
+}
 
+// Responsive
+@media (max-width: 600px) {
+    .categories-filter {
+        gap: 0.4rem;
+        .tag {
+            font-size: 0.95rem;
+            padding: 0.4rem 0.9rem;
+        }
+    }
+}
 
+// Styles pour les sections d'équipe hiérarchiques
+.team-section {
+    margin-bottom: $spacing-xl;
+}
 
+.section-heading {
+    font-size: 1.8rem;
+    color: $primary-dark;
+    margin: $spacing-lg 0 $spacing-md;
+    padding-bottom: $spacing-xs;
+    border-bottom: 2px solid $primary-light;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 80px;
+        height: 2px;
+        background-color: $accent-color;
+    }
+}
 
+.no-members {
+    font-style: italic;
+    color: $text-secondary;
+    padding: $spacing-md;
+    text-align: center;
+    background-color: rgba($primary-light, 0.05);
+    border-radius: $border-radius;
+}
 
+.team-filters {
+    margin-bottom: $spacing-lg;
+    text-align: center;
+    
+    .filter-btn {
+        background-color: transparent;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        padding: $spacing-xs $spacing-md;
+        margin: 0 $spacing-xs $spacing-xs 0;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        
+        &:hover {
+            background-color: rgba($primary-color, 0.1);
+        }
+        
+        &.active {
+            background-color: $primary-color;
+            color: white;
+        }
+    }
+}
 
-
-
-
-
+// Ajustements responsifs pour les sections d'équipe
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 1.5rem;
+    }
+    
+    .team-filters .filter-btn {
+        padding: $spacing-xs $spacing-sm;
+        font-size: 0.9rem;
+    }
+}
 

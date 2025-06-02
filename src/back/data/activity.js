@@ -6,8 +6,8 @@ export const activity = [
     horraire: "lundi et mercredi 18h00-20h00",
     public: "Feminins Justaucorps inclus",
     cotisation: "180€ a 210€",
-    frequence: "2 cours par semaine"
-    
+    frequence: "2 cours par semaine",
+    categoryId: 4 // Catégorie Compétition
   },
   {
     id: 2,
@@ -15,7 +15,8 @@ export const activity = [
     description: "Entraînement intensif aux agrès pour gymnastes confirmés",
     horraire: "14h00",
     public: "Adultes",
-    cotisation: "100€"
+    cotisation: "100€",
+    categoryId: 1 // Catégorie Gymnastique artistique
   },
   {
     id: 3,
@@ -24,7 +25,8 @@ export const activity = [
     horraire: "16h00",
     public: "Adolescents et adultes",
     cotisation: "100€",
-    frequence: "Hebdomadaire"
+    frequence: "Hebdomadaire",
+    categoryId: 1 // Catégorie Gymnastique artistique
   },
   {
     id: 4,
@@ -33,7 +35,8 @@ export const activity = [
     horraire: "18h00",
     public: "Tous publics",
     cotisation: "100€",
-    frequence: "Hebdomadaire"
+    frequence: "Hebdomadaire",
+    categoryId: 2 // Catégorie Gymnastique rythmique
   },
   {
     id: 5,
@@ -42,6 +45,7 @@ export const activity = [
     horraire: "20h00",
     public: "Enfants et débutants",
     cotisation: "100€",
-    frequence: "Hebdomadaire"
+    frequence: "Hebdomadaire",
+    categoryId: 3 // Catégorie Fitness & Bien-être
   }
 ];

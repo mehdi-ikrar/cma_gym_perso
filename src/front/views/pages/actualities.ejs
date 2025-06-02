@@ -14,24 +14,32 @@
                 <main>
                     <div class="container">
                         <!-- En-tête de la section actualités -->
-                        <div class="actualities-header">
-                            <h1 class="section-title">Toutes nos actualités</h1>
-                            <p class="section-subtitle">Restez informé des dernières nouvelles et événements du CMA GYM</p>
-                            
-                            <!-- Barre de recherche -->
-
+                        <div class="team-intro">
+                            <h2>Toutes nos actualités</h2>
+                            <p class="team-subtitle">Découvrez les experts qui vous accompagnent dans votre parcours sportif</p>
                         </div>
                         
+                        <!-- Filtre par catégories -->
+                        <div class="categories-filter">
+                            <a href="/actualities"<% if (!selectedCategory) { %> class="tag active"<% } else { %> class="tag"<% } %>>Toutes</a>
+                            <% categories.forEach(category => { %>
+                                <a href="/actualities?category=<%= category.id %>" 
+                                   class="tag<%= selectedCategory == category.id ? ' active' : '' %>">
+                                    <%= category.title %>
+                                </a>
+                            <% }); %>
+                        </div>
+
                         <!-- Grille des actualités -->
                         <div class="actualities-grid">
                             <% actualities.forEach(actuality => { %>
                                 <div class="actuality-card">
                                     <a href="/actuality/<%= actuality.id %>" class="actuality-link">
                                         <div class="actuality-image-wrapper">
-                                            <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
+                                            <img src="/image/<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
                                             <div class="actuality-date-badge">
                                                 <span class="day"><%= new Date(actuality.createdAt).getDate() %></span>
-                                                <span class="month"><%= new Date(actuality.createdAt).toLocaleString('fr-FR', {month: 'short'}) %></span>
+                                                <span class="month"><%= new Date(actuality.createdAt).toLocaleString('fr-FR', { month: 'short' }) %></span>
                                             </div>
                                         </div>
                                         <div class="actuality-content">
@@ -39,27 +47,25 @@
                                             <p class="actuality-excerpt"><%= actuality.description.substring(0, 120) %>...</p>
                                             <div class="actuality-footer">
                                                 <span class="read-more">Lire la suite <i class="fas fa-arrow-right"></i></span>
-                                                <span class="category-tag">Actualité</span>
+                                                <span class="category-tag"><%= actuality.category ? actuality.category.title : '' %></span>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
                             <% }); %>
                         </div>
-                        
-                        <!-- Pagination ou bouton "Charger plus" -->
-                        <div class="pagination-container">
-                            <button class="load-more-btn">Charger plus d'actualités</button>
-                            <!-- Pagination alternative
-                            <div class="pagination">
-                                <a href="#" class="page-link active">1</a>
-                                <a href="#" class="page-link">2</a>
-                                <a href="#" class="page-link">3</a>
-                                <span class="page-dots">...</span>
-                                <a href="#" class="page-link">10</a>
-                            </div>
-                            -->
+
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <% for (let i = 1; i <= totalPages; i++) { %>
+                                <% if (i === currentPage) { %>
+                                    <span class="page-link active"><%= i %></span>
+                                <% } else { %>
+                                    <a href="?page=<%= i %>" class="page-link"><%= i %></a>
+                                <% } %>
+                            <% } %>
                         </div>
+
                     </div>
                 </main>
             </div>
@@ -67,31 +73,17 @@
         
         <%- include('../partials/footer') %>
     </div>
-    
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Gestion des filtres (pour la démo)
+        document.addEventListener('DOMContentLoaded', function () {
             const filterTags = document.querySelectorAll('.tag');
             filterTags.forEach(tag => {
-                tag.addEventListener('click', function() {
+                tag.addEventListener('click', function () {
                     filterTags.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                    // Logique de filtrage ici
+                    // Ajoute ici ta logique de filtrage si besoin
                 });
             });
-            
-            // Bouton "Charger plus" (pour la démo)
-            const loadMoreBtn = document.querySelector('.load-more-btn');
-            if (loadMoreBtn) {
-                loadMoreBtn.addEventListener('click', function() {
-                    // Animation pour simuler le chargement
-                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Chargement...';
-                    setTimeout(() => {
-                        this.innerHTML = 'Charger plus d\'actualités';
-                        // Ici, vous ajouteriez la logique pour charger plus d'articles
-                    }, 1500);
-                });
-            }
         });
     </script>
 </body>

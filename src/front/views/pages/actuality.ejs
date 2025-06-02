@@ -39,7 +39,7 @@
                             
                             <div class="actuality-hero">
                                 <div class="actuality-image-container">
-                                    <img src="<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
+                                    <img src="/image/<%= actuality.image %>" alt="<%= actuality.title %>" class="actuality-image">
                                 </div>
                                 <div class="actuality-hero-overlay"></div>
                             </div>
@@ -55,7 +55,7 @@
                                     </div>
                                     <div class="actuality-tags">
                                         <span class="tag">CMA GYM</span>
-                                        <span class="tag">Actualité</span>
+                                        <span class="tag"><%= actuality.category ? actuality.category.title : 'Actualité' %></span>
                                         <span class="tag">Sport</span>
                                     </div>
                                 </div>
@@ -79,6 +79,11 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <script>
+                        // Log côté client pour voir ce que tu reçois dans la vue
+                        console.log('actuality:', <%- JSON.stringify(actuality) %>);
+                    </script>
                 </main>
             </div>
         </div>
