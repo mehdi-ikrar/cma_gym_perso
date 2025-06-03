@@ -14,10 +14,16 @@
                 
                 
                 <div class="main-content">
-                        <div class="team-intro">
-                            <h2 >Dernieres actualités</h2>
-                            <p class="team-subtitle">Découvrez les experts qui vous accompagnent dans votre parcours sportif</p>
-                        </div>
+                                    <main>
+                    <div class="container">
+                                                <section class="activities-hero">
+                            <div class="activities-hero-content">
+                                <h2 class="activities-hero-title">Toutes nos actualités</h2>
+                                <p class="activities-hero-desc">
+                                    Découvrez une sélection d'activités adaptées à tous les âges et tous les niveaux, encadrées par nos coachs passionnés.
+                                </p>
+                            </div>
+                        </section>
                         <div class="news-carousel-container">
                             <% actualities.slice(0, 3).forEach(act => { console.log(act.image); }); %>
                             
@@ -61,6 +67,10 @@
                                 </div>
                             </div>
                          </div>
+
+                    </div>
+                </main>
+
                 </div>
             </div>
             
@@ -76,3 +86,6 @@
         </script>
     </body>
 </html>
+
+
+

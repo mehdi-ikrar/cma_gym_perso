@@ -231,7 +231,7 @@ header {
 
 // Pied de page professionnel
 footer {
-    background-color: $primary-dark;
+    background: linear-gradient(120deg, $primary-dark, $primary-color); // même dégradé que le header
     color: rgba(255, 255, 255, 0.85);
     padding: $spacing-md 0;
     text-align: center;
@@ -286,7 +286,7 @@ footer {
 // Barre latérale élégante
 .sidebar {
     width: 350px;
-    background: $primary-color;
+    background: linear-gradient(120deg, $primary-dark, $primary-color); // même dégradé que le header
     @include box-shadow($box-shadow-sm);
     flex-shrink: 0;
     position: sticky;
@@ -302,7 +302,7 @@ footer {
         right: 0;
         height: 100%;
         width: 4px;
-        background: linear-gradient(180deg, $secondary-color, $secondary-light);
+        background: linear-gradient(180deg, $primary-color, $primary-light);
     }
     &-content {
         padding: $spacing-md;
@@ -2283,6 +2283,233 @@ s
     .team-filters .filter-btn {
         padding: $spacing-xs $spacing-sm;
         font-size: 0.9rem;
+    }
+}
+
+// Styles modernes pour la page des activités
+.activities-intro {
+    text-align: center;
+    margin-bottom: $spacing-xl;
+    
+    .activities-subtitle {
+        font-size: 1.1rem;
+        color: $text-secondary;
+        max-width: 600px;
+        margin: $spacing-md auto 0;
+    }
+}
+
+.activities-hero {
+    background: linear-gradient(120deg, $primary-color, $secondary-color); // bleu à orange comme les cartes
+    color: #fff;
+    border-radius: $border-radius;
+    margin-bottom: $spacing-xl;
+    padding: $spacing-xl $spacing-lg $spacing-lg $spacing-lg;
+    text-align: center;
+    box-shadow: $box-shadow-lg;
+    .activities-hero-title {
+        font-size: 2.7rem;
+        margin-bottom: $spacing-sm;
+        font-weight: 800;
+        letter-spacing: -1px;
+        color: rgba(255,255,255,0.92);
+    }
+    .activities-hero-desc {
+        font-size: 1.2rem;
+        color: rgba(255,255,255,0.92);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+.activities-filter {
+    margin-bottom: $spacing-xl;
+    .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 0.5rem 1.2rem;
+        border-radius: 30px;
+        border: 2px solid $primary-light;
+        color: $primary-dark;
+        background: none;
+        cursor: pointer;
+        transition: all 0.2s;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        box-shadow: 0 2px 8px rgba($primary-color, 0.04);
+        text-decoration: none;
+        &:hover {
+            background: $primary-light;
+            color: #fff;
+            border-color: $primary-light;
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 4px 16px rgba($primary-color, 0.10);
+        }
+        &.active {
+            background: linear-gradient(90deg, $primary-color, $secondary-color);
+            color: #fff;
+            border-color: $primary-color;
+            box-shadow: 0 4px 16px rgba($primary-color, 0.13);
+            transform: scale(1.07);
+        }
+        i {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+}
+
+.activity-card {
+    background: $card-bg;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow-sm;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s;
+    &:hover {
+        box-shadow: $box-shadow-lg;
+        transform: translateY(-8px) scale(1.01);
+    }
+}
+
+.activity-header {
+    padding: $spacing-lg $spacing-lg $spacing-md $spacing-lg;
+    color: #fff;
+    .activity-header-main {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .activity-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.13);
+    }
+    .activity-tag {
+        background: rgba(255,255,255,0.18);
+        color: #fff;
+        padding: $spacing-xs $spacing-sm;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.10);
+        margin-left: $spacing-md;
+        backdrop-filter: blur(5px);
+    }
+}
+
+.activity-body {
+    padding: $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.activity-description {
+    color: $text-secondary;
+    font-size: 1.05rem;
+    margin-bottom: $spacing-md;
+    flex-grow: 1;
+}
+
+.activity-infos {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-lg 0;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+    li {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        color: $primary-dark;
+        font-size: 1rem;
+        i {
+            color: $primary-color;
+            font-size: 1.1rem;
+        }
+        strong {
+            color: $primary-dark;
+            font-weight: 600;
+        }
+    }
+}
+
+.activity-btn {
+    align-self: flex-start;
+    background: linear-gradient(90deg, $primary-color, $secondary-color);
+    color: #fff;
+    padding: $spacing-xs $spacing-lg;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba($primary-color, 0.08);
+    transition: $transition;
+    margin-top: auto;
+    &:hover {
+        background: $primary-dark;
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 6px 18px rgba($primary-color, 0.13);
+    }
+}
+
+.no-activities {
+    text-align: center;
+    padding: $spacing-xl;
+    background-color: rgba($primary-light, 0.05);
+    border-radius: $border-radius;
+    color: $text-secondary;
+    i {
+        color: $primary-light;
+        margin-bottom: $spacing-md;
+        opacity: 0.5;
+    }
+    p {
+        margin: $spacing-xs 0;
+        &:last-child {
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 992px) {
+    .activities-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    }
+    .activities-hero {
+        padding: $spacing-lg $spacing-md;
+    }
+}
+@media (max-width: 600px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+    .activities-hero-title {
+        font-size: 1.5rem;
+    }
+    .activity-header {
+        padding: $spacing-md;
+    }
+    .activity-body {
+        padding: $spacing-md;
     }
 }
 

@@ -14,18 +14,17 @@
                 <main>
                     <div class="container">
                         <!-- Introduction à l'équipe -->
-                        <div class="team-intro">
-                            <h2>Notre équipe de professionnels</h2>
-                            <p class="team-subtitle">Découvrez les experts qui vous accompagnent dans votre parcours sportif</p>
-                        </div>
+                                                 <section class="activities-hero">
+                            <div class="activities-hero-content">
+                                <h2 class="activities-hero-title">Notres équipes</h2>
+                                <p class="activities-hero-desc">
+                                    Découvrez une sélection d'activités adaptées à tous les âges et tous les niveaux, encadrées par nos coachs passionnés.
+                                </p>
+                            </div>
+                        </section>
                         
-                        <!-- Filtres de catégories -->
-                        <div class="team-filters">
-                            <button class="filter-btn active" data-filter="all">Tous</button>
-                            <button class="filter-btn" data-filter="administration">Administration</button>
-                            <button class="filter-btn" data-filter="coach">Coachs</button>
-                            <button class="filter-btn" data-filter="benevole">Bénévoles</button>
-                        </div>
+                     
+
                         
                         <% if (typeof employee !== 'undefined' && employee.length > 0) { %>
                             <!-- Section Administration -->

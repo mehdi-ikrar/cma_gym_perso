@@ -44,14 +44,14 @@ export const actuality = [
   {
     id: 7,
     title: "Nouveau programme de gymnastique acrobatique",
-    image: "test.webp",
+    image: "test5.jpg",
     description: "Nous sommes ravis de vous annoncer le lancement de notre nouveau programme de gymnastique acrobatique, discipline spectaculaire combinant force, équilibre, souplesse et travail d'équipe. Ce programme innovant s'adresse aux gymnastes de tous niveaux souhaitant explorer les dimensions collectives de notre sport. La gymnastique acrobatique met l'accent sur la réalisation de figures et de portés en duo, trio ou quatuor, développant ainsi la communication et la confiance entre partenaires. Nos entraîneurs spécialement formés à cette discipline accompagneront les participants dans l'apprentissage progressif des techniques spécifiques, en veillant scrupuleusement à la sécurité de chacun. Au fil des séances, les acrobates en herbe découvriront le plaisir de construire des pyramides humaines, d'exécuter des lancers synchronisés et de créer des chorégraphies expressives. Ce programme représente une excellente opportunité de développer non seulement des compétences physiques exceptionnelles, mais également des valeurs humaines essentielles comme l'entraide, la responsabilité et le dépassement collectif.",
     categoryId: 1 // Catégorie Gymnastique artistique
   },
   {
     id: 8,
     title: "Stages intensifs pendant les vacances scolaires",
-    image: "test.webp",
+    image: "test2.jpg",
     description: "Pour les passionnés de gymnastique qui souhaitent progresser rapidement, notre club propose des stages intensifs pendant les prochaines vacances scolaires. Ces immersions sportives offrent l'opportunité unique de bénéficier d'un entraînement concentré et approfondi sur plusieurs jours consécutifs. Le programme, soigneusement élaboré par notre équipe pédagogique, alterne sessions techniques spécifiques, préparation physique adaptée, et moments ludiques favorisant la cohésion de groupe. Les participants seront répartis par niveaux et par tranches d'âge pour garantir un apprentissage optimal et personnalisé. Ces stages constituent une excellente opportunité pour franchir des paliers techniques importants, tout en développant autonomie et confiance en soi dans un cadre différent des cours hebdomadaires. Les journées s'articuleront autour de sessions d'entraînement diversifiées, incluant des ateliers sur tous les agrès, des sessions de chorégraphie et d'expression corporelle, ainsi que des moments d'échange avec nos entraîneurs pour analyser les progrès et fixer des objectifs personnalisés pour la suite de la saison.",
     categoryId: 4 // Catégorie Compétition
   },
@@ -65,21 +65,21 @@ export const actuality = [
   {
     id: 10,
     title: "Conférence sur la nutrition",
-    image: "test.webp",
+    image: "test3.avif",
     description: "Dans notre quête d'excellence et de bien-être global pour nos adhérents, nous organisons prochainement une conférence exceptionnelle dédiée à la nutrition du gymnaste. Animée par une diététicienne sportive renommée, cette session informative abordera les spécificités alimentaires liées à la pratique intensive de la gymnastique. Seront notamment détaillés les besoins énergétiques particuliers lors des périodes d'entraînement intensif et de compétition, l'importance de l'hydratation, ainsi que le rôle crucial des différents macronutriments dans la récupération musculaire et le développement harmonieux du corps. Des conseils pratiques seront prodigués pour élaborer des repas équilibrés et des collations adaptées aux horaires d'entraînement, en tenant compte des contraintes du quotidien. Une attention particulière sera portée aux besoins spécifiques des gymnastes en période de croissance. Les parents sont vivement encouragés à participer à cette conférence qui comprendra également un temps d'échange pour répondre aux questions individuelles. Cette initiative s'inscrit dans notre approche holistique du développement sportif, considérant la nutrition comme un pilier fondamental de la performance et de la santé à long terme.",
     categoryId: 3 // Catégorie Fitness & Bien-être
   },
   {
     id: 11,
     title: "Arrivée d'un nouvel",
-    image: "test.webp",
+    image: "test4.jpg",
     description: "Notre club est honoré d'accueillir dans son équipe pédagogique un entraîneur de renommée internationale. Fort d'une expérience de plus de vingt années au plus haut niveau, ce spécialiste a notamment accompagné plusieurs athlètes olympiques et formé de nombreux champions nationaux. Sa vision novatrice de l'entraînement, alliant approche technique pointue et développement personnel du gymnaste, s'inscrit parfaitement dans la philosophie de notre club. Grâce à son expertise, nos adhérents bénéficieront de méthodes d'enseignement à la pointe, inspirées des meilleures pratiques internationales. Sa capacité à détecter le potentiel de chaque athlète et à personnaliser les programmes d'entraînement promet d'élever encore le niveau technique de nos gymnastes. Des sessions spéciales de master class seront organisées pour permettre à tous les membres du club de profiter de son savoir-faire exceptionnel. Ce recrutement stratégique témoigne de notre ambition continue d'offrir un encadrement d'excellence et ouvre de nouvelles perspectives passionnantes pour le développement sportif de nos athlètes.",
     categoryId: 1 // Catégorie Gymnastique artistique
   },
   {
     id: 12,
     title: "Journée portes ouvertes",
-    image: "test.webp",
+    image: "test3.avif",
     description: "Venez explorer l'univers fascinant de la gymnastique lors de notre grande journée portes ouvertes qui se tiendra le mois prochain. Cet événement exceptionnel offre une opportunité unique de découvrir notre club, ses installations et la diversité des disciplines que nous proposons. Tout au long de la journée, des démonstrations spectaculaires mettront en lumière le talent de nos gymnastes, des plus jeunes aux plus expérimentés. Des ateliers d'initiation encadrés par nos entraîneurs permettront aux visiteurs de tout âge de s'essayer aux différents agrès dans un cadre ludique et sécurisé. Notre équipe pédagogique sera disponible pour répondre à toutes vos questions concernant nos programmes, les bienfaits de la gymnastique et les modalités d'inscription. Des stands d'information présenteront également les aspects nutritionnels et la préparation physique adaptée à chaque niveau de pratique. Pour les plus petits, un parcours motricité géant transformera la découverte de la gymnastique en véritable aventure. Cette journée festive se clôturera par une démonstration chorégraphiée regroupant l'ensemble de nos sections. Une occasion parfaite pour partager notre passion et peut-être susciter de nouvelles vocations!",
     categoryId: 1 // Catégorie Gymnastique artistique
   },
@@ -107,14 +107,14 @@ export const actuality = [
   {
     id: 16,
     title: "Gala annuel : une soirée spectaculaire",
-    image: "test.webp",
+    image: "test4.jpg",
     description: "Nous avons le plaisir de vous convier à notre gala annuel qui se tiendra le mois prochain sous le thème inspirant des 'Légendes olympiques'. Cet événement majeur dans la vie de notre club promet une soirée exceptionnelle où tous nos gymnastes, des plus jeunes aux plus expérimentés, présenteront des chorégraphies spécialement créées pour l'occasion. Chaque section rendra hommage à des moments emblématiques de l'histoire olympique de la gymnastique, recréant les performances légendaires qui ont marqué cette discipline. Le spectacle mettra en lumière le travail accompli tout au long de l'année et la progression remarquable de nos athlètes dans une ambiance festive et chaleureuse. Des effets visuels innovants, des costumes élaborés et une mise en scène soignée sublimeront les prouesses techniques des gymnastes. En parallèle des démonstrations, une exposition retraçant l'évolution de la gymnastique olympique sera présentée dans le hall d'entrée, offrant aux spectateurs un voyage fascinant à travers le temps. Ce gala représente non seulement une célébration du talent et de la persévérance de nos gymnastes, mais également un moment privilégié de partage avec les familles et amis qui les soutiennent tout au long de l'année. Les billets seront disponibles prochainement, et nous vous invitons à les réserver rapidement tant cet événement rencontre un succès grandissant chaque année.",
     categoryId: 1 // Catégorie Gymnastique artistique
   },
   {
     id: 17,
     title: "Atelier de préparation mentale",
-    image: "test.webp",
+    image: "test2.jpg",
     description: "Reconnaissant l'importance cruciale de la dimension psychologique dans la performance sportive, notre club lance une série d'ateliers de préparation mentale destinés à nos gymnastes de tous niveaux. Animés par une psychologue du sport certifiée, ces sessions hebdomadaires aborderont des thématiques essentielles telles que la gestion du stress compétitif, la visualisation positive, la concentration optimale et la fixation d'objectifs progressifs. À travers des exercices pratiques et des discussions interactives, les participants développeront des outils personnalisés pour renforcer leur confiance en eux et cultiver une mentalité de champion. Une attention particulière sera portée à l'équilibre émotionnel et à la résilience face aux difficultés inhérentes à la pratique sportive de haut niveau. Ces ateliers proposent également des techniques de relaxation et de respiration adaptées aux différentes situations rencontrées lors des entraînements intensifs ou des compétitions stressantes. Les parents seront invités à participer à certaines sessions spécifiques afin de mieux comprendre et soutenir le parcours psychologique de leurs enfants dans le sport. Cette initiative s'inscrit dans notre approche holistique du développement de l'athlète, reconnaissant que l'excellence sportive résulte d'un équilibre harmonieux entre préparation physique, technique et mentale.",
     categoryId: 1 // Catégorie Gymnastique artistique
   },
@@ -128,14 +128,14 @@ export const actuality = [
   {
     id: 19,
     title: "Voyage sportif international ",
-    image: "test.webp",
+    image: "test4.jpg",
     description: "Nous sommes enchantés d'annoncer l'organisation d'un voyage sportif international exceptionnel pour nos gymnastes de la section élite. Cette expérience unique les conduira dans l'un des centres d'entraînement les plus prestigieux d'Europe, reconnu pour avoir formé de nombreux champions olympiques. Durant ce séjour d'une semaine, nos athlètes auront l'opportunité inestimable de s'entraîner aux côtés de gymnastes internationaux et sous la supervision d'entraîneurs de renommée mondiale. Le programme intensif combinera sessions techniques spécialisées, préparation physique avancée et ateliers de perfectionnement chorégraphique. Au-delà de l'aspect purement sportif, cette immersion culturelle permettra à nos jeunes talents de découvrir différentes approches de l'entraînement et d'élargir leurs horizons dans un environnement international stimulant. Des visites culturelles et des moments d'échange avec les gymnastes locaux sont également prévus pour enrichir cette expérience. Ce voyage représente un investissement significatif dans le développement de nos athlètes les plus prometteurs, leur offrant une source d'inspiration et de motivation exceptionnelle. Il témoigne de notre ambition de leur offrir toutes les opportunités possibles pour atteindre leur plein potentiel et porter haut les couleurs de notre club sur la scène nationale et internationale.",
     categoryId: 1 // Catégorie Gymnastique artistique
   },
   {
     id: 20,
     title: "Programme de certification ",
-    image: "test.webp",
+    image: "test5.jpg",
     description: "Dans le cadre de notre engagement continu envers l'excellence pédagogique, nous sommes fiers d'annoncer que l'ensemble de notre équipe d'entraîneurs participera à un programme de certification avancée reconnu par la Fédération Internationale de Gymnastique. Cette formation d'élite, dispensée sur plusieurs mois, couvrira les aspects les plus pointus de l'entraînement moderne en gymnastique, incluant les dernières avancées en biomécanique, les méthodologies d'apprentissage progressif, et les techniques d'évaluation et de correction optimisées. Un module spécifique sera consacré à la psychopédagogie adaptée aux différentes tranches d'âge et niveaux de pratique, permettant ainsi une approche encore plus personnalisée de l'enseignement. Nos entraîneurs auront également l'opportunité d'échanger avec des experts internationaux et de participer à des sessions d'observation dans des centres d'excellence. Ce perfectionnement professionnel représente un investissement considérable pour notre club, mais témoigne de notre conviction que la qualité de l'encadrement constitue la clé de l'épanouissement et de la progression de nos gymnastes. Les nouvelles compétences acquises seront immédiatement mises en application dans nos programmes, garantissant à nos adhérents un enseignement toujours à la pointe des connaissances et des meilleures pratiques internationales.",
     categoryId: 4 // Catégorie Compétition
   }
