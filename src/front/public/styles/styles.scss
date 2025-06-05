@@ -1965,6 +1965,8 @@ s
     overflow: hidden;
     transition: $transition;
     height: 100%;
+    border: 2px solid rgba($primary-color, 0.13); // Bordure subtile
+    
     
     &:hover {
         transform: translateY(-8px);

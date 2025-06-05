@@ -61,6 +61,16 @@
                                         <span class="tag"><%= actuality.category ? actuality.category.title : 'Actualité' %></span>
                                         <span class="tag">Sport</span>
                                     </div>
+                                    <div class="actuality-actions">
+                                        <a href="/modifForm?id=<%= actuality.id %>" class="btn-edit" style="margin-right:10px;">
+                                            <i class="fas fa-edit"></i> Modifier
+                                        </a>
+                                        <form action="/actualities/delete/<%= actuality.id %>" method="POST" style="display:inline;">
+                                            <button type="submit" class="btn-delete" onclick="return confirm('Voulez-vous vraiment supprimer cette actualité ?');">
+                                                <i class="fas fa-trash"></i> Supprimer
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </article>
@@ -69,16 +79,22 @@
                         <div class="related-news">
                             <h2 class="section-title">Autres actualités qui pourraient vous intéresser</h2>
                             <div class="related-news-grid">
-                                <!-- Cette section nécessiterait des données supplémentaires du serveur -->
-                                <!-- Exemple statique -->
-                                <div class="related-news-item">
-                                    <a href="#" class="related-news-link">
-                                        <div class="related-news-image-container">
-                                            <img src="/image/placeholder.jpg" alt="Actualité connexe" class="related-news-image">
+                                <% if (sameCategoryActualities && sameCategoryActualities.length > 0) { %>
+                                    <% sameCategoryActualities.forEach(function(item) { %>
+                                        <% if (item.id !== actuality.id) { %>
+                                        <div class="related-news-item">
+                                            <a href="/actuality/<%= item.id %>" class="related-news-link">
+                                                <div class="related-news-image-container">
+                                                    <img src="/image/<%= item.image %>" alt="<%= item.title %>" class="related-news-image">
+                                                </div>
+                                                <h3 class="related-news-title"><%= item.title %></h3>
+                                            </a>
                                         </div>
-                                        <h3 class="related-news-title">Titre d'une actualité connexe</h3>
-                                    </a>
-                                </div>
+                                        <% } %>
+                                    <% }); %>
+                                <% } else { %>
+                                    <p>Aucune autre actualité dans cette catégorie.</p>
+                                <% } %>
                             </div>
                         </div>
                     </div>
@@ -86,6 +102,8 @@
                     <script>
                         // Log côté client pour voir ce que tu reçois dans la vue
                         console.log('actuality:', <%- JSON.stringify(actuality) %>);
+                        console.log('relatedActualities:', <%- JSON.stringify(relatedActualities) %>);
+                        console.log('sameCategoryActualities:', <%- JSON.stringify(sameCategoryActualities) %>);
                     </script>
                 </main>
             </div>
@@ -95,3 +113,43 @@
     </div>
 </body>
 </html>
+
+<style>
+/* Styles rapides pour les boutons modifier/supprimer */
+.actuality-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+.btn-edit, .btn-delete {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.btn-edit {
+    background: linear-gradient(90deg, #ffa58f, #ff7e5f);
+    color: #fff;
+    border: none;
+}
+.btn-edit:hover {
+    background: #ff7e5f;
+    color: #fff;
+}
+.btn-delete {
+    background: #fff;
+    color: #e05642;
+    border: 2px solid #e05642;
+}
+.btn-delete:hover {
+    background: #e05642;
+    color: #fff;
+}
+</style>

@@ -1,28 +1,30 @@
-import { DataTypes, Model} from 'sequelize';
-import { sequelize } from './db.client.js'; // Assure-toi d'avoir une instance de sequelize client
+import { DataTypes, Model } from 'sequelize';
+import { sequelize } from './db.client.js';
 
 export class Actuality extends Model {}
 
 Actuality.init(
   {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     title: {
-      type: DataTypes.STRING(50), // Type de la colonne preuve
-      allowNull: false,           // Cette colonne ne peut pas être nulle
+      type: DataTypes.STRING(50),
+      allowNull: false,
     },
     image: {
-        type: DataTypes.STRING,      // Type de la colonne duration
-        allowNull: false,           // Cette colonne ne peut pas être nulle
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     description: {
-        type: DataTypes.TEXT,        // Changé de STRING à TEXT pour supporter de longs textes
-        allowNull: false
-    }
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
   },
   {
-    sequelize,  // La connexion Sequelize
-    tableName: "actuality",  // Nom exact de la table en BDD
-
+    sequelize,
+    tableName: 'actuality',
   }
-  
 );
-

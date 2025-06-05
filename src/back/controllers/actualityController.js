@@ -40,6 +40,20 @@ export const actualityController = {
                 return res.status(404).render('error', { message: 'Actuality not found.' });
             }
             
+            // Récupérer toutes les actualités de la même catégorie (y compris l'actuelle)
+            const sameCategoryActualities = await Actuality.findAll({
+                where: {
+                    category_id: actuality.category_id
+                },
+                order: [['createdAt', 'DESC']],
+                include: [
+                    {
+                        model: Category,
+                        as: 'category'
+                    }
+                ]
+            });
+
             // Récupérer les actualités connexes (même catégorie, mais pas l'actualité actuelle)
             const relatedActualities = await Actuality.findAll({
                 where: {
@@ -56,10 +70,11 @@ export const actualityController = {
                 ]
             });
             
-            // Rendre la vue avec les données de l'actualité et les actualités connexes
+            // Rendre la vue avec les données de l'actualité, les actualités connexes et toutes les actualités de la même catégorie
             res.status(200).render('../front/views/pages/actuality', { 
                 actuality,
-                relatedActualities
+                relatedActualities,
+                sameCategoryActualities
             });
         } catch (err) {
             console.error(err);
@@ -103,6 +118,16 @@ export const actualityController = {
         console.error(err);
         res.status(500).send('Erreur lors de la récupération des actualités: ' + err.message);
     }
-}
-
+},
+    async deleteActuality(req, res) {
+        try {
+            const id = req.params.id;
+            // Supprimer l'actualité par son ID
+            await Actuality.destroy({ where: { id } });
+            res.redirect('/actualities');
+        } catch (err) {
+            console.error(err);
+            res.status(500).render('error', { message: 'Erreur lors de la suppression de l\'actualité.' });
+        }
+    },
 };

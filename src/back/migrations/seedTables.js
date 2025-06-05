@@ -25,7 +25,7 @@ for(const emp of employee){
         id: emp.id,
         firstname: emp.firstname,
         name: emp.name,
-        function: emp.function,
+        role: emp.role,
         image: emp.image,
         description: emp.description,
         category_id: emp.categoryId
@@ -65,7 +65,7 @@ console.log('Activities seeded');
 // Seed Actuality table
 for(const act of actuality){
     await Actuality.create({
-        id: act.id,
+
         title: act.title,
         image: act.image,
         description: act.description,

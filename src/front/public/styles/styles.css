@@ -1896,6 +1896,7 @@ s .no-activities {
   overflow: hidden;
   transition: all 0.3s ease;
   height: 100%;
+  border: 2px solid rgba(12, 15, 175, 0.13);
 }
 .actuality-card:hover {
   transform: translateY(-8px);

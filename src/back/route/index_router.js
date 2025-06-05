@@ -3,9 +3,36 @@ import { activityController } from '../controllers/activityController.js';
 import { actualityController } from '../controllers/actualityController.js';
 import { employeeController } from '../controllers/employeeController.js';
 import { contactController } from '../controllers/contactController.js';
+import { formController } from '../controllers/formController.js';
+import multer from "multer";
+import path from "path";
+import fs from 'fs';
 
 export const router = new Router();
 
+// Configuration de multer pour l'upload d'image
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const folderPath = "src/front/public/image";
+
+    // Vérifie si le dossier existe
+    import('fs').then(fs => {
+      if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath, { recursive: true }); // Crée récursivement si besoin
+      }
+      cb(null, folderPath);
+    }).catch(err => {
+      console.error("Erreur lors de la création du dossier d'upload :", err);
+      cb(err);
+    });
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({ storage: storage });
 
 
 
@@ -13,6 +40,10 @@ export const router = new Router();
 router.get('/', actualityController.renderNewActualities);
 
 router.get('/team', employeeController.renderAllEmployee);
+
+router.get('/form', formController.renderForm);
+
+router.get('/modifForm', formController.renderModifForm);
 
 router.get('/employees/:id', employeeController.renderOneEmployee);
 
@@ -22,3 +53,10 @@ router.get('/actualities', actualityController.renderAllActualities);
 router.get('/activities', activityController.renderAllActivities);
 
 router.get('/contact', contactController.renderAllContact);
+
+// Ajout du POST pour la soumission du formulaire d'actualité
+router.post('/actualities/add', upload.single('image'), formController.submitForm);
+
+// Route pour supprimer une actualité
+router.post('/actualities/delete/:id', actualityController.deleteActuality);
+router.post('/actualities/update/:id', upload.single('image'), formController.updateActuality);
