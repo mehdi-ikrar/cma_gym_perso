@@ -5,7 +5,7 @@ $primary-dark: #127494;
 $secondary-color: #ff7e5f;
 $secondary-light: #ffa58f;
 $secondary-dark: #e05642;
-$accent-color: #ffb400;
+$accent-color: #ff7e5f;
 $background-color: #f8f9fa;
 $card-bg: #ffffff;
 $text-primary: #2d3436;
@@ -560,6 +560,7 @@ footer {
     border-radius: $border-radius;
     box-shadow: $box-shadow-sm;
     padding: $spacing-lg;
+    padding-top: 0px;
     margin-bottom: $spacing-lg;
 }
 
@@ -750,6 +751,8 @@ s
 .news-carousel-container {
     margin: $spacing-xl 0;
     position: relative;
+
+    
 }
 
 .carousel-title {
@@ -758,6 +761,7 @@ s
     color: $primary-dark;
     position: relative;
     display: inline-block;
+    
     
     &:after {
         content: '';
@@ -771,12 +775,15 @@ s
 }
 
 .news-carousel {
+    border: 3px solid transparent; // Base transparente nécessaire pour le gradient
+
+    border-image: linear-gradient(90deg, $secondary-color, $primary-color) 1;
     position: relative;
     height: 750px; // Augmenter la hauteur (était 400px)
     width: 70%;
     margin: 0 auto; // Centrer horizontalement
     background: $card-bg;
-    border-radius: $border-radius;
+
     box-shadow: $box-shadow-lg;
     overflow: hidden;
     margin-bottom: $spacing-xl;
@@ -834,7 +841,7 @@ s
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: linear-gradient(135deg, $primary-color 0%, darken($primary-color, 10%) 100%);
+    background: linear-gradient(120deg, darken($primary-dark, 5%), darken($primary-color, 1%)); // Version plus sombre
     color: white;
     
     h3 {
@@ -1965,8 +1972,10 @@ s
     overflow: hidden;
     transition: $transition;
     height: 100%;
-    border: 2px solid rgba($primary-color, 0.13); // Bordure subtile
-    
+    border: 2px solid linear-gradient(90deg, $secondary-color, $primary-color); // Bordure subtile
+    border: 13px solid transparent; // Base transparente nécessaire pour le gradient
+
+    border-image: linear-gradient(90deg,$primary-color, $secondary-color, ) 1;
     
     &:hover {
         transform: translateY(-8px);
@@ -2321,6 +2330,10 @@ s
         color: rgba(255,255,255,0.92);
         max-width: 600px;
         margin: 0 auto;
+        
+        @media (max-width: 576px) {
+            display: none; // Cache le texte descriptif sur mobile
+        }
     }
 }
 
@@ -2506,6 +2519,9 @@ s
     }
     .activities-hero-title {
         font-size: 1.5rem;
+    }
+    .activities-hero-desc {
+        display: none; // Cache le texte descriptif sur mobile
     }
     .activity-header {
         padding: $spacing-md;

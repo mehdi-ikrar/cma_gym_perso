@@ -82,7 +82,7 @@ header h1::after {
   bottom: -5px;
   width: 40%;
   height: 4px;
-  background-color: #ffb400;
+  background-color: #ff7e5f;
   border-radius: 2px;
   transform: translateX(-50%);
 }
@@ -314,7 +314,7 @@ footer p {
   left: 0;
   bottom: 0;
   height: 3px;
-  background-color: #ffb400;
+  background-color: #ff7e5f;
 }
 .sidebar-content h3::after {
   width: 40%;
@@ -343,7 +343,7 @@ footer p {
   top: 0;
   height: 100%;
   width: 4px;
-  background-color: #ffb400;
+  background-color: #ff7e5f;
   border-radius: 0 2px 2px 0;
 }
 .sidebar-menu .sidebar-item.active a {
@@ -539,6 +539,7 @@ footer p {
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   padding: 2rem;
+  padding-top: 0px;
   margin-bottom: 2rem;
 }
 
@@ -742,12 +743,14 @@ s .no-activities {
 }
 
 .news-carousel {
+  border: 3px solid transparent;
+  -o-border-image: linear-gradient(90deg, #ff7e5f, #0c0faf) 1;
+     border-image: linear-gradient(90deg, #ff7e5f, #0c0faf) 1;
   position: relative;
   height: 750px;
   width: 70%;
   margin: 0 auto;
   background: #ffffff;
-  border-radius: 10px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   margin-bottom: 3rem;
@@ -806,7 +809,7 @@ s .no-activities {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: linear-gradient(135deg, #0c0faf 0%, #090b7f 100%);
+  background: linear-gradient(120deg, #0f627d, #0c0faa);
   color: white;
 }
 .carousel-text h3 {
@@ -829,7 +832,7 @@ s .no-activities {
 
 .carousel-button {
   display: inline-block;
-  background: #ffb400;
+  background: #ff7e5f;
   color: #2d3436;
   font-weight: 600;
   padding: 0.75rem 1rem;
@@ -901,7 +904,7 @@ s .no-activities {
   transition: all 0.3s ease;
 }
 .carousel-indicator.active {
-  background: #ffb400;
+  background: #ff7e5f;
   transform: scale(1.2);
 }
 .carousel-indicator:hover {
@@ -1106,7 +1109,7 @@ s .no-activities {
   background-color: rgba(17, 40, 192, 0.05);
   border-radius: 10px;
   padding: 1rem;
-  border-left: 4px solid #ffb400;
+  border-left: 4px solid #ff7e5f;
 }
 
 .schedule-text {
@@ -1165,7 +1168,7 @@ s .no-activities {
   bottom: 0;
   width: 50px;
   height: 3px;
-  background-color: #ffb400;
+  background-color: #ff7e5f;
 }
 
 .contact-form .form-row {
@@ -1419,7 +1422,7 @@ s .no-activities {
 }
 .social-icon:hover {
   transform: translateY(-3px);
-  background-color: #ffb400;
+  background-color: #ff7e5f;
   color: white;
 }
 .social-icon i {
@@ -1896,7 +1899,10 @@ s .no-activities {
   overflow: hidden;
   transition: all 0.3s ease;
   height: 100%;
-  border: 2px solid rgba(12, 15, 175, 0.13);
+  border: 2px solid linear-gradient(90deg, #ff7e5f, #0c0faf);
+  border: 13px solid transparent;
+  -o-border-image: linear-gradient(90deg, #0c0faf, #ff7e5f) 1;
+     border-image: linear-gradient(90deg, #0c0faf, #ff7e5f) 1;
 }
 .actuality-card:hover {
   transform: translateY(-8px);
@@ -1937,7 +1943,7 @@ s .no-activities {
   position: absolute;
   top: 0.75rem;
   left: 0.75rem;
-  background-color: #ffb400;
+  background-color: #ff7e5f;
   color: white;
   padding: 0.5rem;
   border-radius: 0.5rem;
@@ -2142,7 +2148,7 @@ s .no-activities {
   bottom: -2px;
   width: 80px;
   height: 2px;
-  background-color: #ffb400;
+  background-color: #ff7e5f;
 }
 
 .no-members {
@@ -2219,6 +2225,11 @@ s .no-activities {
   color: rgba(255, 255, 255, 0.92);
   max-width: 600px;
   margin: 0 auto;
+}
+@media (max-width: 576px) {
+  .activities-hero .activities-hero-desc {
+    display: none;
+  }
 }
 
 .activities-filter {
@@ -2403,6 +2414,9 @@ s .no-activities {
   }
   .activities-hero-title {
     font-size: 1.5rem;
+  }
+  .activities-hero-desc {
+    display: none;
   }
   .activity-header {
     padding: 1rem;

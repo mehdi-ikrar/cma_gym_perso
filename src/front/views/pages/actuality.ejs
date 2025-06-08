@@ -25,19 +25,13 @@
                         
                         <article class="actuality-details">
                             <div class="actuality-header">
-                                <div class="actuality-meta">
+                                <h1 class="actuality-title"><%= actuality.title %></h1>
+                                 <div class="actuality-meta">
                                     <span class="actuality-category">Actualité</span>
+                                    <span class="actuality-category"><%= actuality.category ? actuality.category.title : 'Actualité' %></span>
                                     <span class="actuality-date"><i class="far fa-calendar-alt"></i> <%= new Date(actuality.createdAt).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
                                 </div>
-                                <h1 class="actuality-title"><%= actuality.title %></h1>
-                                <div class="actuality-share">
-                                    <span>Partager sur :</span>
-                                    <div class="share-buttons">
-                                        <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
-                                        <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
+
                             </div>
                             
                             <div class="actuality-hero">
@@ -56,11 +50,7 @@
                                     <div class="back-button">
                                         <a href="/actualities"><i class="fas fa-chevron-left"></i> Retour aux actualités</a>
                                     </div>
-                                    <div class="actuality-tags">
-                                        <span class="tag">CMA GYM</span>
-                                        <span class="tag"><%= actuality.category ? actuality.category.title : 'Actualité' %></span>
-                                        <span class="tag">Sport</span>
-                                    </div>
+
                                     <div class="actuality-actions">
                                         <a href="/modifForm?id=<%= actuality.id %>" class="btn-edit" style="margin-right:10px;">
                                             <i class="fas fa-edit"></i> Modifier
