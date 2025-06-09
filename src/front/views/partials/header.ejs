@@ -6,12 +6,24 @@
         <a href="/" class="title-link">
             <h1>CMA GYM</h1>
         </a>
-        <p class="header-subtitle">La gymnastique, notre passion, votre progression.</p>
-        <a href="/login" class="login-icon" title="Connexion">
-            <i class="fas fa-user-circle"></i>
-        </a>
+        <% if (typeof user !== 'undefined' && user && user.name) { %>
+            <p class="header-subtitle">Bonjour <%= user.name %> !</p>
+            <form action="/logout" method="POST" style="display:inline;">
+                <button type="submit" class="logout-btn" style="background:none;border:none;color:#fff;font-size:1.1rem;cursor:pointer;margin-left:15px;">
+                    Déconnexion
+                </button>
+            </form>
+        <% } else { %>
+            <p class="header-subtitle">La gymnastique, notre passion, votre progression.</p>
+            <a href="/login" class="login-icon" title="Connexion">
+                <i class="fas fa-user-circle"></i>
+            </a>
+        <% } %>
     </div>
 </header>
 <style>
-
+.logout-btn:hover {
+    text-decoration: underline;
+    color: #ff7e5f;
+}
 </style>

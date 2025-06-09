@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('../partials/head') %>
+<body>
+    <div class="page-container">
+        <%- include('../partials/header') %>
+        <div class="content-wrapper">
+            <%- include('../partials/sidebar') %>
+            <div class="main-content">
+                <main>
+                    <div class="container">
+                        <section class="activities-hero">
+                            <div class="activities-hero-content">
+                                <h2 class="activities-hero-title">Connexion</h2>
+                                <p class="activities-hero-desc">
+                                    Connectez-vous à votre espace administrateur.
+                                </p>
+                            </div>
+                        </section>
+                        <div class="contact-form-container" style="max-width:400px;margin:0 auto;">
+                            <h3 class="form-title">Se connecter</h3>
+                            <% if (typeof error !== 'undefined' && error) { %>
+                                <div style="color:#fff;background:#e05642;padding:10px 20px;border-radius:8px;margin-bottom:15px;text-align:center;">
+                                    <%= error %>
+                                </div>
+                            <% } %>
+                            <% if (typeof success !== 'undefined' && success) { %>
+                                <div style="color:#fff;background:#127494;padding:10px 20px;border-radius:8px;margin-bottom:15px;text-align:center;">
+                                    <%= success %>
+                                </div>
+                            <% } %>
+                            <form class="contact-form" action="/login" method="POST" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="username">Identifiant</label>
+                                    <input type="text" id="username" name="username" placeholder="Votre identifiant" required autocomplete="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Mot de passe</label>
+                                    <input type="password" id="password" name="password" placeholder="Votre mot de passe" required autocomplete="current-password">
+                                </div>
+                                <button type="submit" class="submit-btn">Connexion</button>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <%- include('../partials/footer') %>
+    </div>
+
+    <style>
+        /* Style plus moderne pour le select catégorie */
+        .custom-select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        .custom-select {
+            width: 100%;
+            padding: 0.75rem 2.5rem 0.75rem 1rem;
+            border: 2px solid #0c0faf;
+            border-radius: 30px;
+            background: #fff;
+            font-size: 1rem;
+            color: #0c0faf;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            font-weight: 600;
+            transition: border-color 0.2s;
+            box-shadow: 0 2px 8px rgba(12, 15, 175, 0.06);
+        }
+        .custom-select:focus {
+            border-color: #ff7e5f;
+            outline: none;
+        }
+        .custom-arrow {
+            position: absolute;
+            top: 50%;
+            right: 1.2rem;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-top: 8px solid #ff7e5f;
+            transform: translateY(-50%);
+        }
+    </style>
+
+</body>
+</html>

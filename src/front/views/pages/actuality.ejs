@@ -52,15 +52,17 @@
                                     </div>
 
                                     <div class="actuality-actions">
+                                        <% if (admin) { %>  <!-- Si admin est défini (connecté) -->
                                         <a href="/modifForm?id=<%= actuality.id %>" class="btn-edit" style="margin-right:10px;">
                                             <i class="fas fa-edit"></i> Modifier
                                         </a>
                                         <form action="/actualities/delete/<%= actuality.id %>" method="POST" style="display:inline;">
                                             <button type="submit" class="btn-delete" onclick="return confirm('Voulez-vous vraiment supprimer cette actualité ?');">
-                                                <i class="fas fa-trash"></i> Supprimer
+                                            <i class="fas fa-trash"></i> Supprimer
                                             </button>
                                         </form>
-                                    </div>
+                                        <% } %>
+                                        </div>
                                 </div>
                             </div>
                         </article>

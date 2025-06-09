@@ -9,8 +9,10 @@
             <li class="sidebar-item"><a href="/activities"><span class="icon">📅</span> Activité</a></li>
             <li class="sidebar-item"><a href="/team"><span class="icon">👨‍🏫</span> Equipes</a></li>
             <li class="sidebar-item"><a href="/contact"><span class="icon">📞</span> Contact</a></li>
-            <li class="sidebar-item"><a href="/form"><span class="icon">📞</span> Form</a></li>
+
+            <% if (admin) { %> 
+                <li class="sidebar-item" id="form-btn"><a href="/form"><span class="icon">📞</span> Form</a></li>
+            <% } %>
         </ul>
-        
     </div>
 </nav>
