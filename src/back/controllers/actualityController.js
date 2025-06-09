@@ -83,8 +83,13 @@ export const actualityController = {
     },
     async renderAllActualities(req, res) {
     try {
+        // Détection mobile via user-agent (simple, amélioré)
+        const userAgent = req.headers['user-agent'] || '';
+        const isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
+
+        // Si mobile, 3 actus par page, sinon 10
+        const limit = isMobile ? 3 : 10;
         const page = parseInt(req.query.page) || 1;
-        const limit = 10;
         const offset = (page - 1) * limit;
         const selectedCategory = req.query.category;
 
