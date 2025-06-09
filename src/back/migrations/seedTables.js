@@ -8,7 +8,7 @@ import { actuality } from "../data/acutality.js";
 import { admin } from "../data/admin.js";
 import { contact } from "../data/contact.js";
 import { category } from "../data/category.js";
-import bcrypt from "bcryptjs";
+import argon2 from 'argon2';
 
 // Seed Categories table
 for(const cat of category){
@@ -90,7 +90,7 @@ for(const u of admin){
         id: u.id,
         name: u.name,
         email: u.email,
-        password: await bcrypt.hash(u.password, 10) // Hash le mot de passe pour compatibilité avec bcrypt
+        password: await argon2.hash(u.password) // PAS de second argument ici
     });
 }
 console.log('Admin seeded');

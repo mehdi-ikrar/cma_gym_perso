@@ -1,4 +1,4 @@
-import bcrypt from 'bcryptjs';
+import argon2 from 'argon2';
 import jwt from 'jsonwebtoken';
 import { Admin } from "../models/adminModel.js";
 
@@ -18,8 +18,8 @@ export const authController = {
       }
 
       let validPassword = false;
-      if (user.password && user.password.startsWith('$2')) {
-        validPassword = await bcrypt.compare(password, user.password);
+      if (user.password && user.password.startsWith('$argon2')) {
+        validPassword = await argon2.verify(user.password, password);
       } else {
         validPassword = password === user.password;
       }
@@ -78,12 +78,15 @@ export const authController = {
         return res.redirect('/login');
       }
 
-      const validOldPassword = await bcrypt.compare(oldPassword, user.password);
+      const validOldPassword = user.password && user.password.startsWith('$argon2')
+        ? await argon2.verify(user.password, oldPassword)
+        : oldPassword === user.password;
+
       if (!validOldPassword) {
-        return res.render('../front/views/pages/profild', { error: 'Le mot de passe actuel est incorrect.', success: null, user: req.user });
+        return res.render('../front/views/pages/profil', { error: 'Le mot de passe actuel est incorrect.', success: null, user: req.user });
       }
 
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      const hashedPassword = await argon2.hash(newPassword);
       user.password = hashedPassword;
       await user.save();
 
@@ -122,12 +125,15 @@ export const authController = {
         return res.redirect('/login');
       }
 
-      const validOldPassword = await bcrypt.compare(oldPassword, user.password);
+      const validOldPassword = user.password && user.password.startsWith('$argon2')
+        ? await argon2.verify(user.password, oldPassword)
+        : oldPassword === user.password;
+
       if (!validOldPassword) {
         return res.render('../front/views/pages/profil', { user: req.user, error: 'Le mot de passe actuel est incorrect.', success: null });
       }
 
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      const hashedPassword = await argon2.hash(newPassword);
       user.password = hashedPassword;
       await user.save();
 
