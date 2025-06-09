@@ -46,6 +46,10 @@ export const formController = {
 
     async submitForm(req, res) {
         try {
+            // Ajoute un log pour voir ce que tu reçois du formulaire
+            console.log('BODY:', req.body);
+            console.log('FILE:', req.file);
+
             // Récupération des champs du formulaire
             const { title, category_id, description } = req.body;
             let image = null;

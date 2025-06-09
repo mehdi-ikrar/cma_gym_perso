@@ -13,18 +13,13 @@ export const router = new Router();
 // Configuration de multer pour l'upload d'image
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    const folderPath = "src/front/public/image";
+    const folderPath = "front/public/image";
 
-    // Vérifie si le dossier existe
-    import('fs').then(fs => {
-      if (!fs.existsSync(folderPath)) {
-        fs.mkdirSync(folderPath, { recursive: true }); // Crée récursivement si besoin
-      }
-      cb(null, folderPath);
-    }).catch(err => {
-      console.error("Erreur lors de la création du dossier d'upload :", err);
-      cb(err);
-    });
+    // Utilisation synchrone de fs pour vérifier/créer le dossier
+    if (!fs.existsSync(folderPath)) {
+      fs.mkdirSync(folderPath, { recursive: true }); // Crée récursivement si besoin
+    }
+    cb(null, folderPath);
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
