@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <%- include('../partials/head') %>
+<body>
+    <div class="page-container">
+        <%- include('../partials/header') %>
+        <div class="content-wrapper">
+            <%- include('../partials/sidebar') %>
+            <div class="main-content">
+                <main>
+                    <div class="container">
+                        <section class="activities-hero">
+                            <div class="activities-hero-content">
+                                <h2 class="activities-hero-title">Changer mon mot de passe</h2>
+                                <p class="activities-hero-desc">
+                                    Modifiez votre mot de passe pour sécuriser votre compte administrateur.
+                                </p>
+                            </div>
+                        </section>
+                        <div class="contact-form-container" style="max-width:400px;margin:0 auto;">
+                            <h3 class="form-title">Nouveau mot de passe</h3>
+                            <% if (typeof error !== 'undefined' && error) { %>
+                                <div style="color:#fff;background:#e05642;padding:10px 20px;border-radius:8px;margin-bottom:15px;text-align:center;">
+                                    <%= error %>
+                                </div>
+                            <% } %>
+                            <% if (typeof success !== 'undefined' && success) { %>
+                                <div style="color:#fff;background:#127494;padding:10px 20px;border-radius:8px;margin-bottom:15px;text-align:center;">
+                                    <%= success %>
+                                </div>
+                            <% } %>
+                            <form class="contact-form" action="/change-password" method="POST" autocomplete="off">
+                                <div class="form-group">
+                                    <label for="oldPassword">Mot de passe actuel</label>
+                                    <input type="password" id="oldPassword" name="oldPassword" placeholder="Mot de passe actuel" required autocomplete="current-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newPassword">Nouveau mot de passe</label>
+                                    <input type="password" id="newPassword" name="newPassword" placeholder="Nouveau mot de passe" required autocomplete="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmez le nouveau mot de passe" required autocomplete="new-password">
+                                </div>
+                                <button type="submit" class="submit-btn">Changer le mot de passe</button>
+                            </form>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <%- include('../partials/footer') %>
+    </div>
+</body>
+</html>

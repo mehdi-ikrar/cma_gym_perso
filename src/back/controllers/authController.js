@@ -54,7 +54,7 @@ export const authController = {
     if (!req.user) {
       return res.redirect('/login');
     }
-    res.render('../front/views/pages/changePassword', { error: null, success: null, user: req.user });
+    res.render('../front/views/pages/profil', { error: null, success: null, user: req.user });
   },
 
   changePassword: async (req, res) => {
@@ -65,11 +65,11 @@ export const authController = {
     const { oldPassword, newPassword, confirmPassword } = req.body;
 
     if (!oldPassword || !newPassword || !confirmPassword) {
-      return res.render('../front/views/pages/changePassword', { error: 'Tous les champs sont obligatoires.', success: null, user: req.user });
+      return res.render('../front/views/pages/profil', { error: 'Tous les champs sont obligatoires.', success: null, user: req.user });
     }
 
     if (newPassword !== confirmPassword) {
-      return res.render('../front/views/pages/changePassword', { error: 'Les nouveaux mots de passe ne correspondent pas.', success: null, user: req.user });
+      return res.render('../front/views/pages/profil', { error: 'Les nouveaux mots de passe ne correspondent pas.', success: null, user: req.user });
     }
 
     try {
@@ -80,17 +80,61 @@ export const authController = {
 
       const validOldPassword = await bcrypt.compare(oldPassword, user.password);
       if (!validOldPassword) {
-        return res.render('../front/views/pages/changePassword', { error: 'Le mot de passe actuel est incorrect.', success: null, user: req.user });
+        return res.render('../front/views/pages/profild', { error: 'Le mot de passe actuel est incorrect.', success: null, user: req.user });
       }
 
       const hashedPassword = await bcrypt.hash(newPassword, 10);
       user.password = hashedPassword;
       await user.save();
 
-      res.render('../front/views/pages/changePassword', { error: null, success: 'Mot de passe changé avec succès !', user: req.user });
+      res.render('../front/views/pages/profil', { error: null, success: 'Mot de passe changé avec succès !', user: req.user });
     } catch (err) {
       console.error(err);
-      res.status(500).render('../front/views/pages/changePassword', { error: 'Erreur serveur.', success: null, user: req.user });
+      res.status(500).render('../front/views/pages/profil', { error: 'Erreur serveur.', success: null, user: req.user });
+    }
+  },
+
+  renderProfil(req, res) {
+    if (!req.user) {
+      return res.redirect('/login');
+    }
+    res.render('../front/views/pages/profil', { user: req.user, error: null, success: null });
+  },
+
+  async changePasswordFromProfil(req, res) {
+    if (!req.user) {
+      return res.redirect('/login');
+    }
+
+    const { oldPassword, newPassword, confirmPassword } = req.body;
+
+    if (!oldPassword || !newPassword || !confirmPassword) {
+      return res.render('../front/views/pages/profil', { user: req.user, error: 'Tous les champs sont obligatoires.', success: null });
+    }
+
+    if (newPassword !== confirmPassword) {
+      return res.render('../front/views/pages/profil', { user: req.user, error: 'Les nouveaux mots de passe ne correspondent pas.', success: null });
+    }
+
+    try {
+      const user = await Admin.findOne({ where: { id: req.user.id } });
+      if (!user) {
+        return res.redirect('/login');
+      }
+
+      const validOldPassword = await bcrypt.compare(oldPassword, user.password);
+      if (!validOldPassword) {
+        return res.render('../front/views/pages/profil', { user: req.user, error: 'Le mot de passe actuel est incorrect.', success: null });
+      }
+
+      const hashedPassword = await bcrypt.hash(newPassword, 10);
+      user.password = hashedPassword;
+      await user.save();
+
+      res.render('../front/views/pages/profil', { user: req.user, error: null, success: 'Mot de passe changé avec succès !' });
+    } catch (err) {
+      console.error(err);
+      res.status(500).render('../front/views/pages/profil', { user: req.user, error: 'Erreur serveur.', success: null });
     }
   }
 };

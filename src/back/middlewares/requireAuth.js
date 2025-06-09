@@ -5,7 +5,7 @@ export function requireAuth(req, res, next) {
   const jwtSecret = process.env.JWT_SECRET || 'dev_secret_key';
   if (!token) {
     req.user = null;
-    return res.redirect('/login');
+    return res.redirect('/401');
   }
   try {
     const realToken = token.startsWith('Bearer ') ? token.slice(7) : token;

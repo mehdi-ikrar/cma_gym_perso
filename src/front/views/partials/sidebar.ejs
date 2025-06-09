@@ -11,7 +11,15 @@
             <li class="sidebar-item"><a href="/contact"><span class="icon">📞</span> Contact</a></li>
 
             <% if (admin) { %> 
-                <li class="sidebar-item" id="form-btn"><a href="/form"><span class="icon">📞</span> Form</a></li>
+                <li class="sidebar-item"><a href="/form"><span class="icon">📝</span> Form</a></li>
+                <li class="sidebar-item"><a href="/profil"><span class="icon">👤</span> Mon compte</a></li>
+                <li>
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="sidebar-item" style="background:none;border:none;color:inherit;width:100%;text-align:left;padding:10px;cursor:pointer;">
+                            <span class="icon">🚪</span> Déconnexion
+                        </button>
+                    </form>
+                </li>
             <% } %>
         </ul>
     </div>

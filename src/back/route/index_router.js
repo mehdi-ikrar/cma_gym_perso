@@ -62,5 +62,15 @@ router.post('/logout', (req, res) => {
   res.clearCookie('token');
   req.user = null;
   res.locals.user = null;
-  res.redirect('/login');
+  res.redirect('/');
+});
+
+// Route pour la page non autorisée
+router.get('/401', (req, res) => {
+  res.status(401).render('../front/views/pages/401');
+});
+
+// Route protégée pour afficher la page profil
+router.get('/profil', requireAuth, (req, res) => {
+  res.render('../front/views/pages/profil', { user: req.user });
 });
