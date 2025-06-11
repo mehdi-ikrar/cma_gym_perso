@@ -17,9 +17,7 @@
                         <section class="activities-hero">
                             <div class="activities-hero-content">
                                 <h2 class="activities-hero-title">Toutes nos actualités</h2>
-                                <p class="activities-hero-desc">
-                                    Découvrez une sélection d'activités adaptées à tous les âges et tous les niveaux, encadrées par nos coachs passionnés.
-                                </p>
+
                             </div>
                         </section>
                         
@@ -31,7 +29,6 @@
                                     <span class="actuality-category"><%= actuality.category ? actuality.category.title : 'Actualité' %></span>
                                     <span class="actuality-date"><i class="far fa-calendar-alt"></i> <%= new Date(actuality.createdAt).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
                                 </div>
-
                             </div>
                             
                             <div class="actuality-hero">
@@ -46,7 +43,80 @@
                                     <p class="actuality-description"><%= actuality.description %></p>
                                 </div>
                                 
-                                <div class="actuality-footer">
+
+                            </div>
+                                                    <% if (actuality.galerie && actuality.galerie.length > 0) { %>
+                            <div class="actuality-gallery">
+                                <h3 class="actuality-gallery-title">Galerie photos</h3>
+                                <div id="galerie-thumbs" class="galerie-thumbs">
+                                    <% actuality.galerie.forEach(function(img, idx) { %>
+                                        <div class="galerie-thumb" data-idx="<%= idx %>">
+                                            <img src="/image/<%= img.image %>" alt="Photo galerie">
+                                        </div>
+                                    <% }); %>
+                                </div>
+                            </div>
+                            <!-- Diaporama modal -->
+                            <div id="galerie-modal" class="galerie-modal">
+                                <span id="galerie-close" class="galerie-close">&times;</span>
+                                <button id="galerie-prev" class="galerie-prev">&#10094;</button>
+                                <div class="galerie-modal-inner">
+                                    <img id="galerie-modal-img" src="" alt="Diaporama">
+                                    <div id="galerie-modal-caption" class="galerie-modal-caption"></div>
+                                </div>
+                                <button id="galerie-next" class="galerie-next">&#10095;</button>
+                            </div>
+                            <script>
+                                // Diaporama JS
+                                const galerieImages = <%- JSON.stringify(actuality.galerie.map(g => ({src: '/image/' + g.image, alt: 'Photo galerie'}))) %>;
+                                const thumbs = document.querySelectorAll('.galerie-thumb');
+                                const modal = document.getElementById('galerie-modal');
+                                const modalImg = document.getElementById('galerie-modal-img');
+                                const modalCaption = document.getElementById('galerie-modal-caption');
+                                const btnClose = document.getElementById('galerie-close');
+                                const btnPrev = document.getElementById('galerie-prev');
+                                const btnNext = document.getElementById('galerie-next');
+                                let currentIdx = 0;
+
+                                function showModal(idx) {
+                                    currentIdx = idx;
+                                    modal.style.display = 'flex';
+                                    modalImg.src = galerieImages[idx].src;
+                                    modalImg.alt = galerieImages[idx].alt;
+                                    modalCaption.textContent = (idx+1) + ' / ' + galerieImages.length;
+                                    document.body.style.overflow = 'hidden';
+                                }
+                                function closeModal() {
+                                    modal.style.display = 'none';
+                                    document.body.style.overflow = '';
+                                }
+                                function showPrev() {
+                                    currentIdx = (currentIdx - 1 + galerieImages.length) % galerieImages.length;
+                                    showModal(currentIdx);
+                                }
+                                function showNext() {
+                                    currentIdx = (currentIdx + 1) % galerieImages.length;
+                                    showModal(currentIdx);
+                                }
+                                thumbs.forEach((thumb, idx) => {
+                                    thumb.addEventListener('click', () => showModal(idx));
+                                });
+                                btnClose.addEventListener('click', closeModal);
+                                btnPrev.addEventListener('click', e => { e.stopPropagation(); showPrev(); });
+                                btnNext.addEventListener('click', e => { e.stopPropagation(); showNext(); });
+                                modal.addEventListener('click', function(e) {
+                                    if (e.target === modal) closeModal();
+                                });
+                                document.addEventListener('keydown', function(e) {
+                                    if (modal.style.display === 'flex') {
+                                        if (e.key === 'ArrowLeft') showPrev();
+                                        if (e.key === 'ArrowRight') showNext();
+                                        if (e.key === 'Escape') closeModal();
+                                    }
+                                });
+                            </script>
+                        <% } %>
+                                                        <div class="actuality-footer">
                                     <div class="back-button">
                                         <a href="/actualities"><i class="fas fa-chevron-left"></i> Retour aux actualités</a>
                                     </div>
@@ -64,8 +134,9 @@
                                         <% } %>
                                         </div>
                                 </div>
-                            </div>
                         </article>
+
+
                         
                         <!-- Section des actualités connexes -->
                         <div class="related-news">
@@ -105,43 +176,3 @@
     </div>
 </body>
 </html>
-
-<style>
-/* Styles rapides pour les boutons modifier/supprimer */
-.actuality-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 20px;
-}
-.btn-edit, .btn-delete {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-}
-.btn-edit {
-    background: linear-gradient(90deg, #ffa58f, #ff7e5f);
-    color: #fff;
-    border: none;
-}
-.btn-edit:hover {
-    background: #ff7e5f;
-    color: #fff;
-}
-.btn-delete {
-    background: #fff;
-    color: #e05642;
-    border: 2px solid #e05642;
-}
-.btn-delete:hover {
-    background: #e05642;
-    color: #fff;
-}
-</style>

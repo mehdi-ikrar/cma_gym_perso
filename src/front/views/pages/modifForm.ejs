@@ -11,14 +11,14 @@
                     <div class="container">
                         <section class="activities-hero">
                             <div class="activities-hero-content">
-                                <h2 class="activities-hero-title">Ajouter une nouvelle actualité</h2>
+                                <h2 class="activities-hero-title">Modifier l'actualité</h2>
                                 <p class="activities-hero-desc">
-                                    Remplissez le formulaire ci-dessous pour publier une nouvelle actualité du club.
+                                    Modifiez les informations de l'actualité ci-dessous.
                                 </p>
                             </div>
                         </section>
                         <div class="contact-form-container">
-                            <h3 class="form-title">Nouvelle actualité</h3>
+                            <h3 class="form-title">Modifier l'actualité</h3>
                             <form class="contact-form" action="/actualities/update/<%= actuality ? actuality.id : '' %>" method="POST" enctype="multipart/form-data">
                                 <div class="form-row">
                                     <div class="form-group">
@@ -44,8 +44,8 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="image">Image</label>
-                                        <input type="file" id="image" name="image" accept="image/*" <%= actuality && actuality.image ? '' : 'required' %>>
+                                        <label for="image">Image principale</label>
+                                        <input type="file" id="image" name="image" accept="image/*">
                                         <% if (actuality && actuality.image) { %>
                                             <div style="margin-top:10px;">
                                                 <img src="/image/<%= actuality.image %>" alt="Image actuelle" style="max-width:120px;max-height:120px;border-radius:8px;">
@@ -53,14 +53,36 @@
                                             </div>
                                         <% } %>
                                     </div>
+                                    <div class="form-group">
+                                        <label for="galerie">Galerie d'images</label>
+                                        <input type="file" id="galerie" name="galerie" accept="image/*" multiple style="display:none;">
+                                        <button type="button" id="add-galerie-btn" class="submit-btn" style="background:#eee;color:#127494;margin-bottom:10px;">Ajouter des images</button>
+                                        <small style="color:#888;">Gérez les images de la galerie ci-dessous.</small>
+                                        
+                                        <div id="galerie-preview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;">
+                                            <% if (actuality && actuality.galerie && actuality.galerie.length > 0) { %>
+                                                <div class="existing-galerie" style="width:100%;">
+                                                    <h4 style="margin:10px 0 5px 0;color:#666;font-size:0.9rem;">Images existantes</h4>
+                                                    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+                                                        <% actuality.galerie.forEach(function(img) { %>
+                                                            <div class="existing-image" data-id="<%= img.id %>" style="position:relative;display:inline-block;">
+                                                                <img src="/image/<%= img.image %>" style="width:90px;height:70px;object-fit:cover;border-radius:6px;border:1px solid #ccc;" alt="Image galerie">
+                                                                <button type="button" class="delete-existing-img" data-id="<%= img.id %>" 
+                                                                        style="position:absolute;top:2px;right:2px;background:#e05642;color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:14px;line-height:1;"
+                                                                        title="Supprimer cette image">&times;</button>
+                                                            </div>
+                                                        <% }); %>
+                                                    </div>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Description de l'actualité</label>
                                     <textarea id="description" name="description" rows="4" placeholder="Décrivez l'actualité" required><%= actuality ? actuality.description : '' %></textarea>
                                 </div>
-                                <button type="submit" class="submit-btn">
-                                    <%= actuality ? "Mettre à jour l'actualité" : "Ajouter l'actualité" %>
-                                </button>
+                                <button type="submit" class="submit-btn">Mettre à jour l'actualité</button>
                             </form>
                         </div>
                     </div>
@@ -107,11 +129,28 @@
             border-top: 8px solid #ff7e5f;
             transform: translateY(-50%);
         }
+        
+        .existing-image {
+            transition: all 0.3s ease;
+        }
+        
+        .existing-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .delete-existing-img:hover {
+            background-color: #c0392b !important;
+            transform: scale(1.1);
+        }
     </style>
+
     <script>
-        // Log côté client pour vérifier les données reçues
-        console.log('actuality:', <%- JSON.stringify(actuality) %>);
-        console.log('categories:', <%- JSON.stringify(categories) %>);
+        console.log('Script de modification chargé');
+        console.log('Actualité:', <%- JSON.stringify(actuality) %>);
+        console.log('Catégories:', <%- JSON.stringify(categories) %>);
     </script>
+
+    <!-- Inclure le script depuis le fichier externe -->
+    <script src="/script.js"></script>
 </body>
 </html>

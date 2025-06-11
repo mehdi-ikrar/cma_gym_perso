@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { sequelize } from "../models/db.client.js";
-import { Activity, Actuality, Documents, Employee, Admin, Contact, Category } from "../models/associations.js";
+import { Activity, Actuality, Documents, Employee, Admin, Contact, Category, Galerie } from "../models/associations.js";
 import { employee } from "../data/employee.js";
 import { document } from "../data/document.js";
 import { activity } from "../data/activity.js";
@@ -8,6 +8,8 @@ import { actuality } from "../data/acutality.js";
 import { admin } from "../data/admin.js";
 import { contact } from "../data/contact.js";
 import { category } from "../data/category.js";
+import { galerie } from "../data/galerie.js";
+
 import argon2 from 'argon2';
 
 // Seed Categories table
@@ -65,11 +67,11 @@ console.log('Activities seeded');
 // Seed Actuality table
 for(const act of actuality){
     await Actuality.create({
-
         title: act.title,
         image: act.image,
         description: act.description,
-        category_id: act.categoryId // Utiliser la catégorie définie dans les données
+        category_id: act.categoryId
+        // PAS de galerie_id ici ! La table galerie référence actuality_id, pas l'inverse
     });
 }
 console.log('Actualities seeded');
@@ -96,5 +98,15 @@ for(const u of admin){
 console.log('Admin seeded');
 
 // Create relationships between Employee and Activity (sample)
+
+// Seed Galerie table (après les actualités pour que actuality_id existe)
+for(const gal of galerie){
+    await Galerie.create({
+
+        image: gal.image,
+        actuality_id: gal.actuality_id // C'est ici la clé étrangère !
+    });
+}
+console.log('Galerie seeded');
 
 await sequelize.close();

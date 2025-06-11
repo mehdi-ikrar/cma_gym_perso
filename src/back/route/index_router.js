@@ -49,9 +49,25 @@ router.get('/contact', contactController.renderAllContact);
 router.get('/form', requireAuth, formController.renderForm);
 router.get('/modifForm', checkAuth, requireAuth, formController.renderModifForm);
 
-router.post('/actualities/add', requireAuth, upload.single('image'), formController.submitForm);
+router.post(
+  '/actualities/add',
+  requireAuth,
+  upload.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'galerie', maxCount: 20 } // autorise jusqu'à 20 fichiers, 0 accepté aussi
+  ]),
+  formController.submitForm
+);
 router.post('/actualities/delete/:id', requireAuth, actualityController.deleteActuality);
-router.post('/actualities/update/:id', requireAuth, upload.single('image'), formController.updateActuality);
+router.post(
+  '/actualities/update/:id', 
+  requireAuth, 
+  upload.fields([
+    { name: 'image', maxCount: 1 },
+    { name: 'galerie', maxCount: 20 }
+  ]), 
+  formController.updateActuality
+);
 
 // Routes changement de mot de passe (auth requise)
 router.get('/change-password', requireAuth, authController.renderChangePassword);

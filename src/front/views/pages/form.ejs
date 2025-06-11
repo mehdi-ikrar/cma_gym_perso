@@ -40,8 +40,15 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="form-group">
-                                        <label for="image">Image</label>
+                                        <label for="image">Image principale</label>
                                         <input type="file" id="image" name="image" accept="image/*" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="galerie">Galerie (0 ou plusieurs images)</label>
+                                        <input type="file" id="galerie" name="galerie" accept="image/*" multiple style="display:none;">
+                                        <button type="button" id="add-galerie-btn" class="submit-btn" style="background:#eee;color:#127494;margin-bottom:10px;">Ajouter des images à la galerie</button>
+                                        <small style="color:#888;">Vous pouvez ajouter plusieurs images, les supprimer avant envoi, et en rajouter sans perdre la sélection.</small>
+                                        <div id="galerie-preview" style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;"></div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -98,3 +105,87 @@
     </style>
 </body>
 </html>
+
+<script>
+/**
+ * Gestion avancée de la sélection d'images galerie :
+ * - Ajout incrémental (on ne perd pas la sélection précédente)
+ * - Suppression possible avant upload
+ */
+const inputGalerie = document.getElementById('galerie');
+const btnAddGalerie = document.getElementById('add-galerie-btn');
+const previewGalerie = document.getElementById('galerie-preview');
+let galerieFiles = [];
+
+btnAddGalerie.addEventListener('click', () => {
+    inputGalerie.click();
+});
+
+// Quand on sélectionne des fichiers
+inputGalerie.addEventListener('change', (e) => {
+    const files = Array.from(e.target.files);
+    // Ajoute les nouveaux fichiers sans écraser les anciens (évite les doublons par nom et taille)
+    files.forEach(file => {
+        if (!galerieFiles.some(f => f.name === file.name && f.size === file.size)) {
+            galerieFiles.push(file);
+        }
+    });
+    updateGaleriePreview();
+    // Reset input pour permettre de re-sélectionner les mêmes fichiers plus tard
+    inputGalerie.value = '';
+});
+
+function updateGaleriePreview() {
+    previewGalerie.innerHTML = '';
+    galerieFiles.forEach((file, idx) => {
+        const url = URL.createObjectURL(file);
+        const div = document.createElement('div');
+        div.style.position = 'relative';
+        div.style.display = 'inline-block';
+        div.innerHTML = `
+            <img src="${url}" style="width:90px;height:70px;object-fit:cover;border-radius:6px;border:1px solid #ccc;">
+            <button type="button" data-idx="${idx}" style="position:absolute;top:2px;right:2px;background:#e05642;color:#fff;border:none;border-radius:50%;width:22px;height:22px;cursor:pointer;font-size:14px;">&times;</button>
+        `;
+        previewGalerie.appendChild(div);
+        // Libère l'URL après affichage
+        div.querySelector('img').onload = () => URL.revokeObjectURL(url);
+    });
+    // Ajoute les listeners pour supprimer
+    previewGalerie.querySelectorAll('button[data-idx]').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const idx = parseInt(this.getAttribute('data-idx'));
+            galerieFiles.splice(idx, 1);
+            updateGaleriePreview();
+        });
+    });
+}
+
+// Avant submit, injecte dynamiquement les fichiers galerie dans le FormData
+document.querySelector('form.contact-form').addEventListener('submit', function(e) {
+    if (galerieFiles.length === 0) return; // rien à faire
+    // On doit remplacer l'envoi natif par un FormData custom
+    e.preventDefault();
+    const form = this;
+    const formData = new FormData(form);
+    galerieFiles.forEach(file => {
+        formData.append('galerie', file);
+    });
+    fetch(form.action, {
+        method: form.method,
+        body: formData
+    }).then(resp => {
+        if (resp.redirected) {
+            window.location.href = resp.url;
+        } else {
+            return resp.text().then(html => {
+                document.open();
+                document.write(html);
+                document.close();
+            });
+        }
+    }).catch(err => {
+        alert("Erreur lors de l'envoi du formulaire.");
+        console.error(err);
+    });
+});
+</script>

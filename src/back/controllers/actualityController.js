@@ -1,13 +1,16 @@
-import { Actuality, Category } from "../models/associations.js";
+import { Actuality, Category, Galerie } from "../models/associations.js";
 import { Op } from "sequelize"; // Ajouter l'import de Op pour les opérateurs de comparaison
 
 export const actualityController = {
     async renderNewActualities(req, res) {
         try {
-            // Récupérer les trois dernières actualités
+            // Récupérer les trois dernières actualités avec leurs galeries
             const actualities = await Actuality.findAll({
                 order: [['createdAt', 'DESC']], // Du plus récent au plus ancien
-                limit: 3 // Limiter à 3 actualités
+                limit: 3, // Limiter à 3 actualités
+                include: [
+                    { model: Galerie, as: 'galerie' }
+                ]
             });
 
             // Rendre la vue des actualités
@@ -28,10 +31,8 @@ export const actualityController = {
             // Récupérer l'actualité correspondante à cet ID avec sa catégorie
             const actuality = await Actuality.findByPk(actualityId, {
                 include: [
-                    {
-                        model: Category,
-                        as: 'category'
-                    }
+                    { model: Category, as: 'category' },
+                    { model: Galerie, as: 'galerie' }
                 ]
             });
             
@@ -82,48 +83,50 @@ export const actualityController = {
         }
     },
     async renderAllActualities(req, res) {
-    try {
-        // Détection mobile via user-agent (simple, amélioré)
-        const userAgent = req.headers['user-agent'] || '';
-        const isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
+        try {
+            // Détection mobile via user-agent (simple, amélioré)
+            const userAgent = req.headers['user-agent'] || '';
+            const isMobile = /mobile|android|iphone|ipad|phone/i.test(userAgent);
 
-        // Si mobile, 3 actus par page, sinon 10
-        const limit = isMobile ? 3 : 10;
-        const page = parseInt(req.query.page) || 1;
-        const offset = (page - 1) * limit;
-        const selectedCategory = req.query.category;
+            // Si mobile, 3 actus par page, sinon 10
+            const limit = isMobile ? 3 : 10;
+            const page = parseInt(req.query.page) || 1;
+            const offset = (page - 1) * limit;
+            const selectedCategory = req.query.category;
 
-        const categories = await Category.findAll({ order: [['title', 'ASC']] });
+            const categories = await Category.findAll({ order: [['title', 'ASC']] });
 
-        // Filtre par catégorie si présent
-        const where = selectedCategory ? { category_id: selectedCategory } : {};
+            // Filtre par catégorie si présent
+            const where = selectedCategory ? { category_id: selectedCategory } : {};
 
-        const totalActualities = await Actuality.count({ where });
+            const totalActualities = await Actuality.count({ where });
 
-        const actualities = await Actuality.findAll({
-            where,
-            order: [['createdAt', 'DESC']],
-            limit,
-            offset,
-            include: [
-                { model: Category, as: 'category' }
-            ]
-        });
+            // Inclure la galerie pour chaque actu de la liste
+            const actualities = await Actuality.findAll({
+                where,
+                order: [['createdAt', 'DESC']],
+                limit,
+                offset,
+                include: [
+                    { model: Category, as: 'category' },
+                    { model: Galerie, as: 'galerie' }
+                ]
+            });
 
-        const totalPages = Math.ceil(totalActualities / limit);
+            const totalPages = Math.ceil(totalActualities / limit);
 
-        res.status(200).render('../front/views/pages/actualities', {
-            actualities,
-            categories,
-            currentPage: page,
-            totalPages,
-            selectedCategory
-        });
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Erreur lors de la récupération des actualités: ' + err.message);
-    }
-},
+            res.status(200).render('../front/views/pages/actualities', {
+                actualities,
+                categories,
+                currentPage: page,
+                totalPages,
+                selectedCategory
+            });
+        } catch (err) {
+            console.error(err);
+            res.status(500).send('Erreur lors de la récupération des actualités: ' + err.message);
+        }
+    },
     async deleteActuality(req, res) {
         try {
             const id = req.params.id;

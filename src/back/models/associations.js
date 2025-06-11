@@ -5,6 +5,7 @@ import { Employee } from './employeeModel.js';
 import { Admin  } from './adminModel.js';
 import { Contact } from './contactModel.js';
 import { Category } from './categoryModel.js'; // Import du nouveau modèle Category
+import { Galerie } from './galerieModel.js';
 
 // Relation entre Employee et Activity (n:n)
 Employee.belongsToMany(Activity, { 
@@ -65,4 +66,9 @@ Category.hasMany(Activity, {
     as: 'activities'
 });
 
-export { Activity, Actuality, Documents, Employee, Admin, Contact, Category };
+// Association entre Actuality et Galerie (1:n)
+// Une actualité peut avoir plusieurs images
+Actuality.hasMany(Galerie, { foreignKey: 'actuality_id', as: 'galerie' });
+Galerie.belongsTo(Actuality, { foreignKey: 'actuality_id', as: 'actuality' });
+
+export { Activity, Actuality, Documents, Employee, Admin, Contact, Category, Galerie };
