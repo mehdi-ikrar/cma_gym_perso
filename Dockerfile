@@ -1,18 +1,22 @@
 FROM node:18
 
-# Créer dossier de travail
+# Dossier de travail
 WORKDIR /app
 
-# Copier tout ce qu’il faut
-COPY src/ ./src/
-COPY back/ ./back/
+# Installation de npm
+RUN npm install -g npm
 
-# Installer les deps (depuis src)
-WORKDIR /app/src
+# Copie des fichiers nécessaires
+COPY src/package*.json ./
+
+# Installation des dépendances
 RUN npm install
 
-# Exposer le port
+# Copie du reste du code
+COPY src/ .
+
+# Expose le port de l'apps
 EXPOSE 3000
 
-# Lancer le serveur
+# Commande de démarrage
 CMD ["npm", "start"]
