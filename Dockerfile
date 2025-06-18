@@ -7,13 +7,13 @@ WORKDIR /app
 RUN npm install -g npm
 
 # Copie des fichiers nécessaires
-COPY back/package*.json ./
+COPY src/package*.json ./
 
 # Installation des dépendances
 RUN npm install
 
 # Copie du reste du code
-COPY back/ .
+COPY src/ .
 
 # Expose le port de l'apps
 EXPOSE 3000
