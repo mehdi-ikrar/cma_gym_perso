@@ -5,7 +5,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cookieParser from 'cookie-parser';          // <-- Import cookie-parser
-import { checkAuth } from '../src/back/middlewares/checkAuth.js'; // <-- Import middleware
+import { checkAuth } from './back/middlewares/checkAuth.js'; // <-- Import middleware
 
 // Obtenir __dirname en ES modules
 const __filename = fileURLToPath(import.meta.url);
