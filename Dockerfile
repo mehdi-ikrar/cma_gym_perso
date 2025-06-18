@@ -1,26 +1,18 @@
 FROM node:18
 
-# Dossier de travail
+# Créer dossier de travail
 WORKDIR /app
 
-# Installer npm (optionnel ici car Node 18 l’a déjà, mais ok)
-RUN npm install -g npm
-
-# Copier le package.json (s’il est dans src — sinon adapte)
-COPY src/package*.json ./src/
-
-# Copier le back aussi car il est utilisé par src
+# Copier tout ce qu’il faut
+COPY src/ ./src/
 COPY back/ ./back/
 
-# Copier le code de src
-COPY src/ ./src/
-
-# Installation des dépendances
+# Installer les deps (depuis src)
 WORKDIR /app/src
 RUN npm install
 
 # Exposer le port
 EXPOSE 3000
 
-# Lancement
+# Lancer le serveur
 CMD ["npm", "start"]
