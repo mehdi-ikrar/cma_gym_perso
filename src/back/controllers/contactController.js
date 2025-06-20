@@ -1,20 +1,13 @@
-import { Contact } from "../models/contactModel.js";
-
-// Object that groups functions (methods) to manage operations related to difficulties.
+// Object that groups functions (methods) to manage operations related to contact.
 export const contactController = {
-    // Method that retrieves a difficulty by its ID
+    // Method that retrieves contact information
     async renderAllContact(req, res) {
             try {
-                // Récupérer les actualités
-                const contact = await Contact.findAll();
-    
-                // Rendre la vue des actualités
-                res.status(200).render('../front/views/pages/contact', { 
-                    contact,
-                });
+                // Rendre la vue contact sans données
+                res.status(200).render('../front/views/pages/contact');
             } catch (err) {
                 console.error(err);
-                res.status(500).render('error', { message: 'Error retrieving actualities.' });
+                res.status(500).render('error', { message: 'Error retrieving contact data.' });
             }
         },
 };

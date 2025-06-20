@@ -10,7 +10,6 @@
         <div class="content-wrapper">
             <!-- Barre de navigation latérale -->
             <%- include('../partials/sidebar') %>
-            <% console.log(contact[0].facebook); %>
 
             <!-- Contenu principal à droite -->
             <div class="main-content">
@@ -18,9 +17,9 @@
                     <div class="container">
                         <section class="activities-hero">
                             <div class="activities-hero-content">
-                                <h2 class="activities-hero-title">Toutes nos actualités</h2>
+                                <h2 class="activities-hero-title">Contactez-nous</h2>
                                 <p class="activities-hero-desc">
-                                    Découvrez une sélection d'activités adaptées à tous les âges et tous les niveaux, encadrées par nos coachs passionnés.
+                                    Découvrez nos informations de contact et notre localisation pour nous rendre visite.
                                 </p>
                             </div>
                         </section>
@@ -32,14 +31,13 @@
                                     <h3>CMA Gym</h3>
                                 </div>
                                 <div class="contact-body">
-
                                         <div class="contact-info-row">
                                             <div class="contact-icon">
                                                 <i class="fas fa-map-marker-alt"></i>
                                             </div>
                                             <div class="contact-text">
                                                 <h3>Adresse</h3>
-                                                <p><%= contact[0].adresse %></p>
+                                                <p>126 Rue des Cités, 93300 Aubervilliers</p>
                                             </div>
                                         </div>
                                         
@@ -49,14 +47,20 @@
                                             </div>
                                             <div class="contact-text">
                                                 <h3>Téléphone</h3>
-                                                <p><a href="tel:<%= contact.telephone %>"><%= contact[0].telephone %></a></p>
+                                                <p><a href="tel:0148335261">01 48 33 52 61</a></p>
                                             </div>
                                         </div>
                                         
                                         <div class="contact-info-row">
-
-
+                                            <div class="contact-icon">
+                                                <i class="fas fa-clock"></i>
+                                            </div>
+                                            <div class="contact-text">
+                                                <h3>Horaires</h3>
+                                                <p>Lundi au vendredi de 9h à 20h</p>
+                                            </div>
                                         </div>
+                                        
                                         <iframe 
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5244.574672820018!2d2.3856792770194093!3d48.90991759707837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66c3be2679be1%3A0xd3333d2872239926!2s126%20Rue%20des%20Cit%C3%A9s%2C%2093300%20Aubervilliers!5e0!3m2!1sfr!2sfr!4v1742012943664!5m2!1sfr!2sfr" 
                                         width="100%" 
@@ -65,7 +69,6 @@
                                         allowfullscreen="" 
                                         loading="lazy">
                                     </iframe>
-
                                 </div>
                             </div>
                             <div class="contact-text">
@@ -73,7 +76,7 @@
                                 <div class="facebook-column">
                                     <div class="facebook-widget">
                                         <iframe 
-                                            src="https://www.facebook.com/plugins/page.php?href=<%= encodeURIComponent(contact[0].facebook) %>&tabs=timeline&width=800&height=700&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true"
+                                            src="https://www.facebook.com/plugins/page.php?href=https%3A//www.facebook.com/cmagym93/?locale=fr_FR&tabs=timeline&width=800&height=700&small_header=false&adapt_container_width=false&hide_cover=false&show_facepile=true"
                                             width="500" height="700" 
                                             style="border:none;overflow:hidden"
                                             scrolling="no" frameborder="0" 
@@ -85,29 +88,30 @@
                             </div>
                         </div>
 
-                        <div class="contact-form-container">
-                            <h3 class="form-title">Une question ? Écrivez-nous</h3>
-                            <form class="contact-form">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="name">Nom</label>
-                                        <input type="text" id="name" name="name" placeholder="Votre nom" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" id="email" name="email" placeholder="Votre email" required>
+                        <div class="partners-section">
+                            <h3 class="partners-title">Nos Partenaires</h3>
+                            <div class="partners-grid">
+                                <div class="partner-card">
+                                    <div class="partner-image">
+                                        <img src="/image/politique_de_la_ville.jpg" alt="Politique de la ville">
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="subject">Sujet</label>
-                                    <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
+                                <div class="partner-card">
+                                    <div class="partner-image">
+                                        <img src="/image/logo_aubervilliers.jpg" alt="Ville d'Aubervilliers">
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" name="message" rows="5" placeholder="Votre message" required></textarea>
+                                <div class="partner-card">
+                                    <div class="partner-image">
+                                        <img src="/image/cohesion-territoire.jpg" alt="Cohésion des territoires">
+                                    </div>
                                 </div>
-                                <button type="submit" class="submit-btn">Envoyer</button>
-                            </form>
+                                <div class="partner-card">
+                                    <div class="partner-image">
+                                        <img src="/image/cité_éducatives.jpg" alt="Cités éducatives">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </main>
@@ -157,6 +161,123 @@
         min-width: 0 !important;
         max-width: 100% !important;
         height: 350px !important;
+    }
+}
+
+.partners-section {
+    margin-top: 3rem;
+    padding: 3rem 2rem; /* Augmentation du padding */
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.partners-title {
+    text-align: center;
+    font-size: 2.5rem; /* Plus grand */
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 3rem; /* Plus d'espace */
+    position: relative;
+}
+
+.partners-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px; /* Plus large */
+    height: 4px; /* Plus épais */
+    background: linear-gradient(90deg, #3498db, #2ecc71);
+    border-radius: 2px;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Toujours 2 colonnes */
+    gap: 3rem; /* Plus d'espace entre les vignettes */
+    max-width: 1400px; /* Conteneur plus large */
+    margin: 0 auto;
+}
+
+.partner-card {
+    background: white;
+    border-radius: 20px; /* Bords plus arrondis */
+    padding: 3rem; /* Beaucoup plus de padding */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Ombre plus forte */
+    transition: all 0.3s ease;
+    cursor: pointer;
+    min-height: 300px; /* Hauteur minimale pour uniformité */
+}
+
+.partner-card:hover {
+    transform: translateY(-15px); /* Plus de mouvement */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2); /* Ombre beaucoup plus forte */
+}
+
+.partner-image {
+    width: 100%;
+    height: 250px; /* Beaucoup plus haut pour les images */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #f8f9fa;
+    padding: 1rem; /* Padding autour de l'image */
+}
+
+.partner-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); /* Ombre sur l'image */
+}
+
+.partner-card:hover .partner-image img {
+    transform: scale(1.1); /* Plus de zoom au survol */
+}
+
+@media (max-width: 768px) {
+    .partners-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+        gap: 2rem;
+    }
+    
+    .partners-section {
+        padding: 2.5rem 1.5rem;
+    }
+    
+    .partners-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .partner-card {
+        padding: 2rem;
+        min-height: 250px;
+    }
+    
+    .partner-image {
+        height: 180px; /* Ajusté pour mobile mais toujours grand */
+    }
+}
+
+@media (max-width: 480px) {
+    .partners-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .partner-card {
+        padding: 2rem;
+        min-height: 280px; /* Encore plus grand sur mobile */
+    }
+    
+    .partner-image {
+        height: 200px; /* Plus grand même sur très petit écran */
     }
 }
 </style>
