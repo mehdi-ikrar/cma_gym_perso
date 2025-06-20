@@ -1321,17 +1321,20 @@ s
 }
 
 // Styles pour la page équipe
+// Styles améliorés pour la page équipe
 .team-intro {
     text-align: center;
     margin-bottom: $spacing-xl;
-    
-
+    padding: $spacing-xl $spacing-lg;
+    background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.05));
+    border-radius: $border-radius;
     
     .team-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         color: $text-secondary;
-        max-width: 600px;
+        max-width: 700px;
         margin: $spacing-md auto 0;
+        line-height: 1.6;
     }
 }
 
@@ -1339,45 +1342,58 @@ s
     display: flex;
     justify-content: center;
     gap: $spacing-md;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-xl;
     flex-wrap: wrap;
     
     .filter-btn {
-        padding: $spacing-xs $spacing-md;
-        border-radius: 30px;
+        padding: $spacing-sm $spacing-lg;
+        border-radius: 35px;
         border: 2px solid $primary-color;
-        background-color: transparent;
+        background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
         color: $primary-color;
-        font-weight: 600;
+        font-weight: 700;
         cursor: pointer;
-        transition: $transition;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba($primary-color, 0.1);
         
         &:hover {
-            background-color: rgba($primary-color, 0.1);
+            background: linear-gradient(135deg, $primary-light, $primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba($primary-color, 0.2);
         }
         
         &.active {
-            background-color: $primary-color;
+            background: linear-gradient(135deg, $primary-color, $secondary-color);
             color: white;
+            border-color: $secondary-color;
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba($primary-color, 0.3);
         }
     }
 }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: $spacing-xl;
     margin: $spacing-xl 0;
+    perspective: 1000px;
+
+    
 }
 
 .team-member {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.8s ease-out forwards;
     animation-fill-mode: both;
     opacity: 0;
     
+    
     @for $i from 1 through 12 {
         &:nth-child(#{$i}) {
-            animation-delay: #{$i * 0.1}s;
+            animation-delay: #{$i * 0.15}s;
         }
     }
 }
@@ -1386,6 +1402,467 @@ s
     text-decoration: none;
     color: inherit;
     display: block;
+    height: 100%;
+}
+
+.member-card {
+    background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 100%;
+    position: relative;
+    border: 2px solid transparent;
+    backdrop-filter: blur(20px);
+    box-shadow: 
+        0 10px 30px rgba($primary-color, 0.1),
+        0 1px 8px rgba($primary-color, 0.1);
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, $primary-color, $secondary-color, $primary-light);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    &:hover {
+        transform: translateY(-15px) rotateX(5deg);
+        box-shadow: 
+            0 25px 50px rgba($primary-color, 0.2),
+            0 10px 25px rgba($secondary-color, 0.15);
+        border-color: rgba($secondary-color, 0.3);
+        
+        &::before {
+            opacity: 1;
+        }
+        
+        .member-image {
+            transform: scale(1.1) rotate(2deg);
+        }
+        
+        .member-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .member-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .member-details-btn {
+            background: linear-gradient(135deg, $secondary-color, $secondary-dark);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba($secondary-color, 0.3);
+        }
+        
+        .member-role {
+            background: linear-gradient(135deg, $primary-color, $secondary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+    }
+}
+
+.member-image-container {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, $primary-light, $secondary-light);
+}
+
+.member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+    filter: brightness(1.1) contrast(1.05);
+}
+
+.member-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        145deg,
+        rgba($primary-color, 0.7) 0%,
+        rgba($secondary-color, 0.7) 50%,
+        rgba($primary-light, 0.8) 100%
+    );
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.member-social {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.4s ease 0.1s;
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $primary-dark;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    
+    &:hover {
+        transform: translateY(-5px) scale(1.1);
+        background: linear-gradient(135deg, $secondary-color, $secondary-light);
+        color: white;
+        box-shadow: 0 8px 25px rgba($secondary-color, 0.4);
+    }
+    
+    i {
+        font-size: 1.2rem;
+    }
+}
+
+.member-info {
+    padding: $spacing-xl $spacing-lg;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+    backdrop-filter: blur(10px);
+}
+
+.member-name {
+    font-size: 1.6rem;
+    color: $primary-dark;
+    margin-bottom: $spacing-sm;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    position: relative;
+    
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, $primary-color, $secondary-color);
+        border-radius: 1px;
+    }
+}
+
+.member-role {
+    font-size: 1rem;
+    color: $primary-color;
+    font-weight: 700;
+    margin-bottom: $spacing-md;
+    display: inline-block;
+    padding: $spacing-xs $spacing-md;
+    background: linear-gradient(135deg, rgba($primary-color, 0.1), rgba($secondary-color, 0.1));
+    border-radius: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba($primary-color, 0.2);
+}
+
+.member-description {
+    font-size: 1rem;
+    color: $text-secondary;
+    margin-bottom: $spacing-lg;
+    line-height: 1.6;
+    text-align: justify;
+    position: relative;
+    
+    &::before {
+        content: '"';
+        position: absolute;
+        top: -10px;
+        left: -5px;
+        font-size: 2rem;
+        color: rgba($primary-color, 0.3);
+        font-family: serif;
+    }
+    
+    &::after {
+        content: '"';
+        position: absolute;
+        bottom: -15px;
+        right: -5px;
+        font-size: 2rem;
+        color: rgba($primary-color, 0.3);
+        font-family: serif;
+    }
+}
+
+.member-details-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    padding: $spacing-sm $spacing-lg;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgba($primary-color, 0.1), rgba($secondary-color, 0.1));
+    color: $primary-color;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid rgba($primary-color, 0.2);
+    
+    i {
+        transition: transform 0.3s ease;
+    }
+    
+    &:hover i {
+        transform: translateX(3px);
+    }
+}
+
+// Section par rôle avec style amélioré
+.team-section {
+    margin-bottom: $spacing-xl * 1.5;
+    
+    .section-heading {
+        font-size: 2rem;
+        color: $primary-dark;
+        margin: $spacing-xl 0 $spacing-lg;
+        padding: $spacing-md $spacing-lg;
+        background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.05));
+        border-radius: $border-radius;
+        position: relative;
+        text-align: center;
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, $primary-color, $secondary-color);
+            border-radius: $border-radius $border-radius 0 0;
+        }
+        
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, $secondary-color, $primary-color);
+            border-radius: 2px;
+        }
+    }
+}
+
+.no-members {
+    font-style: italic;
+    color: $text-secondary;
+    padding: $spacing-xl;
+    text-align: center;
+    background: linear-gradient(135deg, rgba($primary-light, 0.05), rgba($secondary-light, 0.05));
+    border-radius: $border-radius;
+    border: 2px dashed rgba($primary-color, 0.2);
+    font-size: 1.1rem;
+    
+    &::before {
+        content: '👥';
+        display: block;
+        font-size: 3rem;
+        margin-bottom: $spacing-md;
+        opacity: 0.5;
+    }
+}
+
+// Stats de l'équipe
+.team-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-lg;
+    margin: $spacing-xl 0;
+    padding: $spacing-lg;
+    background: linear-gradient(135deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.05));
+    border-radius: $border-radius;
+    
+    .stat-item {
+        text-align: center;
+        padding: $spacing-lg;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: $border-radius;
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: $primary-color;
+            margin-bottom: $spacing-xs;
+            background: linear-gradient(90deg, $primary-color, $secondary-color);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: $text-secondary;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    }
+}
+
+// Responsive amélioré
+@media (max-width: 1200px) {
+    .team-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: $spacing-lg;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-intro {
+        padding: $spacing-lg $spacing-md;
+        
+        .team-subtitle {
+            font-size: 1rem;
+        }
+    }
+    
+    .team-filters {
+        gap: $spacing-sm;
+        
+        .filter-btn {
+            padding: $spacing-sm $spacing-md;
+            font-size: 0.9rem;
+        }
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .member-card {
+        &:hover {
+            transform: translateY(-10px);
+        }
+    }
+    
+    .member-image-container {
+        height: 250px;
+    }
+    
+    .member-info {
+        padding: $spacing-lg $spacing-md;
+    }
+    
+    .member-name {
+        font-size: 1.4rem;
+    }
+    
+    .section-heading {
+        font-size: 1.6rem;
+        padding: $spacing-md;
+    }
+    
+    .team-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-md;
+        padding: $spacing-md;
+        
+        .stat-item {
+            padding: $spacing-md;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .team-filters {
+        flex-direction: column;
+        align-items: center;
+        
+        .filter-btn {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+    
+    .team-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Animation d'entrée améliorée
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+// Effet de particules pour le background (optionnel)
+.team-page {
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba($primary-color, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba($secondary-color, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba($primary-light, 0.05) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: -1;
+    }
 }
 
 .member-card {
@@ -1710,13 +2187,13 @@ s
 }
 
 .actuality-footer {
-    display: flex;
+        display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: $spacing-xl;
-    padding: $spacing-lg;
-    background: linear-gradient(120deg, rgba($primary-color, 0.05), rgba($secondary-color, 0.05));
-    border-top: 1px solid rgba($primary-color, 0.1);
+    margin-top: auto; // Pousse le footer vers le bas
+    padding-top: $spacing-sm;
+    border-top: 1px solid rgba($primary-color, 0.1); // Ligne de séparation subtile
+    gap: $spacing-sm; // Ajoute un espace entre les éléments
     
     @media (max-width: 768px) {
         flex-direction: column;
@@ -2232,9 +2709,6 @@ s
 }
 
 // Styles pour les sections d'équipe hiérarchiques
-.team-section {
-    margin-bottom: $spacing-xl;
-}
 
 .section-heading {
     font-size: 1.8rem;
@@ -2264,44 +2738,7 @@ s
     border-radius: $border-radius;
 }
 
-.team-filters {
-    margin-bottom: $spacing-lg;
-    text-align: center;
-    
-    .filter-btn {
-        background-color: transparent;
-        border: 2px solid $primary-color;
-        color: $primary-color;
-        padding: $spacing-xs $spacing-md;
-        margin: 0 $spacing-xs $spacing-xs 0;
-        border-radius: 30px;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        
-        &:hover {
-            background-color: rgba($primary-color, 0.1);
-        }
-        
-        &.active {
-            background-color: $primary-color;
-            color: white;
-        }
-    }
-}
 
-// Ajustements responsifs pour les sections d'équipe
-@media (max-width: 768px) {
-    .section-heading {
-        font-size: 1.5rem;
-    }
-    
-    .team-filters .filter-btn {
-        padding: $spacing-xs $spacing-sm;
-        font-size: 0.9rem;
-    }
-}
 
 // Styles modernes pour la page des activités
 .activities-intro {
@@ -2925,14 +3362,19 @@ s
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: $spacing-sm;
+    justify-content: flex-end; // Aligne le contenu à droite
 }
 
 .read-more {
-    color: $secondary-color;
+        color: $secondary-color;
     font-size: 0.9rem;
     font-weight: 600;
     transition: $transition;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    flex-shrink: 0; // Empêche la compression du bouton "Lire la suite"
+    white-space: nowrap; // Empêche le retour à la ligne
     
     i {
         transition: transform 0.3s ease;
@@ -2944,7 +3386,7 @@ s
     font-size: 0.8rem;
     background-color: rgba($primary-color, 0.1);
     color: $primary-color;
-    padding: $spacing-xs $spacing-sm;
+    padding: 0.5rem;
     border-radius: 20px;
 }
 
