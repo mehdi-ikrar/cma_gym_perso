@@ -39,7 +39,7 @@ app.use(checkAuth);
 // Toutes les routes de ton app
 app.use(router);
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🚀 CMA_GYM app started at http://localhost:${PORT}`);
 });
