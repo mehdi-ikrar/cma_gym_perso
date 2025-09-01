@@ -1,16 +1,17 @@
+# Utilise une image Node.js 18
 FROM node:18
 
-# Dossier de travail
+# Crée un dossier pour l'application dans le conteneur
 WORKDIR /app
 
-# Installer les dépendances
-COPY src/package*.json ./
+# Copie uniquement le fichier des dépendances
+COPY package*.json ./
+
+# Installe les dépendances
 RUN npm install
 
-# Copier tout le code
-COPY src/ .
+# Copie le reste du projet
+COPY . .
 
-
-
-# Lancer le serveur
-CMD ["node", "index.js"]
+# Démarre l'application
+CMD [ "npm", "start" ]
