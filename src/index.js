@@ -4,7 +4,7 @@ import { router } from './back/route/index_router.js';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';          // <-- Import cookie-parser
 import { checkAuth } from './back/middlewares/checkAuth.js'; // <-- Import middleware
 
 // Obtenir __dirname en ES modules
