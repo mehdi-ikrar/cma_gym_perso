@@ -1,17 +1,17 @@
 FROM node:18
 
-# Dossier de travail
+# Dossier de travail dans le conteneur
 WORKDIR /app
 
-# Installer les dépendances
-COPY src/package*.json ./
+# Copier et installer les dépendances
+COPY package*.json ./
 RUN npm install
 
-# Copier tout le code
-COPY src/ .
+# Copier le reste du projet
+COPY . .
 
-# Exposer le port
+# Exposer le port attendu par Cloud Run
 EXPOSE 8080
 
-# Lancer le serveur
-CMD ["node", "index.js"]
+# Lancer ton app
+CMD ["node", "src/index.js"]
