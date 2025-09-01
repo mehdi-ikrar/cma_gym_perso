@@ -1,11 +1,17 @@
 FROM node:18
 
+# Dossier de travail
 WORKDIR /app
 
-COPY src/package*.json ./   # <-- va chercher ton package.json dans src
+# Installer les dépendances
+COPY src/package*.json ./
 RUN npm install
 
-COPY . .
+# Copier tout le code
+COPY src/ .
 
+# Exposer le port
 EXPOSE 8080
-CMD ["node", "src/index.js"]
+
+# Lancer le serveur
+CMD ["node", "index.js"]
