@@ -5,7 +5,7 @@ FROM node:18
 WORKDIR /app
 
 # Copie uniquement le fichier des dépendances
-COPY package*.json ./
+COPY src/package*.json ./
 
 # Installe les dépendances
 RUN npm install
