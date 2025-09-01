@@ -1,47 +1,66 @@
 import 'dotenv/config';
 import express from 'express';
-import { router } from './back/route/index_router.js';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import cookieParser from 'cookie-parser';          // <-- Import cookie-parser
-import { checkAuth } from './back/middlewares/checkAuth.js'; // <-- Import middleware
+
+console.log('🚀 Starting CMA_GYM app...');
+
+// Vérification des imports
+let router, checkAuth;
+try {
+  router = (await import('./back/route/index_router.js')).router;
+  checkAuth = (await import('./back/middlewares/checkAuth.js')).checkAuth;
+} catch (err) {
+  console.error('❌ Import failed:', err);
+  process.exit(1); // quitte le conteneur si un import plante
+}
+
+let cookieParser;
+try {
+  cookieParser = (await import('cookie-parser')).default;
+} catch (err) {
+  console.error('❌ Failed to import cookie-parser:', err);
+  process.exit(1);
+}
 
 // Obtenir __dirname en ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+console.log('✅ Express app created.');
 
 // Configuration du moteur de template EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Fichiers statiques (CSS, JS, images)
+// Fichiers statiques
 app.use(express.static(path.join(__dirname, 'front/public')));
 
-// Configuration CORS
+// Configuration CORS (en prod, remplacer '*' par le domaine de ton Cloud Run)
 app.use(cors({
-  origin: ['http://localhost:5173'],
-  credentials: true, // Autorise l'envoi de cookies
+  origin: '*', 
+  credentials: true,
 }));
 
-// Pour parser les cookies AVANT d'utiliser checkAuth
+// Parser cookies
 app.use(cookieParser());
 
-// Pour parser le corps des requêtes
+// Parser le corps des requêtes
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Middleware global pour checker l'authentification et injecter admin dans res.locals
+// Middleware d'authentification
 app.use(checkAuth);
 
-// Toutes les routes de ton app
+// Routes
 app.use(router);
 
+// Démarrage du serveur
 const PORT = process.env.PORT || 8080;
-const server = app.listen(PORT, () => {
-  console.log(`🚀 CMA_GYM app started at http://localhost:${PORT}`);
+app.listen(PORT, () => {
+  console.log(`🚀 CMA_GYM app listening on port ${PORT}`);
 });
 
-export { app, server };
+export { app };
