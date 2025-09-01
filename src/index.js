@@ -4,7 +4,7 @@ import { router } from './back/route/index_router.js';
 import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import cookieParser from 'cookie-parser';          // <-- Import cookie-parser
+import cookieParser from 'cookie-parser';
 import { checkAuth } from './back/middlewares/checkAuth.js'; // <-- Import middleware
 
 // Obtenir __dirname en ES modules
@@ -20,11 +20,8 @@ app.set('views', path.join(__dirname, 'views'));
 // Fichiers statiques (CSS, JS, images)
 app.use(express.static(path.join(__dirname, 'front/public')));
 
-// Configuration CORS
-app.use(cors({
-  origin: ['http://localhost:5173'],
-  credentials: true, // Autorise l'envoi de cookies
-}));
+// Configuration CORS (rectifiée)
+app.use(cors());
 
 // Pour parser les cookies AVANT d'utiliser checkAuth
 app.use(cookieParser());
@@ -41,8 +38,7 @@ app.use(router);
 
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => {
-  console.log(`🚀 CMA_GYM app started at http://localhost:${PORT}`);
+  console.log(`🚀 CMA_GYM app started at http://localhost:${PORT}`);
 });
 
 export { app, server };
-v
