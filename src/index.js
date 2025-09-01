@@ -55,7 +55,7 @@ console.log('Routeur principal activé.');
 
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => {
-  console.log(`🚀 CMA_GYM app started at http://localhost:${PORT}`);
+  console.log(`🚀 CMAS_GYM app started at http://localhost:${PORT}`);
 });
 console.log('Serveur en écoute. (Cette ligne ne s\'affichera que si le serveur démarre)');
 
