@@ -14,4 +14,5 @@ COPY src/ .
 EXPOSE 8080
 
 # Lancer le serveur
-CMD ["node", "index.js"]
+CMD ["node", "start_test.js"]
+
