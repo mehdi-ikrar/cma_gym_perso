@@ -41,7 +41,7 @@ app.use(router);
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
-  console.log(`🚀 CMA_GYM app started at http://localhost:${PORT}`);
+  console.log(`🚀 CMA_GYM test app started at http://localhost:${PORT}`);
 });
 
 export { app, server };
