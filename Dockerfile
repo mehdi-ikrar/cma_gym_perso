@@ -11,8 +11,11 @@ COPY . .
 # où se trouvent les fichiers package.json et index.js
 WORKDIR /app/src
 
+# Donne les permissions d'exécution au script
+RUN chmod +x ../entrypoint.sh
+
 # Installe les dépendances
 RUN npm install
 
-# Démarre l'application depuis le dossier 'src'
-CMD [ "npm", "start" ]
+# Indique à Docker d'exécuter le script d'entrée au démarrage du conteneur
+CMD [ "../entrypoint.sh" ]
