@@ -1,21 +1,23 @@
-# Utilise une image Node.js 18
+# Utilise l'image de base Node.js
 FROM node:18
 
-# Crée un dossier pour l'application dans le conteneur
-WORKDIR /app
+# Définit le dossier de travail principal dans le conteneur
+WORKDIR /usr/src/app
 
-# Copie tous les fichiers du projet dans le conteneur
+# Copie tous les fichiers de votre projet dans le conteneur
 COPY . .
 
-# Déplace le dossier de travail dans le sous-dossier 'src'
-# où se trouvent les fichiers package.json et index.js
-WORKDIR /app/src
+# Installe pnpm globalement
+RUN npm install -g pnpm
 
-# Donne les permissions d'exécution au script
-RUN chmod +x ../entrypoint.sh
+# Se déplace dans le sous-dossier 'app' pour installer les dépendances
+WORKDIR /usr/src/app/app
 
-# Installe les dépendances
-RUN npm install
+# Installe les dépendances du projet
+RUN pnpm install
 
-# Indique à Docker d'exécuter le script d'entrée au démarrage du conteneur
-CMD [ "../entrypoint.sh" ]
+# Expose le port de votre application
+EXPOSE 8080
+
+# Définit la commande pour lancer l'application
+CMD ["pnpm", "start"]
