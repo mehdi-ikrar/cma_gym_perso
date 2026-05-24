@@ -4,7 +4,7 @@ export const actuality = [
     title: "Baby gym",
     image: "test.webp",
     description: "La Baby Gym est une activité ludique spécialement conçue pour les enfants de 2 à 5 ans, qui favorise le développement moteur et cognitif de manière amusante. Chaque séance est organisée autour de parcours colorés, de jeux d'équilibre et d'exercices adaptés qui stimulent la coordination, la confiance en soi et la sociabilisation. Nos animateurs qualifiés accompagnent les tout-petits dans leurs découvertes, en respectant le rythme de chacun. Les parents sont parfois invités à participer, créant ainsi un moment de complicité unique. Cette activité constitue une excellente préparation aux futures disciplines sportives tout en développant l'autonomie et la motricité globale des enfants dans un environnement sécurisé et bienveillant.",
-    categoryId: 5 // Catégorie Jeunesse
+    categoryId: 3 // Catégorie Jeunesse
   },
   {
     id: 2,
@@ -74,14 +74,14 @@ export const actuality = [
     title: "Arrivée d'un nouvel",
     image: "test4.jpg",
     description: "Notre club est honoré d'accueillir dans son équipe pédagogique un entraîneur de renommée internationale. Fort d'une expérience de plus de vingt années au plus haut niveau, ce spécialiste a notamment accompagné plusieurs athlètes olympiques et formé de nombreux champions nationaux. Sa vision novatrice de l'entraînement, alliant approche technique pointue et développement personnel du gymnaste, s'inscrit parfaitement dans la philosophie de notre club. Grâce à son expertise, nos adhérents bénéficieront de méthodes d'enseignement à la pointe, inspirées des meilleures pratiques internationales. Sa capacité à détecter le potentiel de chaque athlète et à personnaliser les programmes d'entraînement promet d'élever encore le niveau technique de nos gymnastes. Des sessions spéciales de master class seront organisées pour permettre à tous les membres du club de profiter de son savoir-faire exceptionnel. Ce recrutement stratégique témoigne de notre ambition continue d'offrir un encadrement d'excellence et ouvre de nouvelles perspectives passionnantes pour le développement sportif de nos athlètes.",
-    categoryId: 1 // Catégorie Gymnastique artistique
+    categoryId: 2 // Catégorie Gymnastique artistique
   },
   {
     id: 12,
     title: "Journée portes ouvertes",
     image: "test3.avif",
     description: "Venez explorer l'univers fascinant de la gymnastique lors de notre grande journée portes ouvertes qui se tiendra le mois prochain. Cet événement exceptionnel offre une opportunité unique de découvrir notre club, ses installations et la diversité des disciplines que nous proposons. Tout au long de la journée, des démonstrations spectaculaires mettront en lumière le talent de nos gymnastes, des plus jeunes aux plus expérimentés. Des ateliers d'initiation encadrés par nos entraîneurs permettront aux visiteurs de tout âge de s'essayer aux différents agrès dans un cadre ludique et sécurisé. Notre équipe pédagogique sera disponible pour répondre à toutes vos questions concernant nos programmes, les bienfaits de la gymnastique et les modalités d'inscription. Des stands d'information présenteront également les aspects nutritionnels et la préparation physique adaptée à chaque niveau de pratique. Pour les plus petits, un parcours motricité géant transformera la découverte de la gymnastique en véritable aventure. Cette journée festive se clôturera par une démonstration chorégraphiée regroupant l'ensemble de nos sections. Une occasion parfaite pour partager notre passion et peut-être susciter de nouvelles vocations!",
-    categoryId: 1 // Catégorie Gymnastique artistique
+    categoryId: 2 // Catégorie Gymnastique artistique
   },
   {
     id: 13,
@@ -102,7 +102,7 @@ export const actuality = [
     title: "Partenariat innovant",
     image: "test.webp",
     description: "Notre club est fier d'annoncer la mise en place d'un partenariat innovant avec les écoles primaires de notre communauté, visant à introduire la gymnastique dans le parcours éducatif des enfants. Ce projet ambitieux, fruit d'une collaboration étroite avec les autorités éducatives locales, permettra à plus de 500 écoliers de bénéficier d'une initiation à la gymnastique pendant le temps scolaire. Nos entraîneurs qualifiés interviendront directement dans les établissements, munis d'équipements mobiles spécialement conçus pour s'adapter aux espaces disponibles dans les écoles. Les séances, élaborées en concertation avec les enseignants, s'inscrivent dans une démarche pédagogique globale favorisant le développement moteur, la confiance en soi et l'apprentissage du travail en équipe. Au-delà de la découverte sportive, ce programme vise également à sensibiliser les enfants à l'importance de l'activité physique régulière et à leur offrir une expérience positive du sport. Pour pérenniser cette initiative, des formations seront proposées aux professeurs des écoles afin qu'ils puissent intégrer certains exercices de base dans leurs activités quotidiennes. Ce partenariat témoigne de notre engagement envers la communauté et notre conviction que la gymnastique constitue un outil précieux pour le développement harmonieux des enfants.",
-    categoryId: 5 // Catégorie Jeunesse
+    categoryId: 1 // Catégorie Jeunesse
   },
   {
     id: 16,

@@ -1,22 +1,18 @@
 export const category = [
     { 
         id: 1, 
-        title: "Gymnastique artistique"
+        title: "Compétition",
     },
     { 
         id: 2, 
-        title: "Gymnastique rythmique"
+        title: "Evenement",
     },
     { 
         id: 3, 
-        title: "Fitness & Bien-être"
+        title: "info pratiques"
     },
     { 
         id: 4, 
-        title: "Compétition"
-    },
-    { 
-        id: 5, 
-        title: "Jeunesse"
+        title: "Partenaire",
     }
 ];

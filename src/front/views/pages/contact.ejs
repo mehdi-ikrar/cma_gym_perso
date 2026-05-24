@@ -33,7 +33,7 @@
                                 <div class="contact-body">
                                         <div class="contact-info-row">
                                             <div class="contact-icon">
-                                                <i class="fas fa-map-marker-alt"></i>
+                                                <i class="fas fa-heart"></i>
                                             </div>
                                             <div class="contact-text">
                                                 <h3>Adresse</h3>
@@ -64,7 +64,7 @@
                                         <iframe 
                                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5244.574672820018!2d2.3856792770194093!3d48.90991759707837!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66c3be2679be1%3A0xd3333d2872239926!2s126%20Rue%20des%20Cit%C3%A9s%2C%2093300%20Aubervilliers!5e0!3m2!1sfr!2sfr!4v1742012943664!5m2!1sfr!2sfr" 
                                         width="100%" 
-                                        height="100%" 
+                                        height="400" 
                                         style="border:0;" 
                                         allowfullscreen="" 
                                         loading="lazy">
@@ -123,161 +123,3 @@
 </body>
 </html>
 
-
-<style>
-
-@media (max-width: 1100px) {
-    .container {
-        max-width: 100vw;
-        padding: 0 10px;
-    }
-    .contact-container {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    .contact-card.main-card,
-    .contact-text {
-        max-width: 100%;
-        min-width: 0;
-    }
-    .facebook-widget iframe {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-    }
-}
-@media (max-width: 600px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .contact-card.main-card,
-    .contact-text {
-        max-width: 100%;
-        min-width: 0;
-    }
-    .facebook-widget iframe {
-        width: 100% !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        height: 350px !important;
-    }
-}
-
-.partners-section {
-    margin-top: 3rem;
-    padding: 3rem 2rem; /* Augmentation du padding */
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.partners-title {
-    text-align: center;
-    font-size: 2.5rem; /* Plus grand */
-    font-weight: 600;
-    color: #2c3e50;
-    margin-bottom: 3rem; /* Plus d'espace */
-    position: relative;
-}
-
-.partners-title::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px; /* Plus large */
-    height: 4px; /* Plus épais */
-    background: linear-gradient(90deg, #3498db, #2ecc71);
-    border-radius: 2px;
-}
-
-.partners-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Toujours 2 colonnes */
-    gap: 3rem; /* Plus d'espace entre les vignettes */
-    max-width: 1400px; /* Conteneur plus large */
-    margin: 0 auto;
-}
-
-.partner-card {
-    background: white;
-    border-radius: 20px; /* Bords plus arrondis */
-    padding: 3rem; /* Beaucoup plus de padding */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Ombre plus forte */
-    transition: all 0.3s ease;
-    cursor: pointer;
-    min-height: 300px; /* Hauteur minimale pour uniformité */
-}
-
-.partner-card:hover {
-    transform: translateY(-15px); /* Plus de mouvement */
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2); /* Ombre beaucoup plus forte */
-}
-
-.partner-image {
-    width: 100%;
-    height: 250px; /* Beaucoup plus haut pour les images */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border-radius: 15px;
-    background: #f8f9fa;
-    padding: 1rem; /* Padding autour de l'image */
-}
-
-.partner-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)); /* Ombre sur l'image */
-}
-
-.partner-card:hover .partner-image img {
-    transform: scale(1.1); /* Plus de zoom au survol */
-}
-
-@media (max-width: 768px) {
-    .partners-grid {
-        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
-        gap: 2rem;
-    }
-    
-    .partners-section {
-        padding: 2.5rem 1.5rem;
-    }
-    
-    .partners-title {
-        font-size: 2rem;
-        margin-bottom: 2.5rem;
-    }
-    
-    .partner-card {
-        padding: 2rem;
-        min-height: 250px;
-    }
-    
-    .partner-image {
-        height: 180px; /* Ajusté pour mobile mais toujours grand */
-    }
-}
-
-@media (max-width: 480px) {
-    .partners-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .partner-card {
-        padding: 2rem;
-        min-height: 280px; /* Encore plus grand sur mobile */
-    }
-    
-    .partner-image {
-        height: 200px; /* Plus grand même sur très petit écran */
-    }
-}
-</style>

@@ -45,9 +45,7 @@
                                                         </div>
                                                         <div class="member-info">
                                                             <h4 class="member-name"><%= teamx.title %></h4>
-                                                            <p class="member-role"><%= teamx.role || 'Administration' %></p>
-                                                            <p class="member-description"><%= teamx.description.substring(0, 80) %>...</p>
-                                                            
+                                                            <p class="member-role"><%= teamx.name || 'Administration' %></p>                                                            
                                                         </div>
                                                     </div>
 
@@ -82,8 +80,8 @@
                                                         </div>
                                                         <div class="member-info">
                                                             <h4 class="member-name"><%= teamx.title %></h4>
-                                                            <p class="member-role"><%= teamx.role || 'Coach sportif' %></p>
-                                                            <p class="member-description"><%= teamx.description.substring(0, 80) %>...</p>
+                                                            <p class="member-role"><%= teamx.name || 'Coach sportif' %></p>
+                                                            
                                                             
                                                         </div>
                                                     </div>

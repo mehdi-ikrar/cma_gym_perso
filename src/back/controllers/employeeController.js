@@ -2,34 +2,106 @@
 export const employee = [
   {
     id: 1,
-    name: "Lascow",
+    name: "Silvy",
     firstname: "Patricia",
     role: "admin", // anciennement "administration"
-    image: "coach.jpg",
-    description: "C'est une admin."
+    image: "sylvy.jpg",
+    description: "President."
   },
   {
     id: 2,
-    name: "Speedrun",
+    name: "Alexandre",
     firstname: "John",
-    role: "benevole", // anciennement "Benevole"
-    image: "Coach.jpg",
-    description: "C'est un bénévole."
+    role: "admin", // anciennement "Benevole"
+    image: "alexandre.jpg",
+    description: "Co-president "
+  },
+  {
+    id: 13,
+    name: "Nathalie",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "nathalie.jpeg",
+    description: "C'est un admin."
   },
   {
     id: 3,
-    name: "Completion",
+    name: "Henrique",
     firstname: "Jane",
     role: "coach", // anciennement "Coach"
-    image: "coach.jpg",
+    image: "henrique.jpeg",
     description: "C'est une coach."
   },
   {
     id: 4,
-    name: "Damage",
+    name: "Anissa",
     firstname: "Doe",
-    role: "admin", // anciennement "Administration"
-    image: "coach.jpg",
+    role: "coach", // anciennement "Administration"
+    image: "anissa.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 5,
+    name: "Emma",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "emma.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 6,
+    name: "Hariata",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "hariata.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 7,
+    name: "Katia",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "katia.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 8,
+    name: "Eva",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "eva.jpg",
+    description: "C'est un admin."
+  },
+  {
+    id: 9,
+    name: "Jacky",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "jacky.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 10,
+    name: "Maud",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "maud.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 11,
+    name: "Celia",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "celia.jpeg",
+    description: "C'est un admin."
+  },
+  {
+    id: 12,
+    name: "Eric",
+    firstname: "Doe",
+    role: "coach", // anciennement "Administration"
+    image: "eric.jpg",
     description: "C'est un admin."
   }
 ];
