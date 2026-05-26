@@ -5,7 +5,7 @@ export const employee = [
     name: "Silvy",
     firstname: "Patricia",
     role: "admin", // anciennement "administration"
-    image: "sylvy.jpg",
+    image: "employee.png",
     description: "President."
   },
   {
@@ -13,7 +13,7 @@ export const employee = [
     name: "Alexandre",
     firstname: "John",
     role: "admin", // anciennement "Benevole"
-    image: "alexandre.jpg",
+    image: "employee.png",
     description: "Co-president "
   },
   {
@@ -21,7 +21,7 @@ export const employee = [
     name: "Nathalie",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "nathalie.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -29,7 +29,7 @@ export const employee = [
     name: "Henrique",
     firstname: "Jane",
     role: "coach", // anciennement "Coach"
-    image: "henrique.jpeg",
+    image: "employee.png",
     description: "C'est une coach."
   },
   {
@@ -37,7 +37,7 @@ export const employee = [
     name: "Anissa",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "anissa.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -45,7 +45,7 @@ export const employee = [
     name: "Emma",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "emma.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -53,7 +53,7 @@ export const employee = [
     name: "Hariata",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "hariata.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -61,7 +61,7 @@ export const employee = [
     name: "Katia",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "katia.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -69,7 +69,7 @@ export const employee = [
     name: "Eva",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "eva.jpg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -77,7 +77,7 @@ export const employee = [
     name: "Jacky",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "jacky.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -85,7 +85,7 @@ export const employee = [
     name: "Maud",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "maud.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -93,7 +93,7 @@ export const employee = [
     name: "Celia",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "celia.jpeg",
+    image: "employee.png",
     description: "C'est un admin."
   },
   {
@@ -101,7 +101,7 @@ export const employee = [
     name: "Eric",
     firstname: "Doe",
     role: "coach", // anciennement "Administration"
-    image: "eric.jpg",
+    image: "employee.png",
     description: "C'est un admin."
   }
 ];
